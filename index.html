@@ -174,9 +174,8 @@
             margin-top: 3px;
             flex-shrink: 0;
         }
-        /* Added to ensure the text part of the list item behaves well as a flex item */
         section ul li > span {
-            flex-grow: 1; /* Allows the text span to take available space if needed */
+            flex-grow: 1; 
         }
 
 
@@ -359,7 +358,6 @@
         }
         .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
 
-        /* Ensuring list items handle text wrapping well */
         #skills ul, #why-me ul, #availability ul, #payment ul {
             list-style: none; padding-left: 0;
         }
@@ -368,16 +366,15 @@
             padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 0.5rem;
             border-left: 3px solid var(--primary-color);
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex; /* Ensure alignment with icon if one were added without general rule */
-            align-items: flex-start; /* Align icon to top */
-            overflow-wrap: break-word; /* For better text wrapping */
-            word-wrap: break-word; /* Legacy support */
+            display: flex; 
+            align-items: flex-start; 
+            overflow-wrap: break-word; 
+            word-wrap: break-word; 
         }
         #skills li:hover, #why-me li:hover, #availability li:hover, #payment li:hover {
             background-color: rgba(var(--primary-color-rgb), 0.3);
             transform: translateX(5px);
         }
-         /* Explicitly style list items with icons if they are different from general 'section ul li' */
         #skills li .list-icon, #why-me li .list-icon,
         #availability li .list-icon, #payment li .list-icon {
             width: 20px; height: 20px; margin-right: 8px; margin-top: 3px; flex-shrink: 0;
@@ -419,20 +416,20 @@
         @media (max-width: 480px) {
             body {
                 font-size: 15px;
-                line-height: 1.6; /* Adjusted for smaller font */
+                line-height: 1.6;
             }
             main {
-                padding: 0 10px; /* Increased padding */
+                padding: 0 10px;
             }
             section {
-                padding: 15px; /* Unified padding */
+                padding: 15px;
             }
             header.main-header {
-                padding: 1.5rem 10px 2.5rem; /* Adjusted padding */
+                padding: 1.5rem 10px 2.5rem;
             }
             header.main-header h1 { font-size: 2rem; }
             header.main-header p.subtitle { font-size: 1.1rem; }
-            .profile-picture { width: 80px; height: 80px; } /* Slightly larger than 70px for balance */
+            .profile-picture { width: 80px; height: 80px; }
 
             section h2 { font-size: 1.8rem; }
             section h2 .section-icon { width: 24px; height: 24px; }
@@ -440,7 +437,7 @@
             section h3 .section-icon-small { width: 20px; height: 20px;}
 
             section p, section ul, section blockquote {
-                font-size: 0.9rem; /* Slightly smaller for better fit */
+                font-size: 0.9rem; 
                 margin-bottom: 1rem;
                 line-height: 1.6;
             }
@@ -462,8 +459,8 @@
             }
             .project-card-small .project-card-description {
                 font-size: 0.8rem;
-                -webkit-line-clamp: 3; /* Allowing one more line */
-                min-height: calc(1.6 * 0.8rem * 3); /* Adjusted for line height and clamp */
+                -webkit-line-clamp: 3; 
+                min-height: calc(1.6 * 0.8rem * 3); 
             }
              .project-card-small .project-card-duration {
                 font-size: 0.75rem;
@@ -480,7 +477,7 @@
                 font-size: 0.85rem;
             }
 
-            .modal-content { padding: 15px; width: 95%; } /* Adjusted padding and width */
+            .modal-content { padding: 15px; width: 95%; } 
             .modal-content h4 {font-size: 1.4rem;}
 
             #contact .contact-methods .contact-icon { width: 20px; height: 20px;}
@@ -527,7 +524,7 @@
             <h2><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
             <hr class="custom-hr">
 
-            <h3><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New project icon" class="section-icon-small">Big Projects</h3>
+            <h3><img src="https://img.icons8.com/?size=100&id=33297&format=png&color=FFFFFF" alt="Repository book icon" class="section-icon-small">Big Projects</h3>
             <div class="projects-grid">
                 <div class="project-card-small scroll-reveal" data-project-id="bp1">
                     <h5>Stellar Odyssey Game</h5>
@@ -547,7 +544,7 @@
 
             <hr class="custom-hr" style="margin-top: 3rem; margin-bottom: 2rem;">
 
-            <h3><img src="https://img.icons8.com/?size=100&id=8HyAkdzkd-hM&format=png&color=FFFFFF" alt="Small project icon" class="section-icon-small">Small Projects</h3>
+            <h3><img src="https://img.icons8.com/?size=100&id=8HyAkdzkd-hM&format=png&color=FFFFFF" alt="Download icon" class="section-icon-small">Small Projects</h3>
              <div class="projects-grid">
                 <div class="project-card-small scroll-reveal" data-project-id="sp1">
                     <h5>Inventory UI Module</h5>
@@ -568,7 +565,7 @@
         <hr class="custom-hr">
 
         <section id="availability" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Settings icon" class="section-icon">Availability & Work Style</h2>
+            <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings icon" class="section-icon">Availability & Work Style</h2>
             <hr class="custom-hr">
             <ul class="stagger">
                 <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</span></li>
@@ -580,11 +577,11 @@
         <hr class="custom-hr">
 
         <section id="payment" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Payment icon" class="section-icon">Payment Info</h2>
+            <h2><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Card dollar icon" class="section-icon">Payment Info</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><span><strong>Hourly Rate:</strong> $10 to $25 USD</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><span><strong>Full Projects:</strong> $100 to $250 USD</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon" class="list-icon"><span><strong>Hourly Rate:</strong> $10 to $25 USD</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon" class="list-icon"><span><strong>Full Projects:</strong> $100 to $250 USD</span></li>
                 <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>All prices are negotiable</strong>, based on task complexity.</span></li>
                 <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span>I follow the <strong>standard market rate</strong> for Roblox developers with 1+ year of experience.</span></li>
             </ul>
@@ -592,15 +589,15 @@
         <hr class="custom-hr">
 
         <section id="why-me" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge" class="section-icon">Why Choose Me?</h2>
+            <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge icon" class="section-icon">Why Choose Me?</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Fast replies and clear communication</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Consistent updates on project status</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Frequent previews and demo progress</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Quick and reliable task completion</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Readable, organized, and commented code</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Strong anti-cheat system development</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=104619&format=png&color=FFFFFF" alt="Coil icon" class="list-icon"><span><strong>Fast replies and clear communication</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=EgdPOf5KW0fN&format=png&color=FFFFFF" alt="Chain icon" class="list-icon"><span><strong>Consistent updates on project status</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up icon" class="list-icon"><span><strong>Frequent previews and demo progress</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=8064&format=png&color=FFFFFF" alt="Hammer icon" class="list-icon"><span><strong>Quick and reliable task completion</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" alt="Paint brush icon" class="list-icon"><span><strong>Readable, organized, and commented code</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=2866&format=png&color=FFFFFF" alt="Tool icon" class="list-icon"><span><strong>Strong anti-cheat system development</strong></span></li>
                 <li><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake icon" class="list-icon"><span><strong>Flexible with existing or new game systems</strong></span></li>
             </ul>
         </section>
@@ -611,12 +608,12 @@
             <hr class="custom-hr">
             <ul class="stagger">
                 <li><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" alt="Roblox Studio icon" class="list-icon"><span><strong>Roblox Lua scripting</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>RemoteEvents & RemoteFunctions</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Leaderboards and DataStores</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Anti-cheat creation and exploitation protection</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>UI scripting & smooth tweening</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Performance optimization</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Game loop systems, currency, inventory, and more</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=9936&format=png&color=FFFFFF" alt="Servers icon" class="list-icon"><span><strong>RemoteEvents & RemoteFunctions</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" alt="Hand holding box icon" class="list-icon"><span><strong>Leaderboards and DataStores</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=2866&format=png&color=FFFFFF" alt="Tool icon" class="list-icon"><span><strong>Anti-cheat creation and exploitation protection</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" alt="Paint brush icon" class="list-icon"><span><strong>UI scripting & smooth tweening</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings icon" class="list-icon"><span><strong>Performance optimization</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=38248&format=png&color=FFFFFF" alt="Script file icon" class="list-icon"><span><strong>Game loop systems, currency, inventory, and more</strong></span></li>
             </ul>
         </section>
         <hr class="custom-hr">
