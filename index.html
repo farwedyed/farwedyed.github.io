@@ -101,7 +101,7 @@
         section {
             background-color: var(--card-bg-color);
             padding: 2rem 2.5rem;
-            margin-bottom: 0; 
+            margin-bottom: 0;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
@@ -122,7 +122,7 @@
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 0.75rem;
-            text-align: center; 
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -134,7 +134,7 @@
             filter: drop-shadow(0 0 3px rgba(var(--primary-color-rgb), 0.7));
         }
         section h2::after {
-            content: ''; position: absolute; bottom: 0; left: 50%; 
+            content: ''; position: absolute; bottom: 0; left: 50%;
             transform: translateX(-50%); width: 90px; height: 4px;
             background-color: var(--secondary-color); border-radius: 3px;
             transition: width 0.4s ease-out;
@@ -153,14 +153,14 @@
         section h3:first-of-type { margin-top: 0.5rem; }
 
 
-        section p, section ul, section blockquote { 
+        section p, section ul, section blockquote {
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
             overflow-wrap: break-word; /* Helps prevent overflow with long words */
             word-wrap: break-word; /* Legacy */
         }
         section ul { list-style-position: inside; padding-left: 0; }
-        section ul li { 
+        section ul li {
             margin-bottom: 0.6rem;
             display: flex;
             align-items: flex-start;
@@ -174,6 +174,11 @@
             margin-top: 3px;
             flex-shrink: 0;
         }
+        /* Added to ensure the text part of the list item behaves well as a flex item */
+        section ul li > span {
+            flex-grow: 1; /* Allows the text span to take available space if needed */
+        }
+
 
         blockquote {
             background-color: rgba(0,0,0,0.2); border-left: 5px solid var(--primary-color);
@@ -204,11 +209,11 @@
 
         .scroll-reveal {
             opacity: 0; transform: translateY(70px) scale(0.95);
-            transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing), 
+            transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
                         transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
         }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-        
+
         .stagger > * {
             opacity: 0; transform: translateY(40px);
             transition-property: opacity, transform; transition-duration: 0.5s;
@@ -240,7 +245,7 @@
             color: var(--text-color);
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
-            min-height: 2.5em; 
+            min-height: 2.5em;
             line-height: 1.25;
         }
         .project-card-small .card-thumbnail {
@@ -276,9 +281,9 @@
         }
         .project-card-small .button-details {
             margin-top: auto;
-            width: 100%; 
+            width: 100%;
         }
-        
+
         #project-detail-modal {
             display: none; position: fixed; z-index: 2000;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -316,7 +321,7 @@
             line-height: 1;
         }
         .modal-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
-        
+
         .modal-content h4 {
             font-family: var(--header-font); color: var(--primary-color);
             font-size: 2rem; margin-bottom: 1rem; text-align: center;
@@ -335,16 +340,16 @@
         #lightbox {
             display: none; position: fixed; z-index: 2001;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0, 0.95); 
+            background-color: rgba(0,0,0, 0.95);
             justify-content: center; align-items: center; padding: 20px;
             opacity: 0; transition: opacity 0.4s ease-in-out;
         }
         #lightbox.active { display: flex; opacity: 1; }
         #lightbox-img {
-            max-width: 95%; max-height: 95%; object-fit: contain; 
+            max-width: 95%; max-height: 95%; object-fit: contain;
             border-radius: 8px; box-shadow: 0 0 40px rgba(var(--primary-color-rgb), 0.6);
-            transform: scale(0.7); 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0.1s; 
+            transform: scale(0.7);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0.1s;
         }
         #lightbox.active #lightbox-img { transform: scale(1); }
         .lightbox-close {
@@ -355,11 +360,11 @@
         .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
 
         /* Ensuring list items handle text wrapping well */
-        #skills ul, #why-me ul, #availability ul, #payment ul { 
+        #skills ul, #why-me ul, #availability ul, #payment ul {
             list-style: none; padding-left: 0;
         }
         #skills li, #why-me li, #availability li, #payment li {
-            background-color: rgba(255,255,255,0.05); 
+            background-color: rgba(255,255,255,0.05);
             padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 0.5rem;
             border-left: 3px solid var(--primary-color);
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -369,19 +374,19 @@
             word-wrap: break-word; /* Legacy support */
         }
         #skills li:hover, #why-me li:hover, #availability li:hover, #payment li:hover {
-            background-color: rgba(var(--primary-color-rgb), 0.3); 
+            background-color: rgba(var(--primary-color-rgb), 0.3);
             transform: translateX(5px);
         }
          /* Explicitly style list items with icons if they are different from general 'section ul li' */
-        #skills li .list-icon, #why-me li .list-icon, 
+        #skills li .list-icon, #why-me li .list-icon,
         #availability li .list-icon, #payment li .list-icon {
             width: 20px; height: 20px; margin-right: 8px; margin-top: 3px; flex-shrink: 0;
         }
 
 
-        #contact .contact-methods p { 
-            margin-bottom: 0.75rem; 
-            font-size: 1.05rem; 
+        #contact .contact-methods p {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -394,7 +399,7 @@
         #contact .contact-methods strong { color: var(--text-color); font-weight: 600; }
 
         footer {
-            text-align: center; padding: 2.5rem 1rem; margin-top: 1rem; 
+            text-align: center; padding: 2.5rem 1rem; margin-top: 1rem;
             color: #aaa; font-size: 0.9rem; border-top: 1px solid var(--border-color);
         }
 
@@ -413,16 +418,16 @@
 
         @media (max-width: 480px) {
             body {
-                font-size: 15px; 
+                font-size: 15px;
                 line-height: 1.6; /* Adjusted for smaller font */
             }
-            main { 
+            main {
                 padding: 0 10px; /* Increased padding */
-            } 
-            section { 
+            }
+            section {
                 padding: 15px; /* Unified padding */
-            } 
-            header.main-header { 
+            }
+            header.main-header {
                 padding: 1.5rem 10px 2.5rem; /* Adjusted padding */
             }
             header.main-header h1 { font-size: 2rem; }
@@ -433,7 +438,7 @@
             section h2 .section-icon { width: 24px; height: 24px; }
             section h3 { font-size: 1.6rem; }
             section h3 .section-icon-small { width: 20px; height: 20px;}
-            
+
             section p, section ul, section blockquote {
                 font-size: 0.9rem; /* Slightly smaller for better fit */
                 margin-bottom: 1rem;
@@ -446,17 +451,17 @@
 
             .projects-grid { grid-template-columns: 1fr; }
             .project-card-small {
-                padding: 0.75rem; 
+                padding: 0.75rem;
             }
             .project-card-small h5 {
-                font-size: 1.1rem; 
+                font-size: 1.1rem;
                 min-height: 2.2em;
             }
             .project-card-small .card-thumbnail {
-                height: 130px; 
+                height: 130px;
             }
             .project-card-small .project-card-description {
-                font-size: 0.8rem; 
+                font-size: 0.8rem;
                 -webkit-line-clamp: 3; /* Allowing one more line */
                 min-height: calc(1.6 * 0.8rem * 3); /* Adjusted for line height and clamp */
             }
@@ -468,16 +473,16 @@
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
             }
-            
+
             nav ul li { margin: 0.3rem 0.5rem; }
             nav ul li a {
-                padding: 0.5rem 0.6rem; 
+                padding: 0.5rem 0.6rem;
                 font-size: 0.85rem;
             }
 
             .modal-content { padding: 15px; width: 95%; } /* Adjusted padding and width */
             .modal-content h4 {font-size: 1.4rem;}
-            
+
             #contact .contact-methods .contact-icon { width: 20px; height: 20px;}
         }
 
@@ -566,10 +571,10 @@
             <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Settings icon" class="section-icon">Availability & Work Style</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Communication:</strong> You’ll get <strong>fast responses</strong>, <strong>frequent updates</strong>, and <strong>preview demos</strong> throughout the process.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Communication:</strong> You’ll get <strong>fast responses</strong>, <strong>frequent updates</strong>, and <strong>preview demos</strong> throughout the process.</span></li>
             </ul>
         </section>
         <hr class="custom-hr">
@@ -578,10 +583,10 @@
             <h2><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Payment icon" class="section-icon">Payment Info</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><strong>Hourly Rate:</strong> $10 to $25 USD</li>
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><strong>Full Projects:</strong> $100 to $250 USD</li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>All prices are negotiable</strong>, based on task complexity.</li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon">I follow the <strong>standard market rate</strong> for Roblox developers with 1+ year of experience.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><span><strong>Hourly Rate:</strong> $10 to $25 USD</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><span><strong>Full Projects:</strong> $100 to $250 USD</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>All prices are negotiable</strong>, based on task complexity.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span>I follow the <strong>standard market rate</strong> for Roblox developers with 1+ year of experience.</span></li>
             </ul>
         </section>
         <hr class="custom-hr">
@@ -590,13 +595,13 @@
             <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge" class="section-icon">Why Choose Me?</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Fast replies and clear communication</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Consistent updates on project status</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Frequent previews and demo progress</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Quick and reliable task completion</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Readable, organized, and commented code</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Strong anti-cheat system development</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake icon" class="list-icon"><strong>Flexible with existing or new game systems</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Fast replies and clear communication</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Consistent updates on project status</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Frequent previews and demo progress</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Quick and reliable task completion</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Readable, organized, and commented code</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Strong anti-cheat system development</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake icon" class="list-icon"><span><strong>Flexible with existing or new game systems</strong></span></li>
             </ul>
         </section>
         <hr class="custom-hr">
@@ -605,13 +610,13 @@
             <h2><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Code terminal icon" class="section-icon">Skills</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" alt="Roblox Studio icon" class="list-icon"><strong>Roblox Lua scripting</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>RemoteEvents & RemoteFunctions</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Leaderboards and DataStores</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Anti-cheat creation and exploitation protection</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>UI scripting & smooth tweening</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Performance optimization</strong></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Game loop systems, currency, inventory, and more</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" alt="Roblox Studio icon" class="list-icon"><span><strong>Roblox Lua scripting</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>RemoteEvents & RemoteFunctions</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Leaderboards and DataStores</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Anti-cheat creation and exploitation protection</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>UI scripting & smooth tweening</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Performance optimization</strong></span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Game loop systems, currency, inventory, and more</strong></span></li>
             </ul>
         </section>
         <hr class="custom-hr">
@@ -642,7 +647,7 @@
 
     <div id="project-detail-modal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close">×</span>
             <h4 id="modal-project-name">Project Name</h4>
             <div id="modal-live-preview-container"></div>
             <div class="screenshots" id="modal-screenshots-container">
@@ -655,12 +660,12 @@
     </div>
 
     <div id="lightbox">
-        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-close">×</span>
         <img id="lightbox-img" src="" alt="Full-size preview">
     </div>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> Farwed. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> Farwed. All rights reserved.</p>
         <p>Roblox Developer Portfolio</p>
     </footer>
 
@@ -668,13 +673,13 @@
     document.addEventListener('DOMContentLoaded', () => {
         const projectsData = {
             bp1: {
-                name: "Hide And Seek Project",
+                name: "Stellar Odyssey Game",
                 livePreviewUrl: "https://www.youtube.com/watch?v=HJkfmvJkMjk",
                 screenshots: [
                     "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685d6fca&is=685c1e4a&hm=a7a704ddde065c4f15df25be6af35523bc66b31736b7d9141218a46a1bb107f1&",
                     "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728399777944/image.png?ex=685d6fca&is=685c1e4a&hm=e6cb5de309272b7b8fccd585e0a4f075a86be76341aa0702327ca9a9f4f4fa42&"
                 ],
-                description: "Developed a comprehensive space exploration game with unique ship mechanics and interactive quest systems.",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Developed a comprehensive space exploration game with unique ship mechanics and interactive quest systems.",
                 timeSpent: "Approx. 150 hours / 4 weeks",
                 bugFixes: "Resolved data persistence errors, optimized server-client communication for smoother gameplay, fixed major physics glitches.",
                 clientRequests: "Client requested a dynamic event system, advanced anti-exploit measures, and a modular design for future expansions."
@@ -693,7 +698,7 @@
             },
             sp1: {
                 name: "Inventory UI Module",
-                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40", 
+                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
                 screenshots: ["https://via.placeholder.com/1280x720.png?text=Inventory+UI+Full+SS1"],
                 description: "Designed and scripted a responsive and user-friendly inventory UI component with filtering and sorting capabilities for an existing game.",
                 timeSpent: "20 hours / 3 days",
@@ -716,14 +721,14 @@
             const windowHeight = window.innerHeight;
             revealElements.forEach((el) => {
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 70) { 
+                if (elementTop < windowHeight - 70) {
                     el.classList.add('visible');
                     const staggerContainers = [];
                     if (el.classList.contains('stagger')) staggerContainers.push(el);
                     el.querySelectorAll('.stagger').forEach(sc => { if (!staggerContainers.includes(sc)) staggerContainers.push(sc); });
-                    
+
                     staggerContainers.forEach(staggerContainer => {
-                        staggerContainer.classList.add('visible'); 
+                        staggerContainer.classList.add('visible');
                         const childrenToStagger = staggerContainer.querySelectorAll('li, .project-card-small');
                         childrenToStagger.forEach((child, childIndex) => {
                             if (!child.style.transitionDelay) {
@@ -740,7 +745,7 @@
         const sections = document.querySelectorAll('main section[id]');
         const navLinks = document.querySelectorAll('nav ul li a');
         const navbar = document.getElementById('navbar');
-        let navbarHeight = navbar ? navbar.offsetHeight : 70; 
+        let navbarHeight = navbar ? navbar.offsetHeight : 70;
         window.addEventListener('resize', () => { navbarHeight = navbar ? navbar.offsetHeight : 70; });
         window.addEventListener('scroll', () => {
             let current = '';
@@ -757,7 +762,7 @@
                 }
             });
         });
-        
+
         const currentYearSpan = document.getElementById('currentYear');
         if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
 
@@ -779,7 +784,7 @@
 
                 if (data) {
                     modalProjectName.textContent = data.name;
-                    
+
                     modalLivePreviewContainer.innerHTML = '';
                     if (data.livePreviewUrl) {
                         const previewButton = document.createElement('a');
@@ -808,7 +813,7 @@
                     modalTimeSpent.textContent = data.timeSpent;
                     modalBugFixes.textContent = data.bugFixes;
                     modalClientRequests.textContent = data.clientRequests;
-                    
+
                     projectDetailModal.classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -852,7 +857,7 @@
             });
         }
         if (lightbox) {
-            lightbox.addEventListener('click', (e) => { 
+            lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) {
                     lightbox.classList.remove('active');
                 }
