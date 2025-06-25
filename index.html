@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Farwed - Roblox Scripter Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg-color: #1a1a1a;
+            --text-color: #f5f5f5;
+            --primary-color: #B00020;
+            --primary-color-rgb: 176,0,32;
+            --secondary-color: #E53935;
+            --border-color: #444444;
+            --hr-color: #500010;
+            --header-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --body-font: 'Roboto', 'Open Sans', Arial, sans-serif;
+            --scroll-reveal-duration: 0.7s;
+            --scroll-reveal-timing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+            --secondary-color-rgb: 229,57,53; /* For the profile picture shadow */
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            overflow-x: hidden;
+            word-spacing: normal; /* Reset potential inherited issues */
+            letter-spacing: normal; /* Reset potential inherited issues */
+        }
+
+        .custom-hr {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0), var(--hr-color), rgba(0,0,0,0));
+            margin: 2.5rem 0;
+        }
+
+        nav {
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
+        nav ul li { margin: 0.5rem 1rem; }
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.6rem 0.85rem;
+            border-radius: 6px;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        header.main-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 40%, var(--bg-color) 100%);
+            color: var(--text-color);
+            padding: 3rem 1.5rem 4rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            position: relative;
+        }
+        .profile-picture {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 0 15px rgba(var(--secondary-color-rgb), 0.5);
+            margin: 0 auto 1rem;
+            display: block;
+            object-fit: cover;
+        }
+
+        header.main-header h1 {
+            font-family: var(--header-font);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        header.main-header p.subtitle { font-size: 1.4rem; color: #e0e0e0; opacity: 0.9; }
+
+        main { padding: 0 1rem; max-width: 1100px; margin: 2.5rem auto; }
+
+        section {
+            background-color: var(--card-bg-color);
+            padding: 2rem 2.5rem;
+            margin-bottom: 0; 
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+        }
+        section#about {
+            background-color: transparent;
+            box-shadow: none;
+            border: none;
+            padding: 2rem 1.5rem;
+        }
+        section:not(:last-of-type) { margin-bottom: 0; }
+        section:last-of-type { margin-bottom: 2.5rem; }
+
+        section h2 {
+            font-family: var(--header-font);
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+            text-align: center; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        section h2 .section-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 3px rgba(var(--primary-color-rgb), 0.7));
+        }
+        section h2::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; 
+            transform: translateX(-50%); width: 90px; height: 4px;
+            background-color: var(--secondary-color); border-radius: 3px;
+            transition: width 0.4s ease-out;
+        }
+        section:hover h2::after { width: 120px; }
+
+        section h3 {
+            font-family: var(--header-font); font-size: 2rem; color: var(--text-color);
+            margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;
+            border-bottom: 2px solid var(--hr-color); padding-bottom: 0.5rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        section h3 .section-icon-small {
+             width: 28px; height: 28px; margin-right: 8px;
+        }
+        section h3:first-of-type { margin-top: 0.5rem; }
+
+
+        section p, section ul, section blockquote { 
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            overflow-wrap: break-word; /* Helps prevent overflow with long words */
+            word-wrap: break-word; /* Legacy */
+        }
+        section ul { list-style-position: inside; padding-left: 0; }
+        section ul li { 
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        section ul li .list-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        blockquote {
+            background-color: rgba(0,0,0,0.2); border-left: 5px solid var(--primary-color);
+            margin: 1.5rem 0; padding: 1rem 1.5rem; font-style: italic; color: #cccccc;
+        }
+        blockquote p { margin-bottom: 0; }
+        blockquote .list-icon {
+            width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;
+        }
+
+        strong { color: var(--secondary-color); font-weight: 600; }
+        .placeholder-text { font-weight: normal; color: var(--text-color); font-style: italic; }
+
+        a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--primary-color); text-decoration: underline; }
+
+        .button-preview, .button-details {
+            display: inline-block; background-color: var(--primary-color); color: var(--text-color);
+            padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--secondary-color);
+            cursor: pointer; text-align: center;
+        }
+        .button-preview:hover, .button-details:hover {
+            background-color: var(--secondary-color); color: var(--bg-color);
+            text-decoration: none; transform: translateY(-2px);
+        }
+
+        .scroll-reveal {
+            opacity: 0; transform: translateY(70px) scale(0.95);
+            transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing), 
+                        transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
+        }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+        
+        .stagger > * {
+            opacity: 0; transform: translateY(40px);
+            transition-property: opacity, transform; transition-duration: 0.5s;
+            transition-timing-function: ease-out;
+        }
+        .stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .project-card-small {
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card-small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.2);
+        }
+        .project-card-small h5 {
+            font-family: var(--header-font);
+            color: var(--text-color);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            min-height: 2.5em; 
+            line-height: 1.25;
+        }
+        .project-card-small .card-thumbnail {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+        .project-card-small .project-card-description {
+            font-size: 0.88rem;
+            color: #c5c5c5;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: calc(1.5 * 0.88rem * 3);
+            flex-grow: 1;
+        }
+        .project-card-small .project-card-duration {
+            font-size: 0.82rem;
+            color: #b0b0b0;
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+        .project-card-small .project-card-duration strong {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .project-card-small .button-details {
+            margin-top: auto;
+            width: 100%; 
+        }
+        
+        #project-detail-modal {
+            display: none; position: fixed; z-index: 2000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0, 0.92);
+            justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease-in-out;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        #project-detail-modal.active { display: flex; opacity: 1; }
+
+        .modal-content {
+            background-color: var(--card-bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8) translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s var(--scroll-reveal-timing), opacity 0.3s ease-in-out;
+            transition-delay: 0.1s;
+        }
+        #project-detail-modal.active .modal-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute; top: 15px; right: 20px;
+            color: var(--text-color); font-size: 2.2rem; font-weight: bold;
+            cursor: pointer; transition: color 0.3s ease, transform 0.3s ease;
+            line-height: 1;
+        }
+        .modal-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
+        
+        .modal-content h4 {
+            font-family: var(--header-font); color: var(--primary-color);
+            font-size: 2rem; margin-bottom: 1rem; text-align: center;
+        }
+        .modal-content .screenshots {
+            display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0; justify-content: center;
+        }
+        .modal-content .screenshot-thumb-container {
+            flex: 0 0 calc(50% - 5px); max-width: calc(50% - 5px);
+            border-radius: 4px; overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
+        }
+        .modal-content .screenshot-thumb { width: 100%; height: auto; display: block; }
+        .modal-content p { margin-bottom: 0.8rem; }
+        .modal-content p strong { color: var(--secondary-color); display: block; margin-bottom: 0.2rem; }
+
+        #lightbox {
+            display: none; position: fixed; z-index: 2001;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0, 0.95); 
+            justify-content: center; align-items: center; padding: 20px;
+            opacity: 0; transition: opacity 0.4s ease-in-out;
+        }
+        #lightbox.active { display: flex; opacity: 1; }
+        #lightbox-img {
+            max-width: 95%; max-height: 95%; object-fit: contain; 
+            border-radius: 8px; box-shadow: 0 0 40px rgba(var(--primary-color-rgb), 0.6);
+            transform: scale(0.7); 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0.1s; 
+        }
+        #lightbox.active #lightbox-img { transform: scale(1); }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px; color: var(--text-color);
+            font-size: 2.8rem; font-weight: bold; cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease; text-shadow: 0 0 10px rgba(0,0,0,0.7);
+        }
+        .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
+
+        /* Ensuring list items handle text wrapping well */
+        #skills ul, #why-me ul, #availability ul, #payment ul { 
+            list-style: none; padding-left: 0;
+        }
+        #skills li, #why-me li, #availability li, #payment li {
+            background-color: rgba(255,255,255,0.05); 
+            padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 0.5rem;
+            border-left: 3px solid var(--primary-color);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex; /* Ensure alignment with icon if one were added without general rule */
+            align-items: flex-start; /* Align icon to top */
+            overflow-wrap: break-word; /* For better text wrapping */
+            word-wrap: break-word; /* Legacy support */
+        }
+        #skills li:hover, #why-me li:hover, #availability li:hover, #payment li:hover {
+            background-color: rgba(var(--primary-color-rgb), 0.3); 
+            transform: translateX(5px);
+        }
+         /* Explicitly style list items with icons if they are different from general 'section ul li' */
+        #skills li .list-icon, #why-me li .list-icon, 
+        #availability li .list-icon, #payment li .list-icon {
+            width: 20px; height: 20px; margin-right: 8px; margin-top: 3px; flex-shrink: 0;
+        }
+
+
+        #contact .contact-methods p { 
+            margin-bottom: 0.75rem; 
+            font-size: 1.05rem; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #contact .contact-methods .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+        #contact .contact-methods strong { color: var(--text-color); font-weight: 600; }
+
+        footer {
+            text-align: center; padding: 2.5rem 1rem; margin-top: 1rem; 
+            color: #aaa; font-size: 0.9rem; border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            header.main-header { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
+            header.main-header h1 { font-size: 2.6rem; }
+            .profile-picture { width: 100px; height: 100px; }
+            section { padding: 2rem 1.5rem; }
+            section h2 { font-size: 2rem; }
+            section h2 .section-icon { width: 28px; height: 28px; }
+            section h3 { font-size: 1.8rem; }
+            section h3 .section-icon-small { width: 24px; height: 24px;}
+            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .modal-content .screenshot-thumb-container { flex: 0 0 100%; max-width: 100%;}
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px; 
+                line-height: 1.6; /* Adjusted for smaller font */
+            }
+            main { 
+                padding: 0 10px; /* Increased padding */
+            } 
+            section { 
+                padding: 15px; /* Unified padding */
+            } 
+            header.main-header { 
+                padding: 1.5rem 10px 2.5rem; /* Adjusted padding */
+            }
+            header.main-header h1 { font-size: 2rem; }
+            header.main-header p.subtitle { font-size: 1.1rem; }
+            .profile-picture { width: 80px; height: 80px; } /* Slightly larger than 70px for balance */
+
+            section h2 { font-size: 1.8rem; }
+            section h2 .section-icon { width: 24px; height: 24px; }
+            section h3 { font-size: 1.6rem; }
+            section h3 .section-icon-small { width: 20px; height: 20px;}
+            
+            section p, section ul, section blockquote {
+                font-size: 0.9rem; /* Slightly smaller for better fit */
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+            section ul li {
+                margin-bottom: 0.5rem;
+            }
+            section ul li .list-icon { width: 18px; height: 18px; margin-top: 2px;}
+
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card-small {
+                padding: 0.75rem; 
+            }
+            .project-card-small h5 {
+                font-size: 1.1rem; 
+                min-height: 2.2em;
+            }
+            .project-card-small .card-thumbnail {
+                height: 130px; 
+            }
+            .project-card-small .project-card-description {
+                font-size: 0.8rem; 
+                -webkit-line-clamp: 3; /* Allowing one more line */
+                min-height: calc(1.6 * 0.8rem * 3); /* Adjusted for line height and clamp */
+            }
+             .project-card-small .project-card-duration {
+                font-size: 0.75rem;
+            }
+
+            .button-preview, .button-details {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            nav ul li { margin: 0.3rem 0.5rem; }
+            nav ul li a {
+                padding: 0.5rem 0.6rem; 
+                font-size: 0.85rem;
+            }
+
+            .modal-content { padding: 15px; width: 95%; } /* Adjusted padding and width */
+            .modal-content h4 {font-size: 1.4rem;}
+            
+            #contact .contact-methods .contact-icon { width: 20px; height: 20px;}
+        }
+
+    </style>
+    <!-- Flaticon uicons-brands for Discord icon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+</head>
+<body>
+
+    <header class="main-header scroll-reveal">
+        <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387468630458896394/3e5c53781e906ac48a73ff4b85860368.gif?ex=685d745b&is=685c22db&hm=270477ccf9e164b29740aa1e7217b0784ea55906af93d87e8610699f3cd8bd28&" alt="Farwed Profile Picture" class="profile-picture">
+        <h1>Farwed</h1>
+        <p class="subtitle">Roblox Scripter & Game Developer</p>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#availability">Availability</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#why-me">Why Choose Me?</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=20150&format=png&color=FFFFFF" alt="About me icon" class="section-icon">About Me</h2>
+            <hr class="custom-hr">
+            <p>Hey! My name is <strong>Farwed</strong>, and I’m a <strong>17-year-old Roblox developer from Egypt</strong> with <strong>1.5 years of experience</strong> in scripting and game development.</p>
+            <p>I'm in the <strong>GMT+3 timezone</strong>, and I can handle anything from <strong>small, simple tasks</strong> to <strong>building or editing complex systems</strong>, including <strong>bug fixing</strong> and <strong>anti-cheat development</strong> to secure your game.</p>
+            <blockquote>
+                <p><strong>A scripter might just write scripts and then move on, but a true developer focuses on building your game to be smooth, stable, and future-proof with clean, organized, and readable code.</strong></p>
+            </blockquote>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="work" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
+            <hr class="custom-hr">
+
+            <h3><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New project icon" class="section-icon-small">Big Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card-small scroll-reveal" data-project-id="bp1">
+                    <h5>Stellar Odyssey Game</h5>
+                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685d6fca&is=685c1e4a&hm=a7a704ddde065c4f15df25be6af35523bc66b31736b7d9141218a46a1bb107f1&" alt="Stellar Odyssey Thumbnail" class="card-thumbnail">
+                    <p class="project-card-description">Comprehensive space exploration game with unique ship mechanics and interactive quest systems.</p>
+                    <p class="project-card-duration"><strong>Time:</strong> Approx. 150 hours / 4 weeks</p>
+                    <button class="button-details">View Details</button>
+                </div>
+                <div class="project-card-small scroll-reveal" data-project-id="bp2">
+                    <h5>Kingdoms Clash Simulator</h5>
+                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685d701f&is=685c1e9f&hm=05b94a19f1a01e0d2c370c7d2841198503dd0e56276303107472db046e228ba5&" alt="Kingdoms Clash Thumbnail" class="card-thumbnail">
+                    <p class="project-card-description">Large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.</p>
+                    <p class="project-card-duration"><strong>Time:</strong> Approx. 200 hours / 5 weeks</p>
+                    <button class="button-details">View Details</button>
+                </div>
+            </div>
+
+            <hr class="custom-hr" style="margin-top: 3rem; margin-bottom: 2rem;">
+
+            <h3><img src="https://img.icons8.com/?size=100&id=8HyAkdzkd-hM&format=png&color=FFFFFF" alt="Small project icon" class="section-icon-small">Small Projects</h3>
+             <div class="projects-grid">
+                <div class="project-card-small scroll-reveal" data-project-id="sp1">
+                    <h5>Inventory UI Module</h5>
+                    <img src="https://via.placeholder.com/300x169.png?text=Inv+UI+Thumb" alt="Inventory UI Module Thumbnail" class="card-thumbnail">
+                    <p class="project-card-description">Responsive and user-friendly inventory UI component with filtering and sorting capabilities.</p>
+                    <p class="project-card-duration"><strong>Time:</strong> 20 hours / 3 days</p>
+                    <button class="button-details">View Details</button>
+                </div>
+                <div class="project-card-small scroll-reveal" data-project-id="sp2">
+                    <h5>Anti-Cheat Script Enhancement</h5>
+                    <img src="https://via.placeholder.com/300x169.png?text=AC+Script+Thumb" alt="Anti-Cheat Script Thumbnail" class="card-thumbnail">
+                    <p class="project-card-description">Enhanced anti-cheat script, adding new detection methods and improving logging.</p>
+                    <p class="project-card-duration"><strong>Time:</strong> 15 hours / 2 days</p>
+                    <button class="button-details">View Details</button>
+                </div>
+            </div>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="availability" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Settings icon" class="section-icon">Availability & Work Style</h2>
+            <hr class="custom-hr">
+            <ul class="stagger">
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Communication:</strong> You’ll get <strong>fast responses</strong>, <strong>frequent updates</strong>, and <strong>preview demos</strong> throughout the process.</li>
+            </ul>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="payment" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Payment icon" class="section-icon">Payment Info</h2>
+            <hr class="custom-hr">
+            <ul class="stagger">
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><strong>Hourly Rate:</strong> $10 to $25 USD</li>
+                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash" class="list-icon"><strong>Full Projects:</strong> $100 to $250 USD</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>All prices are negotiable</strong>, based on task complexity.</li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon">I follow the <strong>standard market rate</strong> for Roblox developers with 1+ year of experience.</li>
+            </ul>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="why-me" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge" class="section-icon">Why Choose Me?</h2>
+            <hr class="custom-hr">
+            <ul class="stagger">
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Fast replies and clear communication</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Consistent updates on project status</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Frequent previews and demo progress</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Quick and reliable task completion</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Readable, organized, and commented code</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Strong anti-cheat system development</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake icon" class="list-icon"><strong>Flexible with existing or new game systems</strong></li>
+            </ul>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="skills" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Code terminal icon" class="section-icon">Skills</h2>
+            <hr class="custom-hr">
+            <ul class="stagger">
+                <li><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" alt="Roblox Studio icon" class="list-icon"><strong>Roblox Lua scripting</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>RemoteEvents & RemoteFunctions</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Leaderboards and DataStores</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Anti-cheat creation and exploitation protection</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>UI scripting & smooth tweening</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Performance optimization</strong></li>
+                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><strong>Game loop systems, currency, inventory, and more</strong></li>
+            </ul>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="testimonials" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up icon" class="section-icon">Testimonials <em style="font-size: 0.7em; color: #ccc;">(Optional)</em></h2>
+            <hr class="custom-hr">
+            <blockquote>
+                <p><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up" class="list-icon">"Farwed delivered fast and exceeded expectations!" <em class="placeholder-text">Client Name</em></p>
+            </blockquote>
+            <blockquote>
+                <p><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up" class="list-icon">"His code was super clean and easy to work with. Highly recommend." <em class="placeholder-text">Another Client</em></p>
+            </blockquote>
+            <p style="text-align: center;"><em>(Add client quotes here, or say “Available upon request” if you don’t have them yet.)</em></p>
+        </section>
+        <hr class="custom-hr">
+
+        <section id="contact" class="scroll-reveal">
+            <h2>Contact Me</h2>
+            <hr class="custom-hr">
+            <div class="contact-methods" style="text-align: center;">
+                <p><i class="fi fi-brands-discord contact-icon" style="color: var(--secondary-color); font-size: 24px; line-height:1;"></i><strong>Discord:</strong> <code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwedyed</code></p>
+                <p><img src="https://img.icons8.com/?size=100&id=D5VYjRSTN3Qp&format=png&color=FFFFFF" alt="Email icon" class="contact-icon"> <strong>Email:</strong> <a href="mailto:farwede@gmail.com"><code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwede@gmail.com</code></a></p>
+                <p><strong>Location:</strong> Egypt (GMT+3 timezone)</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="project-detail-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h4 id="modal-project-name">Project Name</h4>
+            <div id="modal-live-preview-container"></div>
+            <div class="screenshots" id="modal-screenshots-container">
+            </div>
+            <p><strong>Detailed Description:</strong> <span class="placeholder-text" id="modal-description"></span></p>
+            <p><strong>Time Spent:</strong> <span class="placeholder-text" id="modal-time-spent"></span></p>
+            <p><strong>Bug Fixes:</strong> <span class="placeholder-text" id="modal-bug-fixes"></span></p>
+            <p><strong>Client Request Summary:</strong> <span class="placeholder-text" id="modal-client-requests"></span></p>
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full-size preview">
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Farwed. All rights reserved.</p>
+        <p>Roblox Developer Portfolio</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectsData = {
+            bp1: {
+                name: "Stellar Odyssey Game",
+                livePreviewUrl: "https://www.youtube.com/watch?v=HJkfmvJkMjk",
+                screenshots: [
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685d6fca&is=685c1e4a&hm=a7a704ddde065c4f15df25be6af35523bc66b31736b7d9141218a46a1bb107f1&",
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728399777944/image.png?ex=685d6fca&is=685c1e4a&hm=e6cb5de309272b7b8fccd585e0a4f075a86be76341aa0702327ca9a9f4f4fa42&"
+                ],
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Developed a comprehensive space exploration game with unique ship mechanics and interactive quest systems.",
+                timeSpent: "Approx. 150 hours / 4 weeks",
+                bugFixes: "Resolved data persistence errors, optimized server-client communication for smoother gameplay, fixed major physics glitches.",
+                clientRequests: "Client requested a dynamic event system, advanced anti-exploit measures, and a modular design for future expansions."
+            },
+            bp2: {
+                name: "Kingdoms Clash Simulator",
+                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
+                screenshots: [
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685d701f&is=685c1e9f&hm=05b94a19f1a01e0d2c370c7d2841198503dd0e56276303107472db046e228ba5&",
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387464083963383968/11067-3200x1680-desktop-hd-roblox-background.jpg?ex=685d701f&is=685c1e9f&hm=15872a476806318909fe7a568e2ca7334b61b8fc207cca5ad6782b4b6c1fdb03&"
+                ],
+                description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Created a large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.",
+                timeSpent: "Approx. 200 hours / 5 weeks",
+                bugFixes: "Overhauled the combat system for balance, significantly improved server performance under heavy load, and fixed critical AI behavior loops.",
+                clientRequests: "Client required advanced unit customization, a replay system, and integration with a global leaderboard."
+            },
+            sp1: {
+                name: "Inventory UI Module",
+                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40", 
+                screenshots: ["https://via.placeholder.com/1280x720.png?text=Inventory+UI+Full+SS1"],
+                description: "Designed and scripted a responsive and user-friendly inventory UI component with filtering and sorting capabilities for an existing game.",
+                timeSpent: "20 hours / 3 days",
+                bugFixes: "Ensured compatibility with various screen sizes, fixed item duplication glitches.",
+                clientRequests: "Client needed a modern, intuitive UI to replace an outdated system, with specific tweening animations."
+            },
+            sp2: {
+                name: "Anti-Cheat Script Enhancement",
+                livePreviewUrl: "https://www.youtube.com/watch?v=h3kNdnqFbt8",
+                screenshots: ["https://via.placeholder.com/1280x720.png?text=AC+Script+Full+SS1"],
+                description: "Reviewed and significantly enhanced an existing anti-cheat script, adding new detection methods for speedhacks and teleportation exploits, and improving logging.",
+                timeSpent: "15 hours / 2 days",
+                bugFixes: "Reduced false positives, improved detection accuracy for subtle cheats.",
+                clientRequests: "Client was experiencing a surge in exploiters and needed urgent improvements to their existing anti-cheat."
+            }
+        };
+
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach((el) => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 70) { 
+                    el.classList.add('visible');
+                    const staggerContainers = [];
+                    if (el.classList.contains('stagger')) staggerContainers.push(el);
+                    el.querySelectorAll('.stagger').forEach(sc => { if (!staggerContainers.includes(sc)) staggerContainers.push(sc); });
+                    
+                    staggerContainers.forEach(staggerContainer => {
+                        staggerContainer.classList.add('visible'); 
+                        const childrenToStagger = staggerContainer.querySelectorAll('li, .project-card-small');
+                        childrenToStagger.forEach((child, childIndex) => {
+                            if (!child.style.transitionDelay) {
+                               child.style.transitionDelay = (childIndex * 0.08) + 's';
+                            }
+                        });
+                    });
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        const sections = document.querySelectorAll('main section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const navbar = document.getElementById('navbar');
+        let navbarHeight = navbar ? navbar.offsetHeight : 70; 
+        window.addEventListener('resize', () => { navbarHeight = navbar ? navbar.offsetHeight : 70; });
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPosition = window.pageYOffset + navbarHeight + 50;
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
+
+        const projectDetailModal = document.getElementById('project-detail-modal');
+        const modalProjectName = document.getElementById('modal-project-name');
+        const modalLivePreviewContainer = document.getElementById('modal-live-preview-container');
+        const modalScreenshotsContainer = document.getElementById('modal-screenshots-container');
+        const modalDescription = document.getElementById('modal-description');
+        const modalTimeSpent = document.getElementById('modal-time-spent');
+        const modalBugFixes = document.getElementById('modal-bug-fixes');
+        const modalClientRequests = document.getElementById('modal-client-requests');
+        const modalCloseButton = projectDetailModal.querySelector('.modal-close');
+
+        document.querySelectorAll('.project-card-small .button-details').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = e.target.closest('.project-card-small');
+                const projectId = card.dataset.projectId;
+                const data = projectsData[projectId];
+
+                if (data) {
+                    modalProjectName.textContent = data.name;
+                    
+                    modalLivePreviewContainer.innerHTML = '';
+                    if (data.livePreviewUrl) {
+                        const previewButton = document.createElement('a');
+                        previewButton.href = data.livePreviewUrl;
+                        previewButton.target = "_blank";
+                        previewButton.classList.add('button-preview');
+                        previewButton.textContent = "Live Preview";
+                        modalLivePreviewContainer.appendChild(previewButton);
+                    }
+
+                    modalScreenshotsContainer.innerHTML = '';
+                    data.screenshots.forEach(src => {
+                        const thumbContainer = document.createElement('div');
+                        thumbContainer.classList.add('screenshot-thumb-container');
+                        const img = document.createElement('img');
+                        img.src = src;
+                        img.alt = `${data.name} Screenshot`;
+                        img.classList.add('screenshot-thumb');
+                        img.dataset.fullsrc = src;
+                        thumbContainer.appendChild(img);
+                        modalScreenshotsContainer.appendChild(thumbContainer);
+                    });
+                    attachLightboxListenersToModalScreenshots();
+
+                    modalDescription.textContent = data.description;
+                    modalTimeSpent.textContent = data.timeSpent;
+                    modalBugFixes.textContent = data.bugFixes;
+                    modalClientRequests.textContent = data.clientRequests;
+                    
+                    projectDetailModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        modalCloseButton.addEventListener('click', () => {
+            projectDetailModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        projectDetailModal.addEventListener('click', (e) => {
+            if (e.target === projectDetailModal) {
+                projectDetailModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectDetailModal.classList.contains('active')) {
+                projectDetailModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+        function attachLightboxListenersToModalScreenshots() {
+            modalScreenshotsContainer.querySelectorAll('.screenshot-thumb').forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const fullSrc = thumb.dataset.fullsrc || thumb.src;
+                    if (lightboxImg) lightboxImg.src = fullSrc;
+                    if (lightbox) lightbox.classList.add('active');
+                });
+            });
+        }
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', () => {
+                if (lightbox) lightbox.classList.remove('active');
+            });
+        }
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => { 
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
