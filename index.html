@@ -414,7 +414,6 @@
             section h2 .section-icon { width: 28px; height: 28px; }
             section h3 { font-size: 1.8rem; }
             section h3 .section-icon-small { width: 24px; height: 24px;}
-            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
             .modal-content .screenshot-thumb-container { flex: 0 0 100%; max-width: 100%;}
         }
 
@@ -484,12 +483,20 @@
 
             .modal-content { padding: 15px; width: 95%; }
             .modal-content h4 {font-size: 1.4rem;}
-
+            .modal-content .screenshot-thumb-container {
+                 flex: 0 0 calc(50% - 5px);
+                 max-width: calc(50% - 5px);
+            }
+             @media (max-width: 480px) {
+                .modal-content .screenshot-thumb-container {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
             #contact .contact-methods .contact-icon { width: 20px; height: 20px;}
         }
 
     </style>
-    <!-- Flaticon uicons-brands for Discord icon -->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
 </head>
 <body>
@@ -533,14 +540,14 @@
             <div class="projects-grid">
                 <div class="project-card-small scroll-reveal" data-project-id="bp1">
                     <h5>Stellar Odyssey Game</h5>
-                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685d6fca&is=685c1e4a&hm=a7a704ddde065c4f15df25be6af35523bc66b31736b7d9141218a46a1bb107f1&" alt="Stellar Odyssey Thumbnail" class="card-thumbnail">
+                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685e188a&is=685cc70a&hm=c37904c706385682c2d52e6b2aa5d829ad4b6252171851c2561055c730688f80&" alt="Stellar Odyssey Thumbnail" class="card-thumbnail">
                     <p class="project-card-description">Comprehensive space exploration game with unique ship mechanics and interactive quest systems.</p>
                     <p class="project-card-duration"><strong>Time:</strong> Approx. 150 hours / 4 weeks</p>
                     <button class="button-details">View Details</button>
                 </div>
                 <div class="project-card-small scroll-reveal" data-project-id="bp2">
                     <h5>Kingdoms Clash Simulator</h5>
-                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685d701f&is=685c1e9f&hm=05b94a19f1a01e0d2c370c7d2841198503dd0e56276303107472db046e228ba5&" alt="Kingdoms Clash Thumbnail" class="card-thumbnail">
+                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685e18df&is=685cc75f&hm=79a6a37959eb02e6bd2986ec2147acc9e361ba5edb769eb5046cc6021de03ac9&=&format=webp&width=808&height=455" alt="Kingdoms Clash Thumbnail" class="card-thumbnail">
                     <p class="project-card-description">Large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.</p>
                     <p class="project-card-duration"><strong>Time:</strong> Approx. 200 hours / 5 weeks</p>
                     <button class="button-details">View Details</button>
@@ -553,16 +560,23 @@
              <div class="projects-grid">
                 <div class="project-card-small scroll-reveal" data-project-id="sp1">
                     <h5>Inventory UI Module</h5>
-                    <img src="https://via.placeholder.com/300x169.png?text=Inv+UI+Thumb" alt="Inventory UI Module Thumbnail" class="card-thumbnail">
+                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387763444920352798/image.png?ex=685e86ec&is=685d356c&hm=715bf842cc52340b08d432d8618ecbea61694310468ee7cc47e7cebee920ba9d&" alt="Inventory UI Module Thumbnail" class="card-thumbnail">
                     <p class="project-card-description">Responsive and user-friendly inventory UI component with filtering and sorting capabilities.</p>
                     <p class="project-card-duration"><strong>Time:</strong> 20 hours / 3 days</p>
                     <button class="button-details">View Details</button>
                 </div>
                 <div class="project-card-small scroll-reveal" data-project-id="sp2">
                     <h5>Anti-Cheat Script Enhancement</h5>
-                    <img src="https://via.placeholder.com/300x169.png?text=AC+Script+Thumb" alt="Anti-Cheat Script Thumbnail" class="card-thumbnail">
+                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387764784904278098/image.png?ex=685e882c&is=685d36ac&hm=3fead3b282c10ab62ed8d3dedaf8e77dea36fa475d96281538ee9de3d5dc5dda&=&format=webp&quality=lossless&width=912&height=513" alt="Anti-Cheat Script Thumbnail" class="card-thumbnail">
                     <p class="project-card-description">Enhanced anti-cheat script, adding new detection methods and improving logging.</p>
                     <p class="project-card-duration"><strong>Time:</strong> 15 hours / 2 days</p>
+                    <button class="button-details">View Details</button>
+                </div>
+                <div class="project-card-small scroll-reveal" data-project-id="sp3">
+                    <h5>Custom Admin Panel</h5>
+                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387767523151446016/image.png?ex=685e8ab8&is=685d3938&hm=4da34bf64d4769e9275a3a8d709d8c941b625640f812f0042f8f57b6adfbd561&=&format=webp&quality=lossless&width=912&height=513" alt="Admin Panel Thumbnail" class="card-thumbnail">
+                    <p class="project-card-description">A new custom admin panel with specific functionalities for game moderation and user management.</p>
+                    <p class="project-card-duration"><strong>Time:</strong> 25 hours / 4 days</p>
                     <button class="button-details">View Details</button>
                 </div>
             </div>
@@ -573,9 +587,9 @@
             <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings icon" class="section-icon">Availability & Work Style</h2>
             <hr class="custom-hr">
             <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=26040&format=png&color=FFFFFF" alt="watch icon" class="list-icon"><span><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=Ombv0J96v0Wr&format=png&color=FFFFFF" alt="clock icon" class="list-icon"><span><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</span></li>
+                <li><img src="https://img.icons8.com/?size=100&id=8118&format=png&color=FFFFFF" alt="checklist icon" class="list-icon"><span><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</span></li>
                 <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Communication:</strong> You’ll get <strong>fast responses</strong>, <strong>frequent updates</strong>, and <strong>preview demos</strong> throughout the process.</span></li>
             </ul>
         </section>
@@ -641,7 +655,7 @@
             <hr class="custom-hr">
             <div class="contact-methods" style="text-align: center;">
                 <p><i class="fi fi-brands-discord contact-icon" style="color: var(--secondary-color); font-size: 24px; line-height:1;"></i><strong>Discord:</strong> <code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwedyed</code></p>
-                <p><img src="https://img.icons8.com/?size=100&id=D5VYjRSTN3Qp&format=png&color=FFFFFF" alt="Email icon" class="contact-icon"> <strong>Email:</strong> <a href="mailto:farwede@gmail.com"><code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwede@gmail.com</code></a></p>
+                <p><img src="https://img.icons8.com/?size=100&id=Y2GfpkgYNp42&format=png&color=FFFFFF" alt="Email icon" class="contact-icon"> <strong>Email:</strong> <a href="mailto:farwede@gmail.com"><code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwede@gmail.com</code></a></p>
                 <p><strong>Location:</strong> Egypt (GMT+3 timezone)</p>
             </div>
         </section>
@@ -678,8 +692,8 @@
                 name: "Stellar Odyssey Game",
                 livePreviewUrl: "https://www.youtube.com/watch?v=HJkfmvJkMjk",
                 screenshots: [
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685d6fca&is=685c1e4a&hm=a7a704ddde065c4f15df25be6af35523bc66b31736b7d9141218a46a1bb107f1&",
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728399777944/image.png?ex=685d6fca&is=685c1e4a&hm=e6cb5de309272b7b8fccd585e0a4f075a86be76341aa0702327ca9a9f4f4fa42&"
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685e188a&is=685cc70a&hm=c37904c706385682c2d52e6b2aa5d829ad4b6252171851c2561055c730688f80&",
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387463728399777944/image.png?ex=685e188a&is=685cc70a&hm=1a994a068d8e181af6152e3117a25b8bcb3ca37d9899b86c01acf7bc26f9abec&=&format=webp&quality=lossless&width=808&height=455"
                 ],
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Developed a comprehensive space exploration game with unique ship mechanics and interactive quest systems.",
                 timeSpent: "Approx. 150 hours / 4 weeks",
@@ -690,8 +704,8 @@
                 name: "Kingdoms Clash Simulator",
                 livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
                 screenshots: [
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685d701f&is=685c1e9f&hm=05b94a19f1a01e0d2c370c7d2841198503dd0e56276303107472db046e228ba5&",
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387464083963383968/11067-3200x1680-desktop-hd-roblox-background.jpg?ex=685d701f&is=685c1e9f&hm=15872a476806318909fe7a568e2ca7334b61b8fc207cca5ad6782b4b6c1fdb03&"
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685e18df&is=685cc75f&hm=79a6a37959eb02e6bd2986ec2147acc9e361ba5edb769eb5046cc6021de03ac9&=&format=webp&width=808&height=455",
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387464083963383968/11067-3200x1680-desktop-hd-roblox-background.jpg?ex=685e18df&is=685cc75f&hm=2229fde82d5a1dd38785caccca9fac8ee34fd48479d3ebc1db0342366d960380&=&format=webp&width=808&height=424"
                 ],
                 description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Created a large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.",
                 timeSpent: "Approx. 200 hours / 5 weeks",
@@ -701,7 +715,10 @@
             sp1: {
                 name: "Inventory UI Module",
                 livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
-                screenshots: ["https://via.placeholder.com/1280x720.png?text=Inventory+UI+Full+SS1"],
+                screenshots: [
+                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387763444920352798/image.png?ex=685e86ec&is=685d356c&hm=715bf842cc52340b08d432d8618ecbea61694310468ee7cc47e7cebee920ba9d&",
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387763445310685295/image.png?ex=685e86ec&is=685d356c&hm=b8676a0e03698640c2147b31cacefc9b801f100c77e4b93899180d743787f21a&=&format=webp&quality=lossless&width=808&height=430"
+                ],
                 description: "Designed and scripted a responsive and user-friendly inventory UI component with filtering and sorting capabilities for an existing game.",
                 timeSpent: "20 hours / 3 days",
                 bugFixes: "Ensured compatibility with various screen sizes, fixed item duplication glitches.",
@@ -710,11 +727,26 @@
             sp2: {
                 name: "Anti-Cheat Script Enhancement",
                 livePreviewUrl: "https://www.youtube.com/watch?v=h3kNdnqFbt8",
-                screenshots: ["https://via.placeholder.com/1280x720.png?text=AC+Script+Full+SS1"],
+                screenshots: [
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387764784904278098/image.png?ex=685e882c&is=685d36ac&hm=3fead3b282c10ab62ed8d3dedaf8e77dea36fa475d96281538ee9de3d5dc5dda&=&format=webp&quality=lossless&width=912&height=513",
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387764841657274368/image.png?ex=685e8839&is=685d36b9&hm=05d77261f1f665323c35f5bdba19eddb98078bbc8792274f106f5581fe5ce47b&=&format=webp&quality=lossless&width=912&height=513"
+                ],
                 description: "Reviewed and significantly enhanced an existing anti-cheat script, adding new detection methods for speedhacks and teleportation exploits, and improving logging.",
                 timeSpent: "15 hours / 2 days",
                 bugFixes: "Reduced false positives, improved detection accuracy for subtle cheats.",
                 clientRequests: "Client was experiencing a surge in exploiters and needed urgent improvements to their existing anti-cheat."
+            },
+            sp3: {
+                name: "Custom Admin Panel",
+                livePreviewUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 
+                screenshots: [
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387767523151446016/image.png?ex=685e8ab8&is=685d3938&hm=4da34bf64d4769e9275a3a8d709d8c941b625640f812f0042f8f57b6adfbd561&=&format=webp&quality=lossless&width=912&height=513",
+                    "https://media.discordapp.net/attachments/1071409136346079303/1387767715716137010/b0d20898bf66474713a67c6f4b63b19a0af4105a.jpeg?ex=685e8ae6&is=685d3966&hm=6b7be3361e219eb0239efd4dcb8fd40af86ea39ef054e1e92bce995c64d74c93&=&format=webp&width=912&height=513"
+                ], 
+                description: "Developed a comprehensive admin panel for game management, including user moderation tools, server announcements, and logging features.",
+                timeSpent: "25 hours / 4 days",
+                bugFixes: "Ensured secure command execution, optimized data retrieval for player information.",
+                clientRequests: "Client needed a robust in-game tool for administrators to manage the game and players effectively."
             }
         };
 
