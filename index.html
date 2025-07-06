@@ -6,19 +6,19 @@
     <title>Farwed - Roblox Scripter Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --card-bg-color: #1a1a1a;
+            --bg-color: #0A0A0A;
+            --card-bg-color: #141414;
             --text-color: #f5f5f5;
-            --primary-color: #B00020;
-            --primary-color-rgb: 176,0,32;
-            --secondary-color: #E53935;
-            --border-color: #444444;
-            --hr-color: #500010;
+            --primary-color: #D32F2F; /* A strong, modern red */
+            --primary-color-rgb: 211, 47, 47;
+            --secondary-color: #FA5252; /* The new icon red for highlights */
+            --secondary-color-rgb: 250, 82, 82;
+            --border-color: #2a2a2a;
+            --hr-color: #400A0A;
             --header-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --body-font: 'Roboto', 'Open Sans', Arial, sans-serif;
-            --scroll-reveal-duration: 0.7s;
+            --scroll-reveal-duration: 0.6s;
             --scroll-reveal-timing: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-            --secondary-color-rgb: 229,57,53; /* For the profile picture shadow */
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,103 +27,91 @@
             font-family: var(--body-font);
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.75;
+            line-height: 1.7;
             overflow-x: hidden;
-            word-spacing: normal; /* Reset potential inherited issues */
-            letter-spacing: normal; /* Reset potential inherited issues */
-            /* Prevent text selection and copying */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* Internet Explorer/Edge */
-            user-select: none;         /* Standard syntax */
+            word-spacing: normal;
+            letter-spacing: normal;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
 
         .custom-hr {
             border: 0;
-            height: 2px;
+            height: 1px;
             background-image: linear-gradient(to right, rgba(0,0,0,0), var(--hr-color), rgba(0,0,0,0));
-            margin: 2.5rem 0;
+            margin: 3rem 0;
         }
 
         nav {
-            background-color: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
+            background-color: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(15px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
         nav ul li { margin: 0.5rem 1rem; }
         nav ul li a {
-            color: var(--secondary-color);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: bold;
             padding: 0.6rem 0.85rem;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
             font-size: 0.95rem;
-            display: inline-block;
+            position: relative;
         }
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--text-color);
+        nav ul li a:hover {
+            color: #fff;
             background-color: var(--primary-color);
             transform: translateY(-3px);
         }
+        nav ul li a.active {
+            color: #fff;
+            background-color: var(--primary-color);
+        }
 
         header.main-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 40%, var(--bg-color) 100%);
+            background: linear-gradient(145deg, var(--primary-color) 0%, var(--bg-color) 60%);
             color: var(--text-color);
-            padding: 3rem 1.5rem 4rem;
+            padding: 4rem 1.5rem 5rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             position: relative;
         }
         .profile-picture {
-            width: 128px;
-            height: 128px;
+            width: 135px;
+            height: 135px;
             border-radius: 50%;
             border: 4px solid var(--secondary-color);
-            box-shadow: 0 0 15px rgba(var(--secondary-color-rgb), 0.5);
-            margin: 0 auto 1rem;
+            box-shadow: 0 0 25px rgba(var(--secondary-color-rgb), 0.6);
+            margin: 0 auto 1.5rem;
             display: block;
             object-fit: cover;
         }
 
         header.main-header h1 {
             font-family: var(--header-font);
-            font-size: 3rem;
+            font-size: 3.2rem;
             margin-bottom: 0.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            font-weight: 800;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
         }
-        header.main-header p.subtitle { font-size: 1.4rem; color: #e0e0e0; opacity: 0.9; }
+        header.main-header p.subtitle { font-size: 1.5rem; color: #e0e0e0; opacity: 0.95; }
 
-        main { padding: 0 1rem; max-width: 1100px; margin: 2.5rem auto; }
+        main { padding: 0 1rem; max-width: 1200px; margin: 2.5rem auto; }
 
         section {
-            background-color: var(--card-bg-color);
-            padding: 2rem 2.5rem;
-            margin-bottom: 0;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-color);
+            padding: 2.5rem 0;
+            margin-bottom: 1rem;
         }
-        section#about {
-            background-color: transparent;
-            box-shadow: none;
-            border: none;
-            padding: 2rem 1.5rem;
-        }
-        section:not(:last-of-type) { margin-bottom: 0; }
-        section:last-of-type { margin-bottom: 2.5rem; }
 
         section h2 {
             font-family: var(--header-font);
-            font-size: 2.4rem;
-            color: var(--primary-color);
+            font-size: 2.6rem;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 0.75rem;
@@ -131,196 +119,264 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 700;
         }
         section h2 .section-icon {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
-            filter: drop-shadow(0 0 3px rgba(var(--primary-color-rgb), 0.7));
+            width: 36px;
+            height: 36px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(var(--primary-color-rgb), 0.7));
         }
         section h2::after {
             content: ''; position: absolute; bottom: 0; left: 50%;
-            transform: translateX(-50%); width: 90px; height: 4px;
-            background-color: var(--secondary-color); border-radius: 3px;
+            transform: translateX(-50%); width: 80px; height: 4px;
+            background-color: var(--primary-color); border-radius: 3px;
             transition: width 0.4s ease-out;
         }
         section:hover h2::after { width: 120px; }
 
-        section h3 {
-            font-family: var(--header-font); font-size: 2rem; color: var(--text-color);
-            margin-top: 2rem; margin-bottom: 1.5rem; text-align: center;
-            border-bottom: 2px solid var(--hr-color); padding-bottom: 0.5rem;
-            display: flex; align-items: center; justify-content: center;
-        }
-        section h3 .section-icon-small {
-             width: 28px; height: 28px; margin-right: 8px;
-        }
-        section h3:first-of-type { margin-top: 0.5rem; }
-
-
         section p, section ul, section blockquote {
             margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-            overflow-wrap: break-word; /* Helps prevent overflow with long words */
-            word-wrap: break-word; /* Legacy */
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
-        section ul { list-style-position: inside; padding-left: 0; }
-        section ul li {
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: flex-start;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
+        #about p {
+            font-size: 1.2rem;
         }
-        section ul li .list-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-        section ul li > span {
-            flex-grow: 1;
-        }
-
 
         blockquote {
-            background-color: rgba(0,0,0,0.2); border-left: 5px solid var(--primary-color);
-            margin: 1.5rem 0; padding: 1rem 1.5rem; font-style: italic; color: #cccccc;
+            background-color: rgba(var(--primary-color-rgb),0.1); border-left: 5px solid var(--primary-color);
+            margin: 2rem auto; padding: 1.5rem 2rem; font-style: italic; color: #e0e0e0; border-radius: 0 8px 8px 0;
         }
-        blockquote p { margin-bottom: 0; }
-        blockquote .list-icon {
-            width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;
-        }
+        blockquote p { margin-bottom: 0; font-size: 1.25rem; line-height: 1.6; }
 
         strong { color: var(--secondary-color); font-weight: 600; }
-        .placeholder-text { font-weight: normal; color: var(--text-color); font-style: italic; }
-
         a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--primary-color); text-decoration: underline; }
 
-        .button-preview, .button-details {
-            display: inline-block; background-color: var(--primary-color); color: var(--text-color);
-            padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--secondary-color);
-            cursor: pointer; text-align: center;
-        }
-        .button-preview:hover, .button-details:hover {
-            background-color: var(--secondary-color); color: var(--bg-color);
-            text-decoration: none; transform: translateY(-2px);
-        }
-
         .scroll-reveal {
-            opacity: 0; transform: translateY(70px) scale(0.95);
+            opacity: 0; transform: translateY(60px) scale(0.98);
             transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
                         transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
         }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
-        .stagger > * {
-            opacity: 0; transform: translateY(40px);
-            transition-property: opacity, transform; transition-duration: 0.5s;
-            transition-timing-function: ease-out;
-        }
-        .stagger.visible > * { opacity: 1; transform: translateY(0); }
-
-        .projects-grid {
+        /* --- Bento Grid for Projects --- */
+        #work h2 { margin-bottom: 2rem; }
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 1.25rem;
         }
-        .project-card-small {
-            background-color: rgba(var(--primary-color-rgb), 0.05);
+        .bento-item {
+            background-color: var(--card-bg-color);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .project-card-small:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.2);
+        .bento-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(var(--primary-color-rgb), 0.2);
+            border-color: var(--secondary-color);
         }
-        .project-card-small h5 {
-            font-family: var(--header-font);
-            color: var(--text-color);
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            min-height: 2.5em;
-            line-height: 1.25;
-        }
-        .project-card-small .card-thumbnail {
+        .bento-item--large { grid-column: span 2; grid-row: span 2; }
+        .bento-item--small-h { grid-column: span 1; }
+        
+        .bento-item__img {
             width: 100%;
-            height: 150px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease;
         }
-        .project-card-small .project-card-description {
-            font-size: 0.88rem;
-            color: #c5c5c5;
-            line-height: 1.5;
-            margin-bottom: 0.75rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-height: calc(1.5 * 0.88rem * 3);
-            flex-grow: 1;
-        }
-        .project-card-small .project-card-duration {
-            font-size: 0.82rem;
-            color: #b0b0b0;
-            font-style: italic;
-            margin-bottom: 0.75rem;
-        }
-        .project-card-small .project-card-duration strong {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-        .project-card-small .button-details {
-            margin-top: auto;
-            width: 100%;
+        .bento-item:hover .bento-item__img {
+            transform: scale(1.05);
         }
 
+        .bento-item__overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+            padding: 2.5rem 1.25rem 1.25rem;
+            color: white;
+            transform: translateY(30%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .bento-item:hover .bento-item__overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .bento-item__title {
+            font-family: var(--header-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+         .bento-item--small-h .bento-item__title { font-size: 1.2rem; }
+        .bento-item__desc {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 0.75rem;
+        }
+        .bento-item__tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.25rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .bento-item .view-details-prompt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(var(--primary-color-rgb), 0.85);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .bento-item:hover .view-details-prompt {
+            opacity: 1;
+        }
+
+
+        /* --- Skills Section Redesign --- */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 2rem auto 0;
+        }
+        .skill-card {
+            background-color: var(--card-bg-color);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(var(--secondary-color-rgb), 0.1);
+            border-color: var(--secondary-color);
+        }
+        .skill-card .skill-icon {
+            width: 24px; height: 24px; margin-right: 12px;
+            filter: invert(1); opacity: 0.8;
+        }
+        .skill-card span { font-size: 1rem; font-weight: 500; }
+
+        /* --- Why Me Section Redesign --- */
+        #why-me .why-me-grid {
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+            max-width: 1100px;
+            margin: 2rem auto 0;
+        }
+        .why-me-card {
+            background-color: transparent;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .why-me-card:hover {
+            background-color: var(--card-bg-color);
+            border-color: var(--primary-color);
+        }
+        .why-me-card .why-me-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+        .why-me-card h4 {
+            font-family: var(--header-font);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+         .why-me-card p {
+            font-size: 0.95rem;
+            color: #c5c5c5;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* --- Availability & Payment Section --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+        .info-card {
+            background-color: var(--card-bg-color);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .info-card h3 {
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .info-card ul { list-style: none; padding: 0; }
+        .info-card ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .info-card ul li img { width: 22px; height: 22px; margin-right: 10px; }
+
+
+        /* --- Modal and Lightbox (Minor tweaks) --- */
         #project-detail-modal {
             display: none; position: fixed; z-index: 2000;
             top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0, 0.92);
             justify-content: center; align-items: center;
             opacity: 0; transition: opacity 0.3s ease-in-out;
-            overflow-y: auto;
-            padding: 20px;
+            overflow-y: auto; padding: 20px;
         }
         #project-detail-modal.active { display: flex; opacity: 1; }
-
         .modal-content {
             background-color: var(--card-bg-color);
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: scale(0.8) translateY(20px);
-            opacity: 0;
-            transition: transform 0.3s var(--scroll-reveal-timing), opacity 0.3s ease-in-out;
-            transition-delay: 0.1s;
+            padding: 2.5rem; border-radius: 12px;
+            width: 90%; max-width: 900px; max-height: 90vh;
+            overflow-y: auto; position: relative;
+            transform: scale(0.85) translateY(20px); opacity: 0;
+            transition: transform 0.35s var(--scroll-reveal-timing), opacity 0.3s ease-in-out;
+            border: 1px solid var(--border-color);
         }
-        #project-detail-modal.active .modal-content {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-
+        #project-detail-modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
         .modal-close {
-            position: absolute; top: 15px; right: 20px;
-            color: var(--text-color); font-size: 2.2rem; font-weight: bold;
+            position: absolute; top: 15px; right: 25px;
+            color: var(--text-color); font-size: 2.5rem; font-weight: bold;
             cursor: pointer; transition: color 0.3s ease, transform 0.3s ease;
             line-height: 1;
         }
@@ -328,18 +384,33 @@
 
         .modal-content h4 {
             font-family: var(--header-font); color: var(--primary-color);
-            font-size: 2rem; margin-bottom: 1rem; text-align: center;
+            font-size: 2.2rem; margin-bottom: 1.5rem; text-align: center;
         }
-        .modal-content .screenshots {
-            display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0; justify-content: center;
-        }
+        .modal-content .screenshots { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0; justify-content: center; }
         .modal-content .screenshot-thumb-container {
-            flex: 0 0 calc(50% - 5px); max-width: calc(50% - 5px);
-            border-radius: 4px; overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
+            flex: 1 1 200px; max-width: calc(33.33% - 7px);
+            border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
         }
+        .modal-content .screenshot-thumb-container:hover { transform: scale(1.05); }
         .modal-content .screenshot-thumb { width: 100%; height: auto; display: block; }
-        .modal-content p { margin-bottom: 0.8rem; }
-        .modal-content p strong { color: var(--secondary-color); display: block; margin-bottom: 0.2rem; }
+        
+        .modal-section { margin-bottom: 1.5rem; }
+        .modal-section h5 { color: var(--secondary-color); font-size: 1.2rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--hr-color); padding-bottom: 0.3rem;}
+        .modal-section p, .modal-section ul { font-size: 1rem; color: #dcdcdc; }
+        .modal-section ul { list-style: none; padding: 0; }
+        .modal-section li { background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 5px; margin-bottom: 0.3rem; }
+
+        .button-preview {
+            display: inline-block; background-color: var(--primary-color); color: var(--text-color);
+            padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none; cursor: pointer; text-align: center; margin: 1rem 0;
+        }
+        .button-preview:hover {
+            background-color: var(--secondary-color); color: var(--bg-color);
+            text-decoration: none; transform: translateY(-3px);
+        }
 
         #lightbox {
             display: none; position: fixed; z-index: 2001;
@@ -362,147 +433,68 @@
             transition: color 0.3s ease, transform 0.3s ease; text-shadow: 0 0 10px rgba(0,0,0,0.7);
         }
         .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
-
-        #skills ul, #why-me ul, #availability ul, #payment ul {
-            list-style: none; padding-left: 0;
+        
+        #contact .contact-methods {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            border: 1px solid var(--border-color);
         }
-        #skills li, #why-me li, #availability li, #payment li {
-            background-color: rgba(255,255,255,0.05);
-            padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 0.5rem;
-            border-left: 3px solid var(--primary-color);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: flex-start;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-        }
-        #skills li:hover, #why-me li:hover, #availability li:hover, #payment li:hover {
-            background-color: rgba(var(--primary-color-rgb), 0.3);
-            transform: translateX(5px);
-        }
-        #skills li .list-icon, #why-me li .list-icon,
-        #availability li .list-icon, #payment li .list-icon {
-            width: 20px; height: 20px; margin-right: 8px; margin-top: 3px; flex-shrink: 0;
-        }
-
-
         #contact .contact-methods p {
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 1rem; font-size: 1.1rem; display: flex;
+            align-items: center; justify-content: center;
         }
-        #contact .contact-methods .contact-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
+        #contact .contact-methods p:last-child { margin-bottom: 0; }
+        #contact .contact-icon { width: 24px; height: 24px; margin-right: 10px; }
         #contact .contact-methods strong { color: var(--text-color); font-weight: 600; }
-
+        
         footer {
-            text-align: center; padding: 2.5rem 1rem; margin-top: 1rem;
+            text-align: center; padding: 2.5rem 1rem; margin-top: 2rem;
             color: #aaa; font-size: 0.9rem; border-top: 1px solid var(--border-color);
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .bento-item--large { grid-column: span 2; }
+            .info-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            header.main-header { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
-            header.main-header h1 { font-size: 2.6rem; }
-            .profile-picture { width: 100px; height: 100px; }
-            section { padding: 2rem 1.5rem; }
-            section h2 { font-size: 2rem; }
-            section h2 .section-icon { width: 28px; height: 28px; }
-            section h3 { font-size: 1.8rem; }
-            section h3 .section-icon-small { width: 24px; height: 24px;}
-            .modal-content .screenshot-thumb-container { flex: 0 0 100%; max-width: 100%;}
+            header.main-header { clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%); padding: 3rem 1rem 4rem; }
+            header.main-header h1 { font-size: 2.8rem; }
+            .profile-picture { width: 120px; height: 120px; }
+            section h2 { font-size: 2.2rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-item--large { grid-column: span 1; grid-row: span 1; aspect-ratio: 16 / 10; }
+            .bento-item--small-h { aspect-ratio: 16 / 9; }
+            .modal-content { padding: 1.5rem; }
+            .modal-content .screenshot-thumb-container { max-width: calc(50% - 5px); }
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 15px;
-                line-height: 1.6;
-            }
-            main {
-                padding: 0 10px;
-            }
-            section {
-                padding: 15px;
-            }
-            header.main-header {
-                padding: 1.5rem 10px 2.5rem;
-            }
-            header.main-header h1 { font-size: 2rem; }
-            header.main-header p.subtitle { font-size: 1.1rem; }
-            .profile-picture { width: 80px; height: 80px; }
-
-            section h2 { font-size: 1.8rem; }
-            section h2 .section-icon { width: 24px; height: 24px; }
-            section h3 { font-size: 1.6rem; }
-            section h3 .section-icon-small { width: 20px; height: 20px;}
-
-            section p, section ul, section blockquote {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-                line-height: 1.6;
-            }
-            section ul li {
-                margin-bottom: 0.5rem;
-            }
-            section ul li .list-icon { width: 18px; height: 18px; margin-top: 2px;}
-
-            .projects-grid { grid-template-columns: 1fr; }
-            .project-card-small {
-                padding: 0.75rem;
-            }
-            .project-card-small h5 {
-                font-size: 1.1rem;
-                min-height: 2.2em;
-            }
-            .project-card-small .card-thumbnail {
-                height: 130px;
-            }
-            .project-card-small .project-card-description {
-                font-size: 0.8rem;
-                -webkit-line-clamp: 3;
-                min-height: calc(1.6 * 0.8rem * 3);
-            }
-             .project-card-small .project-card-duration {
-                font-size: 0.75rem;
-            }
-
-            .button-preview, .button-details {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            nav ul li { margin: 0.3rem 0.5rem; }
-            nav ul li a {
-                padding: 0.5rem 0.6rem;
-                font-size: 0.85rem;
-            }
-
-            .modal-content { padding: 15px; width: 95%; }
-            .modal-content h4 {font-size: 1.4rem;}
-            .modal-content .screenshot-thumb-container {
-                 flex: 0 0 calc(50% - 5px);
-                 max-width: calc(50% - 5px);
-            }
-             @media (max-width: 480px) {
-                .modal-content .screenshot-thumb-container {
-                    flex: 0 0 100%;
-                    max-width: 100%;
-                }
-            }
-            #contact .contact-methods .contact-icon { width: 20px; height: 20px;}
+            body { font-size: 15px; }
+            nav ul li a { font-size: 0.85rem; padding: 0.5rem 0.6rem;}
+            nav ul li { margin: 0.3rem 0.4rem; }
+            header.main-header h1 { font-size: 2.2rem; }
+            header.main-header p.subtitle { font-size: 1.2rem; }
+            .profile-picture { width: 100px; height: 100px; }
+            section h2 { font-size: 2rem; }
+            .bento-item__title { font-size: 1.2rem; }
+            #about p { font-size: 1rem; }
+            blockquote p { font-size: 1.1rem; }
+            .modal-content h4 { font-size: 1.8rem; }
+            .modal-content .screenshot-thumb-container { max-width: 100%; }
         }
 
     </style>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
 </head>
 <body>
 
     <header class="main-header scroll-reveal">
-        <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387468630458896394/3e5c53781e906ac48a73ff4b85860368.gif?ex=685d745b&is=685c22db&hm=270477ccf9e164b29740aa1e7217b0784ea55906af93d87e8610699f3cd8bd28&" alt="Farwed Profile Picture" class="profile-picture">
+        <img src="https://i.postimg.cc/Y9j1HJ0W/3e5c53781e906ac48a73ff4b85860368.gif" alt="Farwed Profile Picture" class="profile-picture">
         <h1>Farwed</h1>
         <p class="subtitle">Roblox Scripter & Game Developer</p>
     </header>
@@ -511,11 +503,9 @@
         <ul>
             <li><a href="#about">About Me</a></li>
             <li><a href="#work">My Work</a></li>
-            <li><a href="#availability">Availability</a></li>
-            <li><a href="#payment">Payment</a></li>
-            <li><a href="#why-me">Why Choose Me?</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#why-me">Why Me?</a></li>
+            <li><a href="#payment">Rates</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -523,140 +513,145 @@
     <main>
         <section id="about" class="scroll-reveal">
             <h2><img src="https://img.icons8.com/?size=100&id=20150&format=png&color=FFFFFF" alt="About me icon" class="section-icon">About Me</h2>
-            <hr class="custom-hr">
-            <p>Hey! My name is <strong>Farwed</strong>, and I’m a <strong>17-year-old Roblox developer from Egypt</strong> with <strong>1.5 years of experience</strong> in scripting and game development.</p>
-            <p>I'm in the <strong>GMT+3 timezone</strong>, and I can handle anything from <strong>small, simple tasks</strong> to <strong>building or editing complex systems</strong>, including <strong>bug fixing</strong> and <strong>anti-cheat development</strong> to secure your game.</p>
+            <p>Hey! My name is <strong>Farwed</strong>, a <strong>17-year-old Roblox developer from Egypt (GMT+3)</strong> with <strong>1.5 years of experience</strong> in scripting and game development.</p>
+            <p>I handle everything from <strong>small tasks</strong> to <strong>complex systems</strong>, including <strong>bug fixing</strong> and creating robust <strong>anti-cheat solutions</strong> to protect your game.</p>
             <blockquote>
-                <p><strong>A scripter might just write scripts and then move on, but a true developer focuses on building your game to be smooth, stable, and future-proof with clean, organized, and readable code.</strong></p>
+                <p>A scripter writes code, but a true developer builds an experience. My focus is on creating smooth, stable, and future-proof games with clean, organized, and readable code.</p>
             </blockquote>
         </section>
         <hr class="custom-hr">
 
         <section id="work" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
-            <hr class="custom-hr">
-
-            <h3><img src="https://img.icons8.com/?size=100&id=33297&format=png&color=FFFFFF" alt="Repository book icon" class="section-icon-small">Big Projects</h3>
-            <div class="projects-grid">
-                <div class="project-card-small scroll-reveal" data-project-id="bp1">
-                    <h5>Stellar Odyssey Game</h5>
-                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685e188a&is=685cc70a&hm=c37904c706385682c2d52e6b2aa5d829ad4b6252171851c2561055c730688f80&" alt="Stellar Odyssey Thumbnail" class="card-thumbnail">
-                    <p class="project-card-description">Comprehensive space exploration game with unique ship mechanics and interactive quest systems.</p>
-                    <p class="project-card-duration"><strong>Time:</strong> Approx. 150 hours / 4 weeks</p>
-                    <button class="button-details">View Details</button>
+            <h2>My Work</h2>
+            <div class="bento-grid">
+                <!-- Main Project 1 -->
+                <div class="bento-item bento-item--large scroll-reveal" data-project-id="bp1">
+                    <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">Hide and Seek Project</h3>
+                        <p class="bento-item__desc">A complete, round-based Hide and Seek game with spectating, role selection, and custom UI.</p>
+                        <span class="bento-item__tag">Main Project</span>
+                    </div>
+                    <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <div class="project-card-small scroll-reveal" data-project-id="bp2">
-                    <h5>Kingdoms Clash Simulator</h5>
-                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685e18df&is=685cc75f&hm=79a6a37959eb02e6bd2986ec2147acc9e361ba5edb769eb5046cc6021de03ac9&=&format=webp&width=808&height=455" alt="Kingdoms Clash Thumbnail" class="card-thumbnail">
-                    <p class="project-card-description">Large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.</p>
-                    <p class="project-card-duration"><strong>Time:</strong> Approx. 200 hours / 5 weeks</p>
-                    <button class="button-details">View Details</button>
+                <!-- Small Project 1 -->
+                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
+                     <img src="https://i.postimg.cc/vZQtP90N/image.png" alt="Fearless Project" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">Fearless Project</h3>
+                        <p class="bento-item__desc">A puzzle-horror game mechanic featuring a unique photo-capture and door-creation system.</p>
+                         <span class="bento-item__tag">Task</span>
+                    </div>
+                    <div class="view-details-prompt">Click to View Details</div>
                 </div>
-            </div>
-
-            <hr class="custom-hr" style="margin-top: 3rem; margin-bottom: 2rem;">
-
-            <h3><img src="https://img.icons8.com/?size=100&id=8HyAkdzkd-hM&format=png&color=FFFFFF" alt="Download icon" class="section-icon-small">Small Projects</h3>
-             <div class="projects-grid">
-                <div class="project-card-small scroll-reveal" data-project-id="sp1">
-                    <h5>Inventory UI Module</h5>
-                    <img src="https://cdn.discordapp.com/attachments/1071409136346079303/1387763444920352798/image.png?ex=685e86ec&is=685d356c&hm=715bf842cc52340b08d432d8618ecbea61694310468ee7cc47e7cebee920ba9d&" alt="Inventory UI Module Thumbnail" class="card-thumbnail">
-                    <p class="project-card-description">Responsive and user-friendly inventory UI component with filtering and sorting capabilities.</p>
-                    <p class="project-card-duration"><strong>Time:</strong> 20 hours / 3 days</p>
-                    <button class="button-details">View Details</button>
+                <!-- Small Project 2 -->
+                 <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp2">
+                     <img src="https://i.postimg.cc/MpTqzfnc/image.png" alt="GUI Roll Animation" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">GUI Roll Animation</h3>
+                        <p class="bento-item__desc">A dynamic, toggleable quick-roll animation for a gacha-style UI system.</p>
+                         <span class="bento-item__tag">Task</span>
+                    </div>
+                     <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <div class="project-card-small scroll-reveal" data-project-id="sp2">
-                    <h5>Anti-Cheat Script Enhancement</h5>
-                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387764784904278098/image.png?ex=685e882c&is=685d36ac&hm=3fead3b282c10ab62ed8d3dedaf8e77dea36fa475d96281538ee9de3d5dc5dda&=&format=webp&quality=lossless&width=912&height=513" alt="Anti-Cheat Script Thumbnail" class="card-thumbnail">
-                    <p class="project-card-description">Enhanced anti-cheat script, adding new detection methods and improving logging.</p>
-                    <p class="project-card-duration"><strong>Time:</strong> 15 hours / 2 days</p>
-                    <button class="button-details">View Details</button>
+                <!-- Main Project 2 -->
+                <div class="bento-item bento-item--large scroll-reveal" data-project-id="bp2">
+                     <img src="https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png" alt="Random Platformer Project" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">Random Platformer [Pre-Alpha]</h3>
+                        <p class="bento-item__desc">A competitive racing game with randomly generated parkour maps, leaderboards, and an in-game shop.</p>
+                        <span class="bento-item__tag">Main Project</span>
+                    </div>
+                     <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <div class="project-card-small scroll-reveal" data-project-id="sp3">
-                    <h5>Custom Admin Panel</h5>
-                    <img src="https://media.discordapp.net/attachments/1071409136346079303/1387767523151446016/image.png?ex=685e8ab8&is=685d3938&hm=4da34bf64d4769e9275a3a8d709d8c941b625640f812f0042f8f57b6adfbd561&=&format=webp&quality=lossless&width=912&height=513" alt="Admin Panel Thumbnail" class="card-thumbnail">
-                    <p class="project-card-description">A new custom admin panel with specific functionalities for game moderation and user management.</p>
-                    <p class="project-card-duration"><strong>Time:</strong> 25 hours / 4 days</p>
-                    <button class="button-details">View Details</button>
+                 <!-- Small Project 3 -->
+                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
+                     <img src="https://i.postimg.cc/85WTq8jt/image.png" alt="Data Management System" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">Advanced Data Management</h3>
+                        <p class="bento-item__desc">A robust datastore module for handling player data with session locking and retry mechanisms.</p>
+                         <span class="bento-item__tag">Task</span>
+                    </div>
+                    <div class="view-details-prompt">Click to View Details</div>
                 </div>
             </div>
         </section>
         <hr class="custom-hr">
 
-        <section id="availability" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings icon" class="section-icon">Availability & Work Style</h2>
-            <hr class="custom-hr">
-            <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=26040&format=png&color=FFFFFF" alt="watch icon" class="list-icon"><span><strong>Availability:</strong> I’m online and responsive almost 24/7, except when sleeping or eating.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=Ombv0J96v0Wr&format=png&color=FFFFFF" alt="clock icon" class="list-icon"><span><strong>Work Hours:</strong> I can work <strong>1 to 12 hours/day</strong> depending on the workload.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=8118&format=png&color=FFFFFF" alt="checklist icon" class="list-icon"><span><strong>Average Completion Time:</strong> Projects take from <strong>1 hour to 12 days</strong>, depending on complexity.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>Communication:</strong> You’ll get <strong>fast responses</strong>, <strong>frequent updates</strong>, and <strong>preview demos</strong> throughout the process.</span></li>
-            </ul>
-        </section>
-        <hr class="custom-hr">
-
-        <section id="payment" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Card dollar icon" class="section-icon">Payment Info</h2>
-            <hr class="custom-hr">
-            <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon" class="list-icon"><span><strong>Hourly Rate:</strong> $10 to $25 USD</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon" class="list-icon"><span><strong>Full Projects:</strong> $100 to $250 USD</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span><strong>All prices are negotiable</strong>, based on task complexity.</span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point" class="list-icon"><span>I follow the <strong>standard market rate</strong> for Roblox developers with 1+ year of experience.</span></li>
-            </ul>
+        <section id="skills" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Code terminal icon" class="section-icon">Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Advanced Roblox Lua Scripting</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Client-Server Architecture (Remotes)</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Anti-Cheat & Exploitation Security</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>DataStores & Data Persistence</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>UI Scripting & Tweening/Animation</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Performance Optimization & Debugging</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Game Systems (Currency, Inventory, etc.)</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Modular & Organized Code Design</span></div>
+            </div>
         </section>
         <hr class="custom-hr">
 
         <section id="why-me" class="scroll-reveal">
             <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge icon" class="section-icon">Why Choose Me?</h2>
-            <hr class="custom-hr">
-            <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=104619&format=png&color=FFFFFF" alt="Coil icon for communication" class="list-icon"><span><strong>Fast replies and clear communication</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=EgdPOf5KW0fN&format=png&color=FFFFFF" alt="Chain icon for updates" class="list-icon"><span><strong>Consistent updates on project status</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up icon for previews" class="list-icon"><span><strong>Frequent previews and demo progress</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=8064&format=png&color=FFFFFF" alt="Hammer icon for reliability" class="list-icon"><span><strong>Quick and reliable task completion</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" alt="Paint brush for clean code" class="list-icon"><span><strong>Readable, organized, and commented code</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=2866&format=png&color=FFFFFF" alt="Tool icon for anti-cheat" class="list-icon"><span><strong>Strong anti-cheat system development</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake icon for flexibility" class="list-icon"><span><strong>Flexible with existing or new game systems</strong></span></li>
-            </ul>
+            <div class="why-me-grid">
+                <div class="why-me-card">
+                    <h4>Clean & Organized Code</h4>
+                    <p>I deliver readable, commented, and modular code that is easy for you or any future developer to maintain and expand.</p>
+                </div>
+                <div class="why-me-card">
+                    <h4>Proactive Communication</h4>
+                    <p>Expect fast replies, frequent progress updates, and live demos so you're always in the loop on your project's status.</p>
+                </div>
+                <div class="why-me-card">
+                    <h4>Reliable & Efficient</h4>
+                    <p>I am committed to completing tasks quickly and reliably, respecting deadlines and your project's goals.</p>
+                </div>
+                <div class="why-me-card">
+                    <h4>Security Focused</h4>
+                    <p>With strong experience in anti-cheat development, I build systems that are secure against common exploits from the ground up.</p>
+                </div>
+                 <div class="why-me-card">
+                    <h4>Flexible & Adaptable</h4>
+                    <p>Whether you need a new system built from scratch or an existing one modified, I can adapt to your project's specific needs.</p>
+                </div>
+                 <div class="why-me-card">
+                    <h4>Problem Solver</h4>
+                    <p>I excel at debugging complex issues and optimizing scripts for maximum performance and stability.</p>
+                </div>
+            </div>
         </section>
         <hr class="custom-hr">
 
-        <section id="skills" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Code terminal icon" class="section-icon">Skills</h2>
-            <hr class="custom-hr">
-            <ul class="stagger">
-                <li><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" alt="Roblox Studio icon" class="list-icon"><span><strong>Roblox Lua scripting</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=9936&format=png&color=FFFFFF" alt="Servers icon for remotes" class="list-icon"><span><strong>RemoteEvents & RemoteFunctions</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" alt="Hand holding box for datastores" class="list-icon"><span><strong>Leaderboards and DataStores</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=33294&format=png&color=FFFFFF" alt="Code fork for anti-cheat" class="list-icon"><span><strong>Anti-cheat creation and exploitation protection</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" alt="Paint brush for UI scripting" class="list-icon"><span><strong>UI scripting & smooth tweening</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings for optimization" class="list-icon"><span><strong>Performance optimization</strong></span></li>
-                <li><img src="https://img.icons8.com/?size=100&id=38248&format=png&color=FFFFFF" alt="Script file for game systems" class="list-icon"><span><strong>Game loop systems, currency, inventory, and more</strong></span></li>
-            </ul>
-        </section>
-        <hr class="custom-hr">
-
-        <section id="testimonials" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=1jawc6EAIZaa&format=png&color=FFFFFF" alt="Two hands holding heart for testimonials" class="section-icon">Testimonials <em style="font-size: 0.7em; color: #ccc;">(Optional)</em></h2>
-            <hr class="custom-hr">
-            <blockquote>
-                <p><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up" class="list-icon">"Farwed delivered fast and exceeded expectations!" <em class="placeholder-text">Client Name</em></p>
-            </blockquote>
-            <blockquote>
-                <p><img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" alt="Thumbs up" class="list-icon">"His code was super clean and easy to work with. Highly recommend." <em class="placeholder-text">Another Client</em></p>
-            </blockquote>
-            <p style="text-align: center;"><em>(Add client quotes here, or say “Available upon request” if you don’t have them yet.)</em></p>
+        <section id="payment" class="scroll-reveal">
+             <div class="info-grid">
+                <div class="info-card">
+                    <h3>Availability</h3>
+                    <ul>
+                        <li><img src="https://img.icons8.com/?size=100&id=26040&format=png&color=FFFFFF" alt="watch icon"><span><strong>Online:</strong> Almost 24/7 (excluding sleep/meals)</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=Ombv0J96v0Wr&format=png&color=FFFFFF" alt="clock icon"><span><strong>Workload:</strong> 1 to 12 hours/day</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=8118&format=png&color=FFFFFF" alt="checklist icon"><span><strong>Turnaround:</strong> 1 hour to 12 days per project</span></li>
+                    </ul>
+                </div>
+                 <div class="info-card">
+                    <h3>Payment Rates</h3>
+                     <ul>
+                        <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Hourly:</strong> $10 - $25 USD</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Per Project:</strong> $100 - $250+ USD</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" alt="Red Icon"><span>All prices are negotiable based on complexity.</span></li>
+                    </ul>
+                </div>
+            </div>
         </section>
         <hr class="custom-hr">
 
         <section id="contact" class="scroll-reveal">
-            <h2>Contact Me</h2>
-            <hr class="custom-hr">
-            <div class="contact-methods" style="text-align: center;">
+            <h2>Ready to Build?</h2>
+            <p>Let's get in touch and bring your game idea to life.</p>
+            <div class="contact-methods">
                 <p><i class="fi fi-brands-discord contact-icon" style="color: var(--secondary-color); font-size: 24px; line-height:1;"></i><strong>Discord:</strong> <code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwedyed</code></p>
                 <p><img src="https://img.icons8.com/?size=100&id=Y2GfpkgYNp42&format=png&color=FFFFFF" alt="Email icon" class="contact-icon"> <strong>Email:</strong> <a href="mailto:farwede@gmail.com"><code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwede@gmail.com</code></a></p>
-                <p><strong>Location:</strong> Egypt (GMT+3 timezone)</p>
             </div>
         </section>
     </main>
@@ -665,13 +660,28 @@
         <div class="modal-content">
             <span class="modal-close">×</span>
             <h4 id="modal-project-name">Project Name</h4>
-            <div id="modal-live-preview-container"></div>
-            <div class="screenshots" id="modal-screenshots-container">
+            <div id="modal-live-preview-container" style="text-align: center;"></div>
+            <div class="screenshots" id="modal-screenshots-container"></div>
+            
+            <div class="modal-section">
+                <h5>Description</h5>
+                <p id="modal-description"></p>
             </div>
-            <p><strong>Detailed Description:</strong> <span class="placeholder-text" id="modal-description"></span></p>
-            <p><strong>Time Spent:</strong> <span class="placeholder-text" id="modal-time-spent"></span></p>
-            <p><strong>Bug Fixes:</strong> <span class="placeholder-text" id="modal-bug-fixes"></span></p>
-            <p><strong>Client Request Summary:</strong> <span class="placeholder-text" id="modal-client-requests"></span></p>
+            
+            <div class="modal-section">
+                <h5>Client Request Summary</h5>
+                <p id="modal-client-requests"></p>
+            </div>
+
+            <div class="modal-section">
+                <h5>Development Statistics</h5>
+                <ul id="modal-dev-stats"></ul>
+            </div>
+            
+             <div class="modal-section">
+                <h5>Price</h5>
+                <p id="modal-price"></p>
+            </div>
         </div>
     </div>
 
@@ -687,95 +697,115 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Updated Project Data ---
         const projectsData = {
             bp1: {
-                name: "Stellar Odyssey Game",
-                livePreviewUrl: "https://www.youtube.com/watch?v=HJkfmvJkMjk",
+                name: "Hide and Seek Project",
+                youtubeId: "LB0cFfhv7Mg",
                 screenshots: [
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387463728005382284/image.png?ex=685e188a&is=685cc70a&hm=c37904c706385682c2d52e6b2aa5d829ad4b6252171851c2561055c730688f80&",
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387463728399777944/image.png?ex=685e188a&is=685cc70a&hm=1a994a068d8e181af6152e3117a25b8bcb3ca37d9899b86c01acf7bc26f9abec&=&format=webp&quality=lossless&width=808&height=455"
+                    "https://i.postimg.cc/mDdSfnJ1/image.png",
+                    "https://i.postimg.cc/j2mQC7ss/Roblox-Screen-Shot20250706-035814047.png",
+                    "https://i.postimg.cc/2S4F8ygD/Roblox-Screen-Shot20250706-035822355.png",
+                    "https://i.postimg.cc/mrB3cRGF/Roblox-Screen-Shot20250706-035905763.png"
                 ],
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Developed a comprehensive space exploration game with unique ship mechanics and interactive quest systems.",
-                timeSpent: "Approx. 150 hours / 4 weeks",
-                bugFixes: "Resolved data persistence errors, optimized server-client communication for smoother gameplay, fixed major physics glitches.",
-                clientRequests: "Client requested a dynamic event system, advanced anti-exploit measures, and a modular design for future expansions."
+                description: "Developed a feature-complete, round-based Hide and Seek game from the ground up. The project includes a robust game loop, role management (Hider/Seeker), spectating system for active and late-joining players, and engaging UI elements like a jackpot-style role reveal and map voting.",
+                clientRequest: "The client requested a full game loop including intermissions and rounds, a spectating system with multiple modes, hider/seeker roles with win conditions, and basic UI integration for a shop, taunts, and a map selection system.",
+                devStats: {
+                    "Total Code": "3,500+ lines",
+                    "Critical Bugs Fixed": "204",
+                    "Script Optimizations": "29",
+                    "Development Time": "~180 hours"
+                },
+                price: "$150 USD"
             },
             bp2: {
-                name: "Kingdoms Clash Simulator",
-                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
+                name: "Random Platformer [Pre-Alpha]",
+                youtubeId: "mUWWWWTywng",
                 screenshots: [
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387464083556794560/92653-1920x1080-desktop-1080p-roblox-wallpaper-image.jpg?ex=685e18df&is=685cc75f&hm=79a6a37959eb02e6bd2986ec2147acc9e361ba5edb769eb5046cc6021de03ac9&=&format=webp&width=808&height=455",
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387464083963383968/11067-3200x1680-desktop-hd-roblox-background.jpg?ex=685e18df&is=685cc75f&hm=2229fde82d5a1dd38785caccca9fac8ee34fd48479d3ebc1db0342366d960380&=&format=webp&width=808&height=424"
+                    "https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png",
+                    "https://i.postimg.cc/cHXSnf5G/Roblox-Screen-Shot20250706-041602008.png",
+                    "https://i.postimg.cc/W4mjsBG3/Roblox-Screen-Shot20250706-041636107.png",
+                    "https://i.postimg.cc/mkkGNh0z/Roblox-Screen-Shot20250706-041654563.png",
+                    "https://i.postimg.cc/k5Pq3Jtz/Roblox-Screen-Shot20250706-041656226.png"
                 ],
-                description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Created a large-scale battle simulator with complex AI pathfinding and strategic gameplay elements.",
-                timeSpent: "Approx. 200 hours / 5 weeks",
-                bugFixes: "Overhauled the combat system for balance, significantly improved server performance under heavy load, and fixed critical AI behavior loops.",
-                clientRequests: "Client required advanced unit customization, a replay system, and integration with a global leaderboard."
+                description: "This is a fast-paced, competitive racing game built around rounds of procedurally selected parkour maps. Players earn points for winning and can collect coins to purchase cosmetic trails and gameplay-affecting events like Speed Boost or Low Gravity, similar to Tower of Hell. A global leaderboard encourages competition.",
+                clientRequest: "This was a personal project to build my first full game, focusing on creating a fun, replayable core loop with monetization and competitive elements.",
+                 devStats: {
+                    "Total Code": "2,500+ lines",
+                    "Critical Bugs Fixed": "153",
+                    "Script Optimizations": "45",
+                    "Development Time": "~210 hours"
+                },
+                price: "Approx. $100 USD"
             },
             sp1: {
-                name: "Inventory UI Module",
-                livePreviewUrl: "https://www.youtube.com/watch?v=0f8RRzXiz40",
+                name: "Fearless Project",
+                youtubeId: "GvWFg1jldmo",
                 screenshots: [
-                    "https://cdn.discordapp.com/attachments/1071409136346079303/1387763444920352798/image.png?ex=685e86ec&is=685d356c&hm=715bf842cc52340b08d432d8618ecbea61694310468ee7cc47e7cebee920ba9d&",
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387763445310685295/image.png?ex=685e86ec&is=685d356c&hm=b8676a0e03698640c2147b31cacefc9b801f100c77e4b93899180d743787f21a&=&format=webp&quality=lossless&width=808&height=430"
+                    "https://i.postimg.cc/vZQtP90N/image.png",
+                    "https://i.postimg.cc/zG0S4BMX/image1.png",
+                    "https://i.postimg.cc/8PdbBwmv/image4.png"
                 ],
-                description: "Designed and scripted a responsive and user-friendly inventory UI component with filtering and sorting capabilities for an existing game.",
-                timeSpent: "20 hours / 3 days",
-                bugFixes: "Ensured compatibility with various screen sizes, fixed item duplication glitches.",
-                clientRequests: "Client needed a modern, intuitive UI to replace an outdated system, with specific tweening animations."
+                description: "Created a unique puzzle-horror mechanic where players use a camera to 'capture' marked locations. Upon a successful photo, a door materializes at the mark. The system includes camera animations, sound effects, and a secondary line-connection puzzle mechanic to automatically open doors.",
+                clientRequest: "The client requested a camera-based puzzle system. The core mechanic involved taking pictures of 'X' symbols to reveal doors, complete with idle/capture animations and sounds. An additional line-connection puzzle was also required.",
+                devStats: {
+                    "Total Code": "200+ lines",
+                    "Critical Bugs Fixed": "2",
+                    "Development Time": "~5 hours"
+                },
+                price: "$15 USD"
             },
             sp2: {
-                name: "Anti-Cheat Script Enhancement",
-                livePreviewUrl: "https://www.youtube.com/watch?v=h3kNdnqFbt8",
+                name: "GUI Roll Animation",
+                youtubeId: "EV7XCVqjc38",
                 screenshots: [
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387764784904278098/image.png?ex=685e882c&is=685d36ac&hm=3fead3b282c10ab62ed8d3dedaf8e77dea36fa475d96281538ee9de3d5dc5dda&=&format=webp&quality=lossless&width=912&height=513",
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387764841657274368/image.png?ex=685e8839&is=685d36b9&hm=05d77261f1f665323c35f5bdba19eddb98078bbc8792274f106f5581fe5ce47b&=&format=webp&quality=lossless&width=912&height=513"
+                    "https://i.postimg.cc/MpTqzfnc/image.png",
+                    "https://i.postimg.cc/C5SpXRyx/image.png"
                 ],
-                description: "Reviewed and significantly enhanced an existing anti-cheat script, adding new detection methods for speedhacks and teleportation exploits, and improving logging.",
-                timeSpent: "15 hours / 2 days",
-                bugFixes: "Reduced false positives, improved detection accuracy for subtle cheats.",
-                clientRequests: "Client was experiencing a surge in exploiters and needed urgent improvements to their existing anti-cheat."
+                description: "Engineered a dynamic 'gacha' roll animation for a game's UI. A key feature is the 'Quick Roll' toggle, which significantly speeds up the animation sequence for players who want immediate results, providing a better user experience.",
+                clientRequest: "The request was to create a roll animation with a 'Quick Roll' toggle. The button needed to be highlighted when active, and toggling it on had to make the animation noticeably faster than the slow default speed.",
+                devStats: {
+                    "Total Code": "500+ lines",
+                    "Critical Bugs Fixed": "4",
+                    "Script Optimizations": "7",
+                    "Development Time": "~2 hours"
+                },
+                price: "$9 USD"
             },
             sp3: {
-                name: "Custom Admin Panel",
-                livePreviewUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 
+                name: "Advanced Data Management",
+                youtubeId: "_KaqGini3Ww",
                 screenshots: [
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387767523151446016/image.png?ex=685e8ab8&is=685d3938&hm=4da34bf64d4769e9275a3a8d709d8c941b625640f812f0042f8f57b6adfbd561&=&format=webp&quality=lossless&width=912&height=513",
-                    "https://media.discordapp.net/attachments/1071409136346079303/1387767715716137010/b0d20898bf66474713a67c6f4b63b19a0af4105a.jpeg?ex=685e8ae6&is=685d3966&hm=6b7be3361e219eb0239efd4dcb8fd40af86ea39ef054e1e92bce995c64d74c93&=&format=webp&width=912&height=513"
-                ], 
-                description: "Developed a comprehensive admin panel for game management, including user moderation tools, server announcements, and logging features.",
-                timeSpent: "25 hours / 4 days",
-                bugFixes: "Ensured secure command execution, optimized data retrieval for player information.",
-                clientRequests: "Client needed a robust in-game tool for administrators to manage the game and players effectively."
+                   "https://i.postimg.cc/85WTq8jt/image.png",
+                   "https://i.postimg.cc/85WTq8jt/image.png",
+                   "https://i.postimg.cc/85WTq8jt/image.png"
+                ],
+                description: "Developed a robust, standalone datastore module to handle all player data securely. Features include session locking to prevent data duplication/loss from joining on multiple devices, and built-in retry mechanisms for failed API calls to ensure data integrity.",
+                clientRequest: "A client needed a secure and reliable way to manage player data for their game, specifically requesting protection against common data loss issues and API failures.",
+                devStats: {
+                    "Total Code": "400+ lines",
+                    "Critical Bugs Fixed": "N/A (Proactive Build)",
+                    "Development Time": "~8 hours"
+                },
+                price: "$20 USD"
             }
         };
 
+        // --- Reveal on Scroll ---
         const revealElements = document.querySelectorAll('.scroll-reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
-            revealElements.forEach((el) => {
+            revealElements.forEach(el => {
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 70) {
+                if (elementTop < windowHeight - 80) {
                     el.classList.add('visible');
-                    const staggerContainers = [];
-                    if (el.classList.contains('stagger')) staggerContainers.push(el);
-                    el.querySelectorAll('.stagger').forEach(sc => { if (!staggerContainers.includes(sc)) staggerContainers.push(sc); });
-
-                    staggerContainers.forEach(staggerContainer => {
-                        staggerContainer.classList.add('visible');
-                        const childrenToStagger = staggerContainer.querySelectorAll('li, .project-card-small');
-                        childrenToStagger.forEach((child, childIndex) => {
-                            if (!child.style.transitionDelay) {
-                               child.style.transitionDelay = (childIndex * 0.08) + 's';
-                            }
-                        });
-                    });
                 }
             });
         };
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
+        revealOnScroll(); // Initial check
 
+        // --- Active Nav Link on Scroll ---
         const sections = document.querySelectorAll('main section[id]');
         const navLinks = document.querySelectorAll('nav ul li a');
         const navbar = document.getElementById('navbar');
@@ -783,7 +813,7 @@
         window.addEventListener('resize', () => { navbarHeight = navbar ? navbar.offsetHeight : 70; });
         window.addEventListener('scroll', () => {
             let current = '';
-            const scrollPosition = window.pageYOffset + navbarHeight + 50;
+            const scrollPosition = window.pageYOffset + navbarHeight + 100;
             sections.forEach(section => {
                 if (section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
                     current = section.getAttribute('id');
@@ -791,119 +821,122 @@
             });
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
+                if (link.getAttribute('href').substring(1) === current) {
                     link.classList.add('active');
                 }
             });
         });
 
+        // --- Current Year for Footer ---
         const currentYearSpan = document.getElementById('currentYear');
         if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
 
+        // --- Modal Logic ---
         const projectDetailModal = document.getElementById('project-detail-modal');
         const modalProjectName = document.getElementById('modal-project-name');
         const modalLivePreviewContainer = document.getElementById('modal-live-preview-container');
         const modalScreenshotsContainer = document.getElementById('modal-screenshots-container');
         const modalDescription = document.getElementById('modal-description');
-        const modalTimeSpent = document.getElementById('modal-time-spent');
-        const modalBugFixes = document.getElementById('modal-bug-fixes');
         const modalClientRequests = document.getElementById('modal-client-requests');
+        const modalDevStats = document.getElementById('modal-dev-stats');
+        const modalPrice = document.getElementById('modal-price');
         const modalCloseButton = projectDetailModal.querySelector('.modal-close');
 
-        document.querySelectorAll('.project-card-small .button-details').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const card = e.target.closest('.project-card-small');
-                const projectId = card.dataset.projectId;
+        document.querySelectorAll('.bento-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const projectId = item.dataset.projectId;
                 const data = projectsData[projectId];
+                if (!data) return;
 
-                if (data) {
-                    modalProjectName.textContent = data.name;
+                modalProjectName.textContent = data.name;
 
-                    modalLivePreviewContainer.innerHTML = '';
-                    if (data.livePreviewUrl) {
-                        const previewButton = document.createElement('a');
-                        previewButton.href = data.livePreviewUrl;
-                        previewButton.target = "_blank";
-                        previewButton.classList.add('button-preview');
-                        previewButton.textContent = "Live Preview";
-                        modalLivePreviewContainer.appendChild(previewButton);
-                    }
-
-                    modalScreenshotsContainer.innerHTML = '';
-                    data.screenshots.forEach(src => {
-                        const thumbContainer = document.createElement('div');
-                        thumbContainer.classList.add('screenshot-thumb-container');
-                        const img = document.createElement('img');
-                        img.src = src;
-                        img.alt = `${data.name} Screenshot`;
-                        img.classList.add('screenshot-thumb');
-                        img.dataset.fullsrc = src;
-                        thumbContainer.appendChild(img);
-                        modalScreenshotsContainer.appendChild(thumbContainer);
-                    });
-                    attachLightboxListenersToModalScreenshots();
-
-                    modalDescription.textContent = data.description;
-                    modalTimeSpent.textContent = data.timeSpent;
-                    modalBugFixes.textContent = data.bugFixes;
-                    modalClientRequests.textContent = data.clientRequests;
-
-                    projectDetailModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                modalLivePreviewContainer.innerHTML = '';
+                if (data.youtubeId) {
+                    const previewButton = document.createElement('a');
+                    previewButton.href = `https://www.youtube.com/watch?v=${data.youtubeId}`;
+                    previewButton.target = "_blank";
+                    previewButton.classList.add('button-preview');
+                    previewButton.textContent = "View on YouTube";
+                    modalLivePreviewContainer.appendChild(previewButton);
                 }
+
+                modalScreenshotsContainer.innerHTML = '';
+                data.screenshots.forEach(src => {
+                    const thumbContainer = document.createElement('div');
+                    thumbContainer.classList.add('screenshot-thumb-container');
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `${data.name} Screenshot`;
+                    img.classList.add('screenshot-thumb');
+                    img.dataset.fullsrc = src;
+                    thumbContainer.appendChild(img);
+                    modalScreenshotsContainer.appendChild(thumbContainer);
+                });
+                attachLightboxListenersToModalScreenshots();
+                
+                modalDescription.textContent = data.description;
+                modalClientRequests.textContent = data.clientRequest;
+                modalPrice.textContent = data.price;
+                
+                modalDevStats.innerHTML = '';
+                for(const [key, value] of Object.entries(data.devStats)){
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${key}:</strong> ${value}`;
+                    modalDevStats.appendChild(li);
+                }
+
+                projectDetailModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
-
-        modalCloseButton.addEventListener('click', () => {
+        
+        const closeModal = () => {
             projectDetailModal.classList.remove('active');
             document.body.style.overflow = '';
-        });
+        };
+
+        modalCloseButton.addEventListener('click', closeModal);
         projectDetailModal.addEventListener('click', (e) => {
-            if (e.target === projectDetailModal) {
-                projectDetailModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+            if (e.target === projectDetailModal) closeModal();
         });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && projectDetailModal.classList.contains('active')) {
-                projectDetailModal.classList.remove('active');
-                document.body.style.overflow = '';
+                closeModal();
             }
         });
 
+        // --- Lightbox Logic ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = lightbox.querySelector('.lightbox-close');
 
         function attachLightboxListenersToModalScreenshots() {
             modalScreenshotsContainer.querySelectorAll('.screenshot-thumb').forEach(thumb => {
-                thumb.addEventListener('click', () => {
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent modal from closing if lightbox is clicked
                     const fullSrc = thumb.dataset.fullsrc || thumb.src;
                     if (lightboxImg) lightboxImg.src = fullSrc;
                     if (lightbox) lightbox.classList.add('active');
                 });
             });
         }
+        
+        const closeLightbox = () => {
+             if (lightbox) lightbox.classList.remove('active');
+        };
 
-        if (lightboxClose) {
-            lightboxClose.addEventListener('click', () => {
-                if (lightbox) lightbox.classList.remove('active');
-            });
-        }
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
         if (lightbox) {
             lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.classList.remove('active');
-                }
+                if (e.target === lightbox) closeLightbox();
             });
         }
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
-                lightbox.classList.remove('active');
+                closeLightbox();
             }
         });
     });
     </script>
-
 </body>
 </html>
