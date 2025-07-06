@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Farwed - Roblox Scripter Portfolio</title>
+    <!-- Icon Font Stylesheet -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <style>
         :root {
             --bg-color: #0A0A0A;
             --card-bg-color: #141414;
             --text-color: #f5f5f5;
-            --primary-color: #D32F2F; /* A strong, modern red */
+            --primary-color: #D32F2F;
             --primary-color-rgb: 211, 47, 47;
-            --secondary-color: #FA5252; /* The new icon red for highlights */
+            --secondary-color: #FA5252;
             --secondary-color-rgb: 250, 82, 82;
             --border-color: #2a2a2a;
             --hr-color: #400A0A;
@@ -29,8 +31,6 @@
             color: var(--text-color);
             line-height: 1.7;
             overflow-x: hidden;
-            word-spacing: normal;
-            letter-spacing: normal;
             -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
 
@@ -38,7 +38,7 @@
             border: 0;
             height: 1px;
             background-image: linear-gradient(to right, rgba(0,0,0,0), var(--hr-color), rgba(0,0,0,0));
-            margin: 3rem 0;
+            margin: 4rem 0;
         }
 
         nav {
@@ -54,78 +54,48 @@
         nav ul { list-style: none; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
         nav ul li { margin: 0.5rem 1rem; }
         nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.6rem 0.85rem;
-            border-radius: 8px;
+            color: var(--text-color); text-decoration: none; font-weight: bold;
+            padding: 0.6rem 0.85rem; border-radius: 8px;
             transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
-            font-size: 0.95rem;
-            position: relative;
+            font-size: 0.95rem; position: relative;
         }
-        nav ul li a:hover {
-            color: #fff;
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        nav ul li a.active {
-            color: #fff;
-            background-color: var(--primary-color);
-        }
+        nav ul li a:hover { color: #fff; background-color: var(--primary-color); transform: translateY(-3px); }
+        nav ul li a.active { color: #fff; background-color: var(--primary-color); }
 
         header.main-header {
             background: linear-gradient(145deg, var(--primary-color) 0%, var(--bg-color) 60%);
-            color: var(--text-color);
-            padding: 4rem 1.5rem 5rem;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            position: relative;
+            color: var(--text-color); padding: 4rem 1.5rem 5rem;
+            text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
         .profile-picture {
-            width: 135px;
-            height: 135px;
-            border-radius: 50%;
+            width: 135px; height: 135px; border-radius: 50%;
             border: 4px solid var(--secondary-color);
             box-shadow: 0 0 25px rgba(var(--secondary-color-rgb), 0.6);
-            margin: 0 auto 1.5rem;
-            display: block;
-            object-fit: cover;
+            margin: 0 auto 1.5rem; display: block; object-fit: cover;
         }
-
         header.main-header h1 {
-            font-family: var(--header-font);
-            font-size: 3.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+            font-family: var(--header-font); font-size: 3.2rem; margin-bottom: 0.5rem;
+            font-weight: 800; text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
         }
         header.main-header p.subtitle { font-size: 1.5rem; color: #e0e0e0; opacity: 0.95; }
 
         main { padding: 0 1rem; max-width: 1200px; margin: 2.5rem auto; }
-
-        section {
-            padding: 2.5rem 0;
-            margin-bottom: 1rem;
-        }
+        section { padding: 2.5rem 0; margin-bottom: 1rem; }
 
         section h2 {
-            font-family: var(--header-font);
-            font-size: 2.6rem;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.75rem;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: var(--header-font); font-size: 2.6rem; margin-bottom: 2rem;
+            position: relative; padding-bottom: 0.75rem; text-align: center;
+            display: flex; align-items: center; justify-content: center;
             font-weight: 700;
+            background: linear-gradient(45deg, var(--secondary-color), var(--text-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
         section h2 .section-icon {
-            width: 36px;
-            height: 36px;
-            margin-right: 12px;
-            filter: drop-shadow(0 0 5px rgba(var(--primary-color-rgb), 0.7));
+            width: 36px; height: 36px; margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(var(--primary-color-rgb), 0.5));
         }
         section h2::after {
             content: ''; position: absolute; bottom: 0; left: 50%;
@@ -135,21 +105,16 @@
         }
         section:hover h2::after { width: 120px; }
 
-        section p, section ul, section blockquote {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        section > p {
+            margin-bottom: 1.2rem; font-size: 1.1rem; max-width: 800px;
+            margin-left: auto; margin-right: auto; text-align: center; color: #d1d1d1;
         }
-        #about p {
-            font-size: 1.2rem;
-        }
+        #about p { font-size: 1.2rem; }
 
         blockquote {
             background-color: rgba(var(--primary-color-rgb),0.1); border-left: 5px solid var(--primary-color);
             margin: 2rem auto; padding: 1.5rem 2rem; font-style: italic; color: #e0e0e0; border-radius: 0 8px 8px 0;
+            max-width: 800px;
         }
         blockquote p { margin-bottom: 0; font-size: 1.25rem; line-height: 1.6; }
 
@@ -165,137 +130,107 @@
         .scroll-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
         /* --- Bento Grid for Projects --- */
-        #work h2 { margin-bottom: 2rem; }
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: minmax(200px, auto);
-            gap: 1.25rem;
+            gap: 1.5rem; /* Increased gap */
         }
         .bento-item {
-            background-color: var(--card-bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--card-bg-color); border: 1px solid var(--border-color);
+            border-radius: 16px; overflow: hidden; position: relative; cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .bento-item:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 15px 35px rgba(var(--primary-color-rgb), 0.2);
             border-color: var(--secondary-color);
         }
+        .bento-item--main { border: 1px solid transparent; }
+        .bento-item--main:hover {
+             box-shadow: 0 15px 40px rgba(var(--primary-color-rgb), 0.3);
+             border-color: var(--primary-color);
+        }
         .bento-item--large { grid-column: span 2; grid-row: span 2; }
         .bento-item--small-h { grid-column: span 1; }
         
         .bento-item__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.4s ease;
         }
-        .bento-item:hover .bento-item__img {
-            transform: scale(1.05);
-        }
+        .bento-item:hover .bento-item__img { transform: scale(1.05); }
 
         .bento-item__overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
-            padding: 2.5rem 1.25rem 1.25rem;
-            color: white;
-            transform: translateY(30%);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.98) 10%, rgba(0,0,0,0) 100%);
+            padding: 2.5rem 1.25rem 1.25rem; color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
         }
-        .bento-item:hover .bento-item__overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        .bento-item:hover .bento-item__overlay { transform: translateY(0); }
         .bento-item__title {
-            font-family: var(--header-font);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-family: var(--header-font); font-size: 1.5rem;
+            font-weight: 700; margin-bottom: 0.5rem;
         }
-         .bento-item--small-h .bento-item__title { font-size: 1.2rem; }
+        .bento-item--small-h .bento-item__title { font-size: 1.2rem; }
         .bento-item__desc {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 0.75rem;
+            font-size: 0.9rem; color: #ccc; margin-bottom: 0.75rem;
+            display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden;
         }
         .bento-item__tag {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 0.25rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            display: inline-block; background-color: var(--primary-color);
+            color: #fff; padding: 0.25rem 0.6rem; border-radius: 5px;
+            font-size: 0.8rem; font-weight: bold;
         }
-        .bento-item .view-details-prompt {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(var(--primary-color-rgb), 0.85);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            font-weight: bold;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+        .view-details-prompt {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(var(--bg-color), 0.85); backdrop-filter: blur(5px);
+            color: white; padding: 1rem 1.5rem; border-radius: 10px;
+            font-weight: bold; text-align: center; opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none; border: 1px solid var(--border-color);
         }
-        .bento-item:hover .view-details-prompt {
-            opacity: 1;
-        }
+        .bento-item:hover .view-details-prompt { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
+        .new-tag {
+            position: absolute; top: 12px; right: 12px;
+            width: 40px; height: 40px; z-index: 10;
+        }
+        .new-tag img { width: 100%; height: 100%; filter: drop-shadow(0 0 5px rgba(0,0,0,0.7)); }
 
         /* --- Skills Section Redesign --- */
-        #skills .skills-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            max-width: 1000px;
-            margin: 2rem auto 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem; max-width: 1200px; margin: 2rem auto 0;
         }
         .skill-card {
-            background-color: var(--card-bg-color);
-            padding: 1rem 1.25rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: var(--card-bg-color); padding: 1rem 1.25rem;
+            border-radius: 10px; border: 1px solid var(--border-color);
+            display: flex; align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
         }
         .skill-card:hover {
-            transform: translateY(-5px);
-            background-color: rgba(var(--secondary-color-rgb), 0.1);
+            transform: translateY(-5px); background-color: rgba(var(--secondary-color-rgb), 0.1);
             border-color: var(--secondary-color);
         }
         .skill-card .skill-icon {
-            width: 24px; height: 24px; margin-right: 12px;
-            filter: invert(1); opacity: 0.8;
+            width: 28px; height: 28px; margin-right: 15px;
+            transition: transform 0.3s ease;
         }
-        .skill-card span { font-size: 1rem; font-weight: 500; }
+        .skill-card:hover .skill-icon { transform: scale(1.1) rotate(-5deg); }
+        .skill-card span { font-size: 1.05rem; font-weight: 500; }
 
         /* --- Why Me Section Redesign --- */
-        #why-me .why-me-grid {
-             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.25rem;
-            max-width: 1100px;
-            margin: 2rem auto 0;
+        .why-me-grid {
+             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem; max-width: 1100px; margin: 2rem auto 0;
         }
         .why-me-card {
-            background-color: transparent;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: left;
+            background-color: transparent; padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--border-color); text-align: center;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .why-me-card:hover {
@@ -303,104 +238,100 @@
             border-color: var(--primary-color);
         }
         .why-me-card .why-me-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
+            width: 40px; height: 40px; margin-bottom: 1rem;
+            display: inline-block;
         }
         .why-me-card h4 {
-            font-family: var(--header-font);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-            text-align: center;
+            font-family: var(--header-font); font-size: 1.3rem;
+            margin-bottom: 0.5rem; color: var(--text-color);
         }
          .why-me-card p {
-            font-size: 0.95rem;
-            color: #c5c5c5;
-            line-height: 1.6;
-            text-align: center;
+            font-size: 0.95rem; color: #c5c5c5;
+            line-height: 1.6; text-align: center;
         }
 
         /* --- Availability & Payment Section --- */
         .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 2rem auto 0;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem; max-width: 900px; margin: 2rem auto 0;
         }
         .info-card {
-            background-color: var(--card-bg-color);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            background-color: var(--card-bg-color); padding: 2rem;
+            border-radius: 12px; border: 1px solid var(--border-color);
         }
         .info-card h3 {
-            font-family: var(--header-font);
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
+            font-family: var(--header-font); font-size: 1.8rem;
+            color: var(--text-color); margin-bottom: 1.5rem; text-align: center;
+            display: flex; align-items: center; justify-content: center;
         }
+        .info-card h3 img { width: 32px; height: 32px; margin-right: 10px; }
         .info-card ul { list-style: none; padding: 0; }
         .info-card ul li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            display: flex; align-items: center;
+            margin-bottom: 1rem; font-size: 1rem;
         }
-        .info-card ul li img { width: 22px; height: 22px; margin-right: 10px; }
+        .info-card ul li img { width: 24px; height: 24px; margin-right: 12px; }
 
+        /* --- Testimonials Section --- */
+        .testimonial-card {
+            background-color: var(--card-bg-color); border-radius: 12px;
+            padding: 2rem; max-width: 700px; margin: 1rem auto;
+            border: 1px solid var(--border-color); position: relative;
+        }
+        .testimonial-card .quote-icon {
+            width: 30px; height: 30px; position: absolute;
+            top: 20px; left: 20px; opacity: 0.5;
+        }
+        .testimonial-card p { font-style: italic; font-size: 1.1rem; margin: 0; }
+        .testimonial-card .client-name {
+            display: block; text-align: right; margin-top: 1rem;
+            font-style: normal; font-weight: bold; color: var(--secondary-color);
+        }
 
         /* --- Modal and Lightbox (Minor tweaks) --- */
         #project-detail-modal {
-            display: none; position: fixed; z-index: 2000;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0, 0.92);
-            justify-content: center; align-items: center;
-            opacity: 0; transition: opacity 0.3s ease-in-out;
-            overflow-y: auto; padding: 20px;
+            display: none; position: fixed; z-index: 2000; top: 0; left: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0, 0.92);
+            justify-content: center; align-items: center; opacity: 0;
+            transition: opacity 0.3s ease-in-out; overflow-y: auto; padding: 20px;
         }
         #project-detail-modal.active { display: flex; opacity: 1; }
         .modal-content {
-            background-color: var(--card-bg-color);
-            padding: 2.5rem; border-radius: 12px;
-            width: 90%; max-width: 900px; max-height: 90vh;
-            overflow-y: auto; position: relative;
+            background-color: var(--card-bg-color); padding: 2.5rem; border-radius: 12px;
+            width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; position: relative;
             transform: scale(0.85) translateY(20px); opacity: 0;
             transition: transform 0.35s var(--scroll-reveal-timing), opacity 0.3s ease-in-out;
             border: 1px solid var(--border-color);
         }
         #project-detail-modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
         .modal-close {
-            position: absolute; top: 15px; right: 25px;
-            color: var(--text-color); font-size: 2.5rem; font-weight: bold;
-            cursor: pointer; transition: color 0.3s ease, transform 0.3s ease;
-            line-height: 1;
+            position: absolute; top: 15px; right: 25px; color: var(--text-color);
+            font-size: 2.5rem; font-weight: bold; cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease; line-height: 1;
         }
         .modal-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
-
         .modal-content h4 {
             font-family: var(--header-font); color: var(--primary-color);
             font-size: 2.2rem; margin-bottom: 1.5rem; text-align: center;
         }
         .modal-content .screenshots { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0; justify-content: center; }
         .modal-content .screenshot-thumb-container {
-            flex: 1 1 200px; max-width: calc(33.33% - 7px);
-            border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
+            flex: 1 1 200px; max-width: calc(33.33% - 7px); border-radius: 8px;
+            overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
             transition: transform 0.2s ease;
         }
         .modal-content .screenshot-thumb-container:hover { transform: scale(1.05); }
         .modal-content .screenshot-thumb { width: 100%; height: auto; display: block; }
-        
         .modal-section { margin-bottom: 1.5rem; }
-        .modal-section h5 { color: var(--secondary-color); font-size: 1.2rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--hr-color); padding-bottom: 0.3rem;}
+        .modal-section h5 {
+            color: var(--secondary-color); font-size: 1.2rem; margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--hr-color); padding-bottom: 0.3rem;
+            display: flex; align-items: center;
+        }
+        .modal-section h5 img { width: 20px; height: 20px; margin-right: 8px; }
         .modal-section p, .modal-section ul { font-size: 1rem; color: #dcdcdc; }
         .modal-section ul { list-style: none; padding: 0; }
         .modal-section li { background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 5px; margin-bottom: 0.3rem; }
-
         .button-preview {
             display: inline-block; background-color: var(--primary-color); color: var(--text-color);
             padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;
@@ -412,18 +343,16 @@
             text-decoration: none; transform: translateY(-3px);
         }
 
+        /* --- Lightbox Styles --- */
         #lightbox {
-            display: none; position: fixed; z-index: 2001;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0, 0.95);
-            justify-content: center; align-items: center; padding: 20px;
-            opacity: 0; transition: opacity 0.4s ease-in-out;
+            display: none; position: fixed; z-index: 2001; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0, 0.95); justify-content: center; align-items: center;
+            padding: 20px; opacity: 0; transition: opacity 0.4s ease-in-out;
         }
         #lightbox.active { display: flex; opacity: 1; }
         #lightbox-img {
-            max-width: 95%; max-height: 95%; object-fit: contain;
-            border-radius: 8px; box-shadow: 0 0 40px rgba(var(--primary-color-rgb), 0.6);
-            transform: scale(0.7);
+            max-width: 95%; max-height: 95%; object-fit: contain; border-radius: 8px;
+            box-shadow: 0 0 40px rgba(var(--primary-color-rgb), 0.6); transform: scale(0.7);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0.1s;
         }
         #lightbox.active #lightbox-img { transform: scale(1); }
@@ -434,13 +363,10 @@
         }
         .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
         
+        /* --- Contact & Footer --- */
         #contact .contact-methods {
-            background: var(--card-bg-color);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 2rem auto 0;
-            border: 1px solid var(--border-color);
+            background: var(--card-bg-color); border-radius: 12px; padding: 2.5rem;
+            max-width: 600px; margin: 2rem auto 0; border: 1px solid var(--border-color);
         }
         #contact .contact-methods p {
             margin-bottom: 1rem; font-size: 1.1rem; display: flex;
@@ -467,9 +393,10 @@
             header.main-header h1 { font-size: 2.8rem; }
             .profile-picture { width: 120px; height: 120px; }
             section h2 { font-size: 2.2rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-item--large { grid-column: span 1; grid-row: span 1; aspect-ratio: 16 / 10; }
-            .bento-item--small-h { aspect-ratio: 16 / 9; }
+            .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .bento-item--large, .bento-item--small-h { grid-column: span 1; grid-row: span 1; aspect-ratio: 16 / 10; }
+            .bento-item__overlay { transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,0.98) 30%, rgba(0,0,0,0) 100%); }
+            .view-details-prompt { display: none; }
             .modal-content { padding: 1.5rem; }
             .modal-content .screenshot-thumb-container { max-width: calc(50% - 5px); }
         }
@@ -485,6 +412,7 @@
             .bento-item__title { font-size: 1.2rem; }
             #about p { font-size: 1rem; }
             blockquote p { font-size: 1.1rem; }
+            .skills-grid, .why-me-grid { grid-template-columns: 1fr; }
             .modal-content h4 { font-size: 1.8rem; }
             .modal-content .screenshot-thumb-container { max-width: 100%; }
         }
@@ -501,8 +429,8 @@
 
     <nav id="navbar">
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#work">My Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#why-me">Why Me?</a></li>
             <li><a href="#payment">Rates</a></li>
@@ -522,10 +450,10 @@
         <hr class="custom-hr">
 
         <section id="work" class="scroll-reveal">
-            <h2>My Work</h2>
-            <div class="bento-grid">
-                <!-- Main Project 1 -->
-                <div class="bento-item bento-item--large scroll-reveal" data-project-id="bp1">
+            <h2><img src="https://img.icons8.com/?size=100&id=33297&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
+             <div class="bento-grid">
+                <div class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
+                    <div class="new-tag"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New Project"></div>
                     <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Hide and Seek Project</h3>
@@ -534,8 +462,8 @@
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <!-- Small Project 1 -->
                 <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
+                     <div class="new-tag"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New Project"></div>
                      <img src="https://i.postimg.cc/vZQtP90N/image.png" alt="Fearless Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Fearless Project</h3>
@@ -544,8 +472,7 @@
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <!-- Small Project 2 -->
-                 <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp2">
+                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp2">
                      <img src="https://i.postimg.cc/MpTqzfnc/image.png" alt="GUI Roll Animation" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">GUI Roll Animation</h3>
@@ -554,8 +481,7 @@
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                <!-- Main Project 2 -->
-                <div class="bento-item bento-item--large scroll-reveal" data-project-id="bp2">
+                <div class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp2">
                      <img src="https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png" alt="Random Platformer Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Random Platformer [Pre-Alpha]</h3>
@@ -564,7 +490,6 @@
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
                 </div>
-                 <!-- Small Project 3 -->
                 <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
                      <img src="https://i.postimg.cc/85WTq8jt/image.png" alt="Data Management System" class="bento-item__img">
                     <div class="bento-item__overlay">
@@ -581,14 +506,14 @@
         <section id="skills" class="scroll-reveal">
             <h2><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Code terminal icon" class="section-icon">Core Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Advanced Roblox Lua Scripting</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Client-Server Architecture (Remotes)</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Anti-Cheat & Exploitation Security</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>DataStores & Data Persistence</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>UI Scripting & Tweening/Animation</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Performance Optimization & Debugging</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Game Systems (Currency, Inventory, etc.)</span></div>
-                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" class="skill-icon" alt="Red Icon"><span>Modular & Organized Code Design</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=lm7emUJqrpOM&format=png&color=FFFFFF" class="skill-icon" alt="Roblox Studio Icon"><span>Advanced Roblox Lua</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=9936&format=png&color=FFFFFF" class="skill-icon" alt="Servers Icon"><span>Client-Server Architecture</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=33294&format=png&color=FFFFFF" class="skill-icon" alt="Code Fork Icon"><span>Anti-Cheat & Security</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=xyr0eNWJNQB0&format=png&color=FFFFFF" class="skill-icon" alt="DataStore Icon"><span>DataStores & Persistence</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" class="skill-icon" alt="Paint Brush Icon"><span>UI Scripting & Tweening</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" class="skill-icon" alt="Laptop Settings Icon"><span>Performance Optimization</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=38248&format=png&color=FFFFFF" class="skill-icon" alt="Script File Icon"><span>Complex Game Systems</span></div>
+                <div class="skill-card"><img src="https://img.icons8.com/?size=100&id=2866&format=png&color=FFFFFF" class="skill-icon" alt="Tool Icon"><span>Debugging & Bug Fixing</span></div>
             </div>
         </section>
         <hr class="custom-hr">
@@ -597,49 +522,66 @@
             <h2><img src="https://img.icons8.com/?size=100&id=57925&format=png&color=FFFFFF" alt="Guarantee badge icon" class="section-icon">Why Choose Me?</h2>
             <div class="why-me-grid">
                 <div class="why-me-card">
+                    <img src="https://img.icons8.com/?size=100&id=8141&format=png&color=FFFFFF" class="why-me-icon" alt="Paint Brush">
                     <h4>Clean & Organized Code</h4>
-                    <p>I deliver readable, commented, and modular code that is easy for you or any future developer to maintain and expand.</p>
+                    <p>I deliver readable, commented, and modular code that is easy to maintain and expand.</p>
                 </div>
                 <div class="why-me-card">
+                    <img src="https://img.icons8.com/?size=100&id=104619&format=png&color=FFFFFF" class="why-me-icon" alt="Coil">
                     <h4>Proactive Communication</h4>
-                    <p>Expect fast replies, frequent progress updates, and live demos so you're always in the loop on your project's status.</p>
+                    <p>Expect fast replies and frequent progress updates so you're always in the loop.</p>
                 </div>
                 <div class="why-me-card">
+                    <img src="https://img.icons8.com/?size=100&id=8064&format=png&color=FFFFFF" class="why-me-icon" alt="Hammer">
                     <h4>Reliable & Efficient</h4>
-                    <p>I am committed to completing tasks quickly and reliably, respecting deadlines and your project's goals.</p>
+                    <p>I am committed to completing tasks quickly and reliably, respecting deadlines and your goals.</p>
                 </div>
                 <div class="why-me-card">
-                    <h4>Security Focused</h4>
-                    <p>With strong experience in anti-cheat development, I build systems that are secure against common exploits from the ground up.</p>
+                    <img src="https://img.icons8.com/?size=100&id=2866&format=png&color=FFFFFF" class="why-me-icon" alt="Tools">
+                    <h4>Strong Anti-Cheat</h4>
+                    <p>I build systems that are secure against common exploits from the ground up.</p>
                 </div>
                  <div class="why-me-card">
+                    <img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" class="why-me-icon" alt="Handshake">
                     <h4>Flexible & Adaptable</h4>
-                    <p>Whether you need a new system built from scratch or an existing one modified, I can adapt to your project's specific needs.</p>
+                    <p>I can create new systems from scratch or seamlessly integrate with your existing code.</p>
                 </div>
                  <div class="why-me-card">
-                    <h4>Problem Solver</h4>
-                    <p>I excel at debugging complex issues and optimizing scripts for maximum performance and stability.</p>
+                    <img src="https://img.icons8.com/?size=100&id=EgdPOf5KW0fN&format=png&color=FFFFFF" class="why-me-icon" alt="Chain">
+                    <h4>Consistent Updates</h4>
+                    <p>You will receive frequent demos and progress reports throughout the development cycle.</p>
                 </div>
             </div>
+        </section>
+        <hr class="custom-hr">
+
+         <section id="testimonials" class="scroll-reveal">
+            <h2><img src="https://img.icons8.com/?size=100&id=1jawc6EAIZaa&format=png&color=FFFFFF" alt="Testimonials Icon" class="section-icon">Testimonials</h2>
+             <div class="testimonial-card">
+                 <img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" class="quote-icon" alt="Thumbs up">
+                 <p>"Farwed delivered fast and exceeded expectations! His code was super clean and easy to work with."</p>
+                 <span class="client-name">- A Happy Client</span>
+             </div>
+             <p style="text-align: center; color: #888; font-style: italic; margin-top: 2rem;">(Additional testimonials available upon request)</p>
         </section>
         <hr class="custom-hr">
 
         <section id="payment" class="scroll-reveal">
              <div class="info-grid">
                 <div class="info-card">
-                    <h3>Availability</h3>
+                    <h3><img src="https://img.icons8.com/?size=100&id=ulpja5kGxpe0&format=png&color=FFFFFF" alt="Laptop settings icon">Availability</h3>
                     <ul>
-                        <li><img src="https://img.icons8.com/?size=100&id=26040&format=png&color=FFFFFF" alt="watch icon"><span><strong>Online:</strong> Almost 24/7 (excluding sleep/meals)</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=26040&format=png&color=FFFFFF" alt="watch icon"><span><strong>Online:</strong> Almost 24/7 (excluding sleep)</span></li>
                         <li><img src="https://img.icons8.com/?size=100&id=Ombv0J96v0Wr&format=png&color=FFFFFF" alt="clock icon"><span><strong>Workload:</strong> 1 to 12 hours/day</span></li>
                         <li><img src="https://img.icons8.com/?size=100&id=8118&format=png&color=FFFFFF" alt="checklist icon"><span><strong>Turnaround:</strong> 1 hour to 12 days per project</span></li>
                     </ul>
                 </div>
                  <div class="info-card">
-                    <h3>Payment Rates</h3>
+                    <h3><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Card dollar icon">Payment Rates</h3>
                      <ul>
                         <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Hourly:</strong> $10 - $25 USD</span></li>
                         <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Per Project:</strong> $100 - $250+ USD</span></li>
-                        <li><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FA5252" alt="Red Icon"><span>All prices are negotiable based on complexity.</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point"><span>All prices are negotiable based on complexity.</span></li>
                     </ul>
                 </div>
             </div>
@@ -647,7 +589,7 @@
         <hr class="custom-hr">
 
         <section id="contact" class="scroll-reveal">
-            <h2>Ready to Build?</h2>
+            <h2><img src="https://img.icons8.com/?size=100&id=10994&format=png&color=FFFFFF" alt="Handshake Icon" class="section-icon">Ready to Build?</h2>
             <p>Let's get in touch and bring your game idea to life.</p>
             <div class="contact-methods">
                 <p><i class="fi fi-brands-discord contact-icon" style="color: var(--secondary-color); font-size: 24px; line-height:1;"></i><strong>Discord:</strong> <code style="background-color: #333; padding: 0.2em 0.4em; border-radius: 3px; color: var(--secondary-color);">farwedyed</code></p>
@@ -673,14 +615,16 @@
                 <p id="modal-client-requests"></p>
             </div>
 
-            <div class="modal-section">
-                <h5>Development Statistics</h5>
-                <ul id="modal-dev-stats"></ul>
-            </div>
-            
-             <div class="modal-section">
-                <h5>Price</h5>
-                <p id="modal-price"></p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="modal-section" style="flex: 1; min-width: 200px;">
+                    <h5><img src="https://img.icons8.com/?size=100&id=PBZi7qYvgxLV&format=png&color=FFFFFF" alt="Dev Stats">Dev Statistics</h5>
+                    <ul id="modal-dev-stats"></ul>
+                </div>
+                 <div class="modal-section" style="flex: 1; min-width: 200px;">
+                    <h5><img src="https://img.icons8.com/?size=100&id=Ombv0J96v0Wr&format=png&color=FFFFFF" alt="Time Spent">Time & Price</h5>
+                    <p id="modal-time-spent"></p>
+                    <p id="modal-price"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -697,115 +641,59 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Updated Project Data ---
         const projectsData = {
             bp1: {
-                name: "Hide and Seek Project",
-                youtubeId: "LB0cFfhv7Mg",
-                screenshots: [
-                    "https://i.postimg.cc/mDdSfnJ1/image.png",
-                    "https://i.postimg.cc/j2mQC7ss/Roblox-Screen-Shot20250706-035814047.png",
-                    "https://i.postimg.cc/2S4F8ygD/Roblox-Screen-Shot20250706-035822355.png",
-                    "https://i.postimg.cc/mrB3cRGF/Roblox-Screen-Shot20250706-035905763.png"
-                ],
+                name: "Hide and Seek Project", youtubeId: "LB0cFfhv7Mg", time: "~180 hours",
+                screenshots: ["https://i.postimg.cc/mDdSfnJ1/image.png", "https://i.postimg.cc/j2mQC7ss/Roblox-Screen-Shot20250706-035814047.png", "https://i.postimg.cc/2S4F8ygD/Roblox-Screen-Shot20250706-035822355.png", "https://i.postimg.cc/mrB3cRGF/Roblox-Screen-Shot20250706-035905763.png"],
                 description: "Developed a feature-complete, round-based Hide and Seek game from the ground up. The project includes a robust game loop, role management (Hider/Seeker), spectating system for active and late-joining players, and engaging UI elements like a jackpot-style role reveal and map voting.",
                 clientRequest: "The client requested a full game loop including intermissions and rounds, a spectating system with multiple modes, hider/seeker roles with win conditions, and basic UI integration for a shop, taunts, and a map selection system.",
-                devStats: {
-                    "Total Code": "3,500+ lines",
-                    "Critical Bugs Fixed": "204",
-                    "Script Optimizations": "29",
-                    "Development Time": "~180 hours"
-                },
+                devStats: { "Total Code": "3,500+ lines", "Critical Bugs Fixed": "204", "Script Optimizations": "29" },
                 price: "$150 USD"
             },
             bp2: {
-                name: "Random Platformer [Pre-Alpha]",
-                youtubeId: "mUWWWWTywng",
-                screenshots: [
-                    "https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png",
-                    "https://i.postimg.cc/cHXSnf5G/Roblox-Screen-Shot20250706-041602008.png",
-                    "https://i.postimg.cc/W4mjsBG3/Roblox-Screen-Shot20250706-041636107.png",
-                    "https://i.postimg.cc/mkkGNh0z/Roblox-Screen-Shot20250706-041654563.png",
-                    "https://i.postimg.cc/k5Pq3Jtz/Roblox-Screen-Shot20250706-041656226.png"
-                ],
+                name: "Random Platformer [Pre-Alpha]", youtubeId: "mUWWWWTywng", time: "~210 hours",
+                screenshots: ["https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png", "https://i.postimg.cc/cHXSnf5G/Roblox-Screen-Shot20250706-041602008.png", "https://i.postimg.cc/W4mjsBG3/Roblox-Screen-Shot20250706-041636107.png", "https://i.postimg.cc/mkkGNh0z/Roblox-Screen-Shot20250706-041654563.png", "https://i.postimg.cc/k5Pq3Jtz/Roblox-Screen-Shot20250706-041656226.png"],
                 description: "This is a fast-paced, competitive racing game built around rounds of procedurally selected parkour maps. Players earn points for winning and can collect coins to purchase cosmetic trails and gameplay-affecting events like Speed Boost or Low Gravity, similar to Tower of Hell. A global leaderboard encourages competition.",
                 clientRequest: "This was a personal project to build my first full game, focusing on creating a fun, replayable core loop with monetization and competitive elements.",
-                 devStats: {
-                    "Total Code": "2,500+ lines",
-                    "Critical Bugs Fixed": "153",
-                    "Script Optimizations": "45",
-                    "Development Time": "~210 hours"
-                },
+                 devStats: { "Total Code": "2,500+ lines", "Critical Bugs Fixed": "153", "Script Optimizations": "45" },
                 price: "Approx. $100 USD"
             },
             sp1: {
-                name: "Fearless Project",
-                youtubeId: "GvWFg1jldmo",
-                screenshots: [
-                    "https://i.postimg.cc/vZQtP90N/image.png",
-                    "https://i.postimg.cc/zG0S4BMX/image1.png",
-                    "https://i.postimg.cc/8PdbBwmv/image4.png"
-                ],
+                name: "Fearless Project", youtubeId: "GvWFg1jldmo", time: "~5 hours",
+                screenshots: ["https://i.postimg.cc/vZQtP90N/image.png", "https://i.postimg.cc/zG0S4BMX/image1.png", "https://i.postimg.cc/8PdbBwmv/image4.png"],
                 description: "Created a unique puzzle-horror mechanic where players use a camera to 'capture' marked locations. Upon a successful photo, a door materializes at the mark. The system includes camera animations, sound effects, and a secondary line-connection puzzle mechanic to automatically open doors.",
                 clientRequest: "The client requested a camera-based puzzle system. The core mechanic involved taking pictures of 'X' symbols to reveal doors, complete with idle/capture animations and sounds. An additional line-connection puzzle was also required.",
-                devStats: {
-                    "Total Code": "200+ lines",
-                    "Critical Bugs Fixed": "2",
-                    "Development Time": "~5 hours"
-                },
+                devStats: { "Total Code": "200+ lines", "Bugs Fixed": "2", "Optimizations": "2" },
                 price: "$15 USD"
             },
             sp2: {
-                name: "GUI Roll Animation",
-                youtubeId: "EV7XCVqjc38",
-                screenshots: [
-                    "https://i.postimg.cc/MpTqzfnc/image.png",
-                    "https://i.postimg.cc/C5SpXRyx/image.png"
-                ],
+                name: "GUI Roll Animation", youtubeId: "EV7XCVqjc38", time: "~2 hours",
+                screenshots: ["https://i.postimg.cc/MpTqzfnc/image.png", "https://i.postimg.cc/C5SpXRyx/image.png"],
                 description: "Engineered a dynamic 'gacha' roll animation for a game's UI. A key feature is the 'Quick Roll' toggle, which significantly speeds up the animation sequence for players who want immediate results, providing a better user experience.",
                 clientRequest: "The request was to create a roll animation with a 'Quick Roll' toggle. The button needed to be highlighted when active, and toggling it on had to make the animation noticeably faster than the slow default speed.",
-                devStats: {
-                    "Total Code": "500+ lines",
-                    "Critical Bugs Fixed": "4",
-                    "Script Optimizations": "7",
-                    "Development Time": "~2 hours"
-                },
+                devStats: { "Total Code": "500+ lines", "Bugs Fixed": "4", "Optimizations": "7" },
                 price: "$9 USD"
             },
             sp3: {
-                name: "Advanced Data Management",
-                youtubeId: "_KaqGini3Ww",
-                screenshots: [
-                   "https://i.postimg.cc/85WTq8jt/image.png",
-                   "https://i.postimg.cc/85WTq8jt/image.png",
-                   "https://i.postimg.cc/85WTq8jt/image.png"
-                ],
+                name: "Advanced Data Management", youtubeId: "_KaqGini3Ww", time: "~8 hours",
+                screenshots: ["https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png"],
                 description: "Developed a robust, standalone datastore module to handle all player data securely. Features include session locking to prevent data duplication/loss from joining on multiple devices, and built-in retry mechanisms for failed API calls to ensure data integrity.",
                 clientRequest: "A client needed a secure and reliable way to manage player data for their game, specifically requesting protection against common data loss issues and API failures.",
-                devStats: {
-                    "Total Code": "400+ lines",
-                    "Critical Bugs Fixed": "N/A (Proactive Build)",
-                    "Development Time": "~8 hours"
-                },
+                devStats: { "Total Code": "400+ lines", "Build": "Proactive", "Purpose": "Data Security" },
                 price: "$20 USD"
             }
         };
 
-        // --- Reveal on Scroll ---
         const revealElements = document.querySelectorAll('.scroll-reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
             revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
-                    el.classList.add('visible');
-                }
+                if (el.getBoundingClientRect().top < windowHeight - 80) el.classList.add('visible');
             });
         };
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+        revealOnScroll();
 
-        // --- Active Nav Link on Scroll ---
         const sections = document.querySelectorAll('main section[id]');
         const navLinks = document.querySelectorAll('nav ul li a');
         const navbar = document.getElementById('navbar');
@@ -821,17 +709,12 @@
             });
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').substring(1) === current) link.classList.add('active');
             });
         });
 
-        // --- Current Year for Footer ---
-        const currentYearSpan = document.getElementById('currentYear');
-        if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Modal Logic ---
         const projectDetailModal = document.getElementById('project-detail-modal');
         const modalProjectName = document.getElementById('modal-project-name');
         const modalLivePreviewContainer = document.getElementById('modal-live-preview-container');
@@ -839,6 +722,7 @@
         const modalDescription = document.getElementById('modal-description');
         const modalClientRequests = document.getElementById('modal-client-requests');
         const modalDevStats = document.getElementById('modal-dev-stats');
+        const modalTimeSpent = document.getElementById('modal-time-spent');
         const modalPrice = document.getElementById('modal-price');
         const modalCloseButton = projectDetailModal.querySelector('.modal-close');
 
@@ -865,18 +749,16 @@
                     const thumbContainer = document.createElement('div');
                     thumbContainer.classList.add('screenshot-thumb-container');
                     const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = `${data.name} Screenshot`;
-                    img.classList.add('screenshot-thumb');
-                    img.dataset.fullsrc = src;
-                    thumbContainer.appendChild(img);
+                    img.src = src; img.alt = `${data.name} Screenshot`; img.classList.add('screenshot-thumb');
+                    img.dataset.fullsrc = src; thumbContainer.appendChild(img);
                     modalScreenshotsContainer.appendChild(thumbContainer);
                 });
-                attachLightboxListenersToModalScreenshots();
+                attachLightboxListeners();
                 
                 modalDescription.textContent = data.description;
                 modalClientRequests.textContent = data.clientRequest;
-                modalPrice.textContent = data.price;
+                modalPrice.innerHTML = `<strong>Price:</strong> ${data.price}`;
+                modalTimeSpent.innerHTML = `<strong>Time:</strong> ${data.time}`;
                 
                 modalDevStats.innerHTML = '';
                 for(const [key, value] of Object.entries(data.devStats)){
@@ -896,46 +778,27 @@
         };
 
         modalCloseButton.addEventListener('click', closeModal);
-        projectDetailModal.addEventListener('click', (e) => {
-            if (e.target === projectDetailModal) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && projectDetailModal.classList.contains('active')) {
-                closeModal();
-            }
-        });
+        projectDetailModal.addEventListener('click', (e) => { if (e.target === projectDetailModal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && projectDetailModal.classList.contains('active')) closeModal(); });
 
-        // --- Lightbox Logic ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = lightbox.querySelector('.lightbox-close');
 
-        function attachLightboxListenersToModalScreenshots() {
+        function attachLightboxListeners() {
             modalScreenshotsContainer.querySelectorAll('.screenshot-thumb').forEach(thumb => {
                 thumb.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent modal from closing if lightbox is clicked
-                    const fullSrc = thumb.dataset.fullsrc || thumb.src;
-                    if (lightboxImg) lightboxImg.src = fullSrc;
-                    if (lightbox) lightbox.classList.add('active');
+                    e.stopPropagation();
+                    lightboxImg.src = thumb.dataset.fullsrc || thumb.src;
+                    lightbox.classList.add('active');
                 });
             });
         }
         
-        const closeLightbox = () => {
-             if (lightbox) lightbox.classList.remove('active');
-        };
-
-        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-        if (lightbox) {
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) closeLightbox();
-            });
-        }
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
+        const closeLightbox = () => lightbox.classList.remove('active');
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
     });
     </script>
 </body>
