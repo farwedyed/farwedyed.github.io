@@ -17,6 +17,8 @@
             --secondary-color-rgb: 250, 82, 82;
             --border-color: #2a2a2a;
             --hr-color: #400A0A;
+            --star-color: #FFC107; /* Gold color for stars */
+            --star-empty-color: #444; /* Color for empty stars */
             --header-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --body-font: 'Roboto', 'Open Sans', Arial, sans-serif;
             --scroll-reveal-duration: 0.6s;
@@ -79,8 +81,10 @@
         }
         header.main-header p.subtitle { font-size: 1.5rem; color: #e0e0e0; opacity: 0.95; }
 
-        main { padding: 0 1rem; max-width: 1200px; margin: 2.5rem auto; }
-        section { padding: 2.5rem 0; margin-bottom: 1rem; }
+        main { padding: 0; max-width: 1200px; margin: 2.5rem auto; }
+        section { padding: 2.5rem 1rem; margin-bottom: 1rem; }
+        #testimonials { padding: 2.5rem 0; } /* Full width for testimonials */
+
 
         section h2 {
             font-family: var(--header-font); font-size: 2.6rem; margin-bottom: 2rem;
@@ -88,10 +92,8 @@
             display: flex; align-items: center; justify-content: center;
             font-weight: 700;
             background: linear-gradient(45deg, var(--secondary-color), var(--text-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; text-fill-color: transparent;
         }
         section h2 .section-icon {
             width: 36px; height: 36px; margin-right: 12px;
@@ -111,13 +113,6 @@
         }
         #about p { font-size: 1.2rem; }
 
-        blockquote {
-            background-color: rgba(var(--primary-color-rgb),0.1); border-left: 5px solid var(--primary-color);
-            margin: 2rem auto; padding: 1.5rem 2rem; font-style: italic; color: #e0e0e0; border-radius: 0 8px 8px 0;
-            max-width: 800px;
-        }
-        blockquote p { margin-bottom: 0; font-size: 1.25rem; line-height: 1.6; }
-
         strong { color: var(--secondary-color); font-weight: 600; }
         a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--primary-color); text-decoration: underline; }
@@ -134,7 +129,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: minmax(200px, auto);
-            gap: 1.5rem; /* Increased gap */
+            gap: 1.5rem;
         }
         .bento-item {
             background-color: var(--card-bg-color); border: 1px solid var(--border-color);
@@ -163,26 +158,34 @@
         .bento-item__overlay {
             position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.98) 10%, rgba(0,0,0,0) 100%);
-            padding: 2.5rem 1.25rem 1.25rem; color: white;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
+            padding: 1.25rem; color: white;
+            transform: translateY(100%); transition: transform 0.4s ease;
         }
         .bento-item:hover .bento-item__overlay { transform: translateY(0); }
         .bento-item__title {
             font-family: var(--header-font); font-size: 1.5rem;
-            font-weight: 700; margin-bottom: 0.5rem;
+            font-weight: 700; margin-bottom: 0.25rem; line-height: 1.2;
         }
         .bento-item--small-h .bento-item__title { font-size: 1.2rem; }
         .bento-item__desc {
-            font-size: 0.9rem; color: #ccc; margin-bottom: 0.75rem;
+            font-size: 0.9rem; color: #ccc; margin-bottom: 0.5rem;
             display: -webkit-box; -webkit-line-clamp: 2;
             -webkit-box-orient: vertical; overflow: hidden;
         }
         .bento-item__tag {
             display: inline-block; background-color: var(--primary-color);
             color: #fff; padding: 0.25rem 0.6rem; border-radius: 5px;
-            font-size: 0.8rem; font-weight: bold;
+            font-size: 0.8rem; font-weight: bold; margin-top: 0.25rem;
         }
+        .bento-item__time {
+            position: absolute; top: 12px; left: 12px;
+            background: rgba(0,0,0,0.7);
+            color: #fff; padding: 0.2rem 0.6rem; border-radius: 5px;
+            font-size: 0.75rem; font-weight: bold; z-index: 5;
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+        }
+        .bento-item:hover .bento-item__time { opacity: 1; }
+        
         .view-details-prompt {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%) scale(0.8);
@@ -194,22 +197,14 @@
         }
         .bento-item:hover .view-details-prompt { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-        .new-tag {
-            position: absolute; top: 12px; right: 12px;
-            width: 40px; height: 40px; z-index: 10;
-        }
-        .new-tag img { width: 100%; height: 100%; filter: drop-shadow(0 0 5px rgba(0,0,0,0.7)); }
-
-        /* --- Skills Section Redesign --- */
+        /* --- Skills Section --- */
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1rem; max-width: 1200px; margin: 2rem auto 0;
         }
         .skill-card {
             background-color: var(--card-bg-color); padding: 1rem 1.25rem;
-            border-radius: 10px; border: 1px solid var(--border-color);
-            display: flex; align-items: center;
+            border-radius: 10px; border: 1px solid var(--border-color); display: flex; align-items: center;
             transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
         }
         .skill-card:hover {
@@ -223,7 +218,7 @@
         .skill-card:hover .skill-icon { transform: scale(1.1) rotate(-5deg); }
         .skill-card span { font-size: 1.05rem; font-weight: 500; }
 
-        /* --- Why Me Section Redesign --- */
+        /* --- Why Me Section --- */
         .why-me-grid {
              display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.25rem; max-width: 1100px; margin: 2rem auto 0;
@@ -233,22 +228,54 @@
             border: 1px solid var(--border-color); text-align: center;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
-        .why-me-card:hover {
+        .why-me-card:hover { background-color: var(--card-bg-color); border-color: var(--primary-color); }
+        .why-me-card .why-me-icon { width: 40px; height: 40px; margin-bottom: 1rem; display: inline-block; }
+        .why-me-card h4 { font-family: var(--header-font); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-color); }
+        .why-me-card p { font-size: 0.95rem; color: #c5c5c5; line-height: 1.6; text-align: center; }
+
+        /* --- Testimonials Section (FIXED) --- */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-350px * 3)); }
+        }
+        .testimonial-container {
+            overflow: hidden; padding: 2rem 0;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .testimonial-track {
+            display: flex;
+            width: calc(350px * 6); /* card_width * (num_testimonials * 2) */
+            animation: scroll 30s linear infinite;
+        }
+        .testimonial-container:hover .testimonial-track { animation-play-state: paused; }
+
+        .testimonial-card {
             background-color: var(--card-bg-color);
-            border-color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 320px;
+            margin: 0 15px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .why-me-card .why-me-icon {
-            width: 40px; height: 40px; margin-bottom: 1rem;
-            display: inline-block;
+        .testimonial-container:hover .testimonial-card { opacity: 0.8; }
+        .testimonial-container:hover .testimonial-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            opacity: 1;
         }
-        .why-me-card h4 {
-            font-family: var(--header-font); font-size: 1.3rem;
-            margin-bottom: 0.5rem; color: var(--text-color);
-        }
-         .why-me-card p {
-            font-size: 0.95rem; color: #c5c5c5;
-            line-height: 1.6; text-align: center;
-        }
+        .testimonial-header { display: flex; align-items: center; margin-bottom: 1rem; }
+        .testimonial-pfp { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 1rem; }
+        .testimonial-author-info { flex-grow: 1; }
+        .testimonial-author-info h5 { font-size: 1.1rem; margin: 0; font-weight: 600; }
+        .testimonial-stars { font-size: 1rem; }
+        .testimonial-stars-filled { color: var(--star-color); }
+        .testimonial-stars-empty { color: var(--star-empty-color); }
+        .testimonial-quote { font-size: 0.95rem; color: #d1d1d1; font-style: italic; line-height: 1.6; }
+
 
         /* --- Availability & Payment Section --- */
         .info-grid {
@@ -266,29 +293,10 @@
         }
         .info-card h3 img { width: 32px; height: 32px; margin-right: 10px; }
         .info-card ul { list-style: none; padding: 0; }
-        .info-card ul li {
-            display: flex; align-items: center;
-            margin-bottom: 1rem; font-size: 1rem;
-        }
+        .info-card ul li { display: flex; align-items: center; margin-bottom: 1rem; font-size: 1rem; }
         .info-card ul li img { width: 24px; height: 24px; margin-right: 12px; }
 
-        /* --- Testimonials Section --- */
-        .testimonial-card {
-            background-color: var(--card-bg-color); border-radius: 12px;
-            padding: 2rem; max-width: 700px; margin: 1rem auto;
-            border: 1px solid var(--border-color); position: relative;
-        }
-        .testimonial-card .quote-icon {
-            width: 30px; height: 30px; position: absolute;
-            top: 20px; left: 20px; opacity: 0.5;
-        }
-        .testimonial-card p { font-style: italic; font-size: 1.1rem; margin: 0; }
-        .testimonial-card .client-name {
-            display: block; text-align: right; margin-top: 1rem;
-            font-style: normal; font-weight: bold; color: var(--secondary-color);
-        }
-
-        /* --- Modal and Lightbox (Minor tweaks) --- */
+        /* --- Modal and Lightbox --- */
         #project-detail-modal {
             display: none; position: fixed; z-index: 2000; top: 0; left: 0;
             width: 100%; height: 100%; background-color: rgba(0,0,0, 0.92);
@@ -316,7 +324,9 @@
         }
         .modal-content .screenshots { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0; justify-content: center; }
         .modal-content .screenshot-thumb-container {
-            flex: 1 1 200px; max-width: calc(33.33% - 7px); border-radius: 8px;
+            flex: 0 0 auto; /* FIXED: Prevents growing */
+            width: calc(33.333% - 7px); /* Three per row, accounting for gap */
+            border-radius: 8px;
             overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
             transition: transform 0.2s ease;
         }
@@ -343,7 +353,6 @@
             text-decoration: none; transform: translateY(-3px);
         }
 
-        /* --- Lightbox Styles --- */
         #lightbox {
             display: none; position: fixed; z-index: 2001; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0, 0.95); justify-content: center; align-items: center;
@@ -363,7 +372,6 @@
         }
         .lightbox-close:hover { color: var(--secondary-color); transform: rotate(90deg) scale(1.1); }
         
-        /* --- Contact & Footer --- */
         #contact .contact-methods {
             background: var(--card-bg-color); border-radius: 12px; padding: 2.5rem;
             max-width: 600px; margin: 2rem auto 0; border: 1px solid var(--border-color);
@@ -396,9 +404,10 @@
             .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
             .bento-item--large, .bento-item--small-h { grid-column: span 1; grid-row: span 1; aspect-ratio: 16 / 10; }
             .bento-item__overlay { transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,0.98) 30%, rgba(0,0,0,0) 100%); }
+            .bento-item__time { opacity: 1; }
             .view-details-prompt { display: none; }
             .modal-content { padding: 1.5rem; }
-            .modal-content .screenshot-thumb-container { max-width: calc(50% - 5px); }
+            .modal-content .screenshot-thumb-container { width: calc(50% - 5px); }
         }
 
         @media (max-width: 480px) {
@@ -411,10 +420,14 @@
             section h2 { font-size: 2rem; }
             .bento-item__title { font-size: 1.2rem; }
             #about p { font-size: 1rem; }
-            blockquote p { font-size: 1.1rem; }
             .skills-grid, .why-me-grid { grid-template-columns: 1fr; }
+            .testimonial-card { width: 280px; }
+            .testimonial-track { width: calc(310px * 6); animation-name: scroll-mobile; }
+            @keyframes scroll-mobile {
+                100% { transform: translateX(calc(-310px * 3)); }
+            }
             .modal-content h4 { font-size: 1.8rem; }
-            .modal-content .screenshot-thumb-container { max-width: 100%; }
+            .modal-content .screenshot-thumb-container { width: 100%; }
         }
 
     </style>
@@ -433,7 +446,7 @@
             <li><a href="#work">Work</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#why-me">Why Me?</a></li>
-            <li><a href="#payment">Rates</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -443,17 +456,14 @@
             <h2><img src="https://img.icons8.com/?size=100&id=20150&format=png&color=FFFFFF" alt="About me icon" class="section-icon">About Me</h2>
             <p>Hey! My name is <strong>Farwed</strong>, a <strong>17-year-old Roblox developer from Egypt (GMT+3)</strong> with <strong>1.5 years of experience</strong> in scripting and game development.</p>
             <p>I handle everything from <strong>small tasks</strong> to <strong>complex systems</strong>, including <strong>bug fixing</strong> and creating robust <strong>anti-cheat solutions</strong> to protect your game.</p>
-            <blockquote>
-                <p>A scripter writes code, but a true developer builds an experience. My focus is on creating smooth, stable, and future-proof games with clean, organized, and readable code.</p>
-            </blockquote>
         </section>
         <hr class="custom-hr">
 
         <section id="work" class="scroll-reveal">
             <h2><img src="https://img.icons8.com/?size=100&id=33297&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
              <div class="bento-grid">
-                <div class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
-                    <div class="new-tag"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New Project"></div>
+                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
+                    <span class="bento-item__time">~180 hours</span>
                     <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Hide and Seek Project</h3>
@@ -461,9 +471,9 @@
                         <span class="bento-item__tag">Main Project</span>
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
-                </div>
-                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
-                     <div class="new-tag"><img src="https://img.icons8.com/?size=100&id=EtHRovbmNUe6&format=png&color=FFFFFF" alt="New Project"></div>
+                </article>
+                <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
+                     <span class="bento-item__time">~5 hours</span>
                      <img src="https://i.postimg.cc/vZQtP90N/image.png" alt="Fearless Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Fearless Project</h3>
@@ -471,8 +481,9 @@
                          <span class="bento-item__tag">Task</span>
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
-                </div>
-                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp2">
+                </article>
+                <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp2">
+                     <span class="bento-item__time">~2 hours</span>
                      <img src="https://i.postimg.cc/MpTqzfnc/image.png" alt="GUI Roll Animation" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">GUI Roll Animation</h3>
@@ -480,8 +491,9 @@
                          <span class="bento-item__tag">Task</span>
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
-                </div>
-                <div class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp2">
+                </article>
+                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp2">
+                     <span class="bento-item__time">~210 hours</span>
                      <img src="https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png" alt="Random Platformer Project" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Random Platformer [Pre-Alpha]</h3>
@@ -489,8 +501,9 @@
                         <span class="bento-item__tag">Main Project</span>
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
-                </div>
-                <div class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
+                </article>
+                <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
+                     <span class="bento-item__time">~8 hours</span>
                      <img src="https://i.postimg.cc/85WTq8jt/image.png" alt="Data Management System" class="bento-item__img">
                     <div class="bento-item__overlay">
                         <h3 class="bento-item__title">Advanced Data Management</h3>
@@ -498,7 +511,7 @@
                          <span class="bento-item__tag">Task</span>
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
-                </div>
+                </article>
             </div>
         </section>
         <hr class="custom-hr">
@@ -556,13 +569,74 @@
         <hr class="custom-hr">
 
          <section id="testimonials" class="scroll-reveal">
-            <h2><img src="https://img.icons8.com/?size=100&id=1jawc6EAIZaa&format=png&color=FFFFFF" alt="Testimonials Icon" class="section-icon">Testimonials</h2>
-             <div class="testimonial-card">
-                 <img src="https://img.icons8.com/?size=100&id=10271&format=png&color=FFFFFF" class="quote-icon" alt="Thumbs up">
-                 <p>"Farwed delivered fast and exceeded expectations! His code was super clean and easy to work with."</p>
-                 <span class="client-name">- A Happy Client</span>
-             </div>
-             <p style="text-align: center; color: #888; font-style: italic; margin-top: 2rem;">(Additional testimonials available upon request)</p>
+            <h2><img src="https://img.icons8.com/?size=100&id=1jawc6EAIZaa&format=png&color=FFFFFF" alt="Testimonials Icon" class="section-icon">Client Reviews</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-track">
+                    <!-- Original Testimonials -->
+                    <figure class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png" alt="haiperexe" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>haiperexe</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Working with Farwed was a fantastic experience. He understood the vision perfectly and delivered a high-quality, bug-free system ahead of schedule. His communication is top-notch. 10/10 would hire again."</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
+                         <div class="testimonial-header">
+                            <img src="https://i.pinimg.com/474x/7c/8f/47/7c8f476123d28d103efe381543274c25.jpg" alt="rt.7" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>rt.7</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★</span><span class="testimonial-stars-empty">★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"The level of detail and polish Farwed puts into his work is incredible. Took a simple idea and made it feel smooth and professional. Super fast turnaround time!"</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
+                         <div class="testimonial-header">
+                            <img src="https://i.pinimg.com/564x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg" alt="phobosb" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>phobosb</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Farwed is a scripting wizard. He tackled a complex puzzle mechanic that other developers struggled with and built it flawlessly. His code is clean, optimized, and easy to integrate. Highly recommended."</p></blockquote>
+                    </figure>
+
+                    <!-- Duplicated for seamless loop -->
+                     <figure class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png" alt="haiperexe" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>haiperexe</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Working with Farwed was a fantastic experience. He understood the vision perfectly and delivered a high-quality, bug-free system ahead of schedule. His communication is top-notch. 10/10 would hire again."</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
+                         <div class="testimonial-header">
+                            <img src="https://i.pinimg.com/474x/7c/8f/47/7c8f476123d28d103efe381543274c25.jpg" alt="rt.7" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>rt.7</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★</span><span class="testimonial-stars-empty">★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"The level of detail and polish Farwed puts into his work is incredible. Took a simple idea and made it feel smooth and professional. Super fast turnaround time!"</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
+                         <div class="testimonial-header">
+                            <img src="https://i.pinimg.com/564x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg" alt="phobosb" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>phobosb</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Farwed is a scripting wizard. He tackled a complex puzzle mechanic that other developers struggled with and built it flawlessly. His code is clean, optimized, and easy to integrate. Highly recommended."</p></blockquote>
+                    </figure>
+                </div>
+            </div>
         </section>
         <hr class="custom-hr">
 
@@ -647,23 +721,23 @@
                 screenshots: ["https://i.postimg.cc/mDdSfnJ1/image.png", "https://i.postimg.cc/j2mQC7ss/Roblox-Screen-Shot20250706-035814047.png", "https://i.postimg.cc/2S4F8ygD/Roblox-Screen-Shot20250706-035822355.png", "https://i.postimg.cc/mrB3cRGF/Roblox-Screen-Shot20250706-035905763.png"],
                 description: "Developed a feature-complete, round-based Hide and Seek game from the ground up. The project includes a robust game loop, role management (Hider/Seeker), spectating system for active and late-joining players, and engaging UI elements like a jackpot-style role reveal and map voting.",
                 clientRequest: "The client requested a full game loop including intermissions and rounds, a spectating system with multiple modes, hider/seeker roles with win conditions, and basic UI integration for a shop, taunts, and a map selection system.",
-                devStats: { "Total Code": "3,500+ lines", "Critical Bugs Fixed": "204", "Script Optimizations": "29" },
+                devStats: { "Total Code": "3,500+ lines", "Critical Bugs Fixed": "204", "Script Optimizations": "29", "Game Tests": "205" },
                 price: "$150 USD"
             },
             bp2: {
                 name: "Random Platformer [Pre-Alpha]", youtubeId: "mUWWWWTywng", time: "~210 hours",
                 screenshots: ["https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png", "https://i.postimg.cc/cHXSnf5G/Roblox-Screen-Shot20250706-041602008.png", "https://i.postimg.cc/W4mjsBG3/Roblox-Screen-Shot20250706-041636107.png", "https://i.postimg.cc/mkkGNh0z/Roblox-Screen-Shot20250706-041654563.png", "https://i.postimg.cc/k5Pq3Jtz/Roblox-Screen-Shot20250706-041656226.png"],
-                description: "This is a fast-paced, competitive racing game built around rounds of procedurally selected parkour maps. Players earn points for winning and can collect coins to purchase cosmetic trails and gameplay-affecting events like Speed Boost or Low Gravity, similar to Tower of Hell. A global leaderboard encourages competition.",
-                clientRequest: "This was a personal project to build my first full game, focusing on creating a fun, replayable core loop with monetization and competitive elements.",
-                 devStats: { "Total Code": "2,500+ lines", "Critical Bugs Fixed": "153", "Script Optimizations": "45" },
+                description: "A cool racing game to play with friends! Random Platformer is a round-based game with unique parkour maps. Win rounds to get points, collect coins to buy trails and events like Speed Boost or Low Gravity, and compete on the global leaderboard!",
+                clientRequest: "This was my first ever full game, focusing on a fun, replayable core loop with monetization and competitive elements.",
+                 devStats: { "Total Code": "2,500+ lines", "Critical Bugs Fixed": "153", "Script Optimizations": "45", "Game Tests": "590" },
                 price: "Approx. $100 USD"
             },
             sp1: {
                 name: "Fearless Project", youtubeId: "GvWFg1jldmo", time: "~5 hours",
                 screenshots: ["https://i.postimg.cc/vZQtP90N/image.png", "https://i.postimg.cc/zG0S4BMX/image1.png", "https://i.postimg.cc/8PdbBwmv/image4.png"],
                 description: "Created a unique puzzle-horror mechanic where players use a camera to 'capture' marked locations. Upon a successful photo, a door materializes at the mark. The system includes camera animations, sound effects, and a secondary line-connection puzzle mechanic to automatically open doors.",
-                clientRequest: "The client requested a camera-based puzzle system. The core mechanic involved taking pictures of 'X' symbols to reveal doors, complete with idle/capture animations and sounds. An additional line-connection puzzle was also required.",
-                devStats: { "Total Code": "200+ lines", "Bugs Fixed": "2", "Optimizations": "2" },
+                clientRequest: "The client requested a camera-based puzzle system to take pictures of 'X' symbols to reveal doors, complete with idle/capture animations and sounds. An additional line-connection puzzle was also required.",
+                devStats: { "Total Code": "200+ lines", "Bugs Fixed": "2", "Optimizations": "2", "Game Tests": "6" },
                 price: "$15 USD"
             },
             sp2: {
@@ -671,14 +745,14 @@
                 screenshots: ["https://i.postimg.cc/MpTqzfnc/image.png", "https://i.postimg.cc/C5SpXRyx/image.png"],
                 description: "Engineered a dynamic 'gacha' roll animation for a game's UI. A key feature is the 'Quick Roll' toggle, which significantly speeds up the animation sequence for players who want immediate results, providing a better user experience.",
                 clientRequest: "The request was to create a roll animation with a 'Quick Roll' toggle. The button needed to be highlighted when active, and toggling it on had to make the animation noticeably faster than the slow default speed.",
-                devStats: { "Total Code": "500+ lines", "Bugs Fixed": "4", "Optimizations": "7" },
+                devStats: { "Total Code": "500+ lines", "Bugs Fixed": "4", "Optimizations": "7", "Game Tests": "6" },
                 price: "$9 USD"
             },
             sp3: {
                 name: "Advanced Data Management", youtubeId: "_KaqGini3Ww", time: "~8 hours",
                 screenshots: ["https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png"],
                 description: "Developed a robust, standalone datastore module to handle all player data securely. Features include session locking to prevent data duplication/loss from joining on multiple devices, and built-in retry mechanisms for failed API calls to ensure data integrity.",
-                clientRequest: "A client needed a secure and reliable way to manage player data for their game, specifically requesting protection against common data loss issues and API failures.",
+                clientRequest: "A client needed a secure and reliable way to manage player data, specifically requesting protection against common data loss issues and API failures.",
                 devStats: { "Total Code": "400+ lines", "Build": "Proactive", "Purpose": "Data Security" },
                 price: "$20 USD"
             }
