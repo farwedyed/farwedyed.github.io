@@ -454,8 +454,8 @@
     <main>
         <section id="about" class="scroll-reveal">
             <h2><img src="https://img.icons8.com/?size=100&id=20150&format=png&color=FFFFFF" alt="About me icon" class="section-icon">About Me</h2>
-            <p>Hey! My name is <strong>Farwed</strong>, a <strong>17-year-old Roblox developer from Egypt (GMT+3)</strong> with <strong>1.5 years of experience</strong> in scripting and game development.</p>
-            <p>I handle everything from <strong>small tasks</strong> to <strong>complex systems</strong>, including <strong>bug fixing</strong> and creating robust <strong>anti-cheat solutions</strong> to protect your game.</p>
+            <p>Hello! I'm <strong>Farwed</strong>, a dedicated Roblox developer from Egypt with <strong>2 years of experience</strong> in scripting and game development. My time zone is <strong>GMT+3</strong>.</p>
+            <p>I handle everything from <strong>small tasks</strong> and <strong>bug fixing</strong> to developing <strong>complex systems</strong> and creating robust <strong>anti-cheat solutions</strong> to protect your game.</p>
         </section>
         <hr class="custom-hr">
 
@@ -502,15 +502,8 @@
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
                 </article>
-                <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
-                     <span class="bento-item__time">~8 hours</span>
-                     <img src="https://i.postimg.cc/85WTq8jt/image.png" alt="Data Management System" class="bento-item__img">
-                    <div class="bento-item__overlay">
-                        <h3 class="bento-item__title">Advanced Data Management</h3>
-                        <p class="bento-item__desc">A robust datastore module for handling player data with session locking and retry mechanisms.</p>
-                         <span class="bento-item__tag">Task</span>
-                    </div>
-                    <div class="view-details-prompt">Click to View Details</div>
+                <article class="bento-item bento-item--small-h scroll-reveal">
+                     <img src="https://i.postimg.cc/5t3mVsQ2/freepik-untitled-project-20250710055717-Qj-MR.png" alt="Data Management System" class="bento-item__img">
                 </article>
             </div>
         </section>
@@ -607,7 +600,7 @@
                         <div class="testimonial-header">
                             <img src="https://i.pinimg.com/236x/81/21/dd/8121dd426882dc0b22b68df3c6807819.jpg" alt="my friend" class="testimonial-pfp">
                             <figcaption class="testimonial-author-info">
-                                <h5>my friend</h5>
+                                <h5>my mean friend</h5>
                                 <div class="testimonial-stars"><span class="testimonial-stars-filled">★</span><span class="testimonial-stars-empty">★★★★</span></div>
                             </figcaption>
                         </div>
@@ -649,7 +642,7 @@
                         <div class="testimonial-header">
                             <img src="https://i.pinimg.com/236x/81/21/dd/8121dd426882dc0b22b68df3c6807819.jpg" alt="my friend" class="testimonial-pfp">
                             <figcaption class="testimonial-author-info">
-                                <h5>my friend</h5>
+                                <h5>my mean friend</h5>
                                 <div class="testimonial-stars"><span class="testimonial-stars-filled">★</span><span class="testimonial-stars-empty">★★★★</span></div>
                             </figcaption>
                         </div>
@@ -673,7 +666,7 @@
                  <div class="info-card">
                     <h3><img src="https://img.icons8.com/?size=100&id=5eocsnCvaiRd&format=png&color=FFFFFF" alt="Card dollar icon">Payment Rates</h3>
                      <ul>
-                        <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Hourly:</strong> $10 - $25 USD</span></li>
+                        <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Per Task:</strong> $10 - $25 USD</span></li>
                         <li><img src="https://img.icons8.com/?size=100&id=34425&format=png&color=FFFFFF" alt="Hand with cash icon"><span><strong>Per Project:</strong> $100 - $250+ USD</span></li>
                         <li><img src="https://img.icons8.com/?size=100&id=123287&format=png&color=FFFFFF" alt="bullet point"><span>All prices are negotiable based on complexity.</span></li>
                     </ul>
@@ -767,14 +760,6 @@
                 clientRequest: "The request was to create a roll animation with a 'Quick Roll' toggle. The button needed to be highlighted when active, and toggling it on had to make the animation noticeably faster than the slow default speed.",
                 devStats: { "Total Code": "500+ lines", "Bugs Fixed": "4", "Optimizations": "7", "Game Tests": "6" },
                 price: "$9 USD"
-            },
-            sp3: {
-                name: "Advanced Data Management", youtubeId: "_KaqGini3Ww", time: "~8 hours",
-                screenshots: ["https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png", "https://i.postimg.cc/85WTq8jt/image.png"],
-                description: "Developed a robust, standalone datastore module to handle all player data securely. Features include session locking to prevent data duplication/loss from joining on multiple devices, and built-in retry mechanisms for failed API calls to ensure data integrity.",
-                clientRequest: "A client needed a secure and reliable way to manage player data, specifically requesting protection against common data loss issues and API failures.",
-                devStats: { "Total Code": "400+ lines", "Build": "Proactive", "Purpose": "Data Security" },
-                price: "$20 USD"
             }
         };
 
@@ -820,7 +805,7 @@
         const modalPrice = document.getElementById('modal-price');
         const modalCloseButton = projectDetailModal.querySelector('.modal-close');
 
-        document.querySelectorAll('.bento-item').forEach(item => {
+        document.querySelectorAll('.bento-item[data-project-id]').forEach(item => {
             item.addEventListener('click', () => {
                 const projectId = item.dataset.projectId;
                 const data = projectsData[projectId];
