@@ -197,6 +197,20 @@
         }
         .bento-item:hover .view-details-prompt { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
+        .new-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 6;
+            text-transform: uppercase;
+        }
+
         /* --- Skills Section --- */
         .skills-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -463,6 +477,7 @@
             <h2><img src="https://img.icons8.com/?size=100&id=33297&format=png&color=FFFFFF" alt="Work icon" class="section-icon">My Work</h2>
              <div class="bento-grid">
                 <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
+                    <span class="new-tag">New</span>
                     <span class="bento-item__time">~180 hours</span>
                     <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
                     <div class="bento-item__overlay">
@@ -473,6 +488,7 @@
                     <div class="view-details-prompt">Click to View Details</div>
                 </article>
                 <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
+                     <span class="new-tag">New</span>
                      <span class="bento-item__time">~5 hours</span>
                      <img src="https://i.postimg.cc/vZQtP90N/image.png" alt="Fearless Project" class="bento-item__img">
                     <div class="bento-item__overlay">
