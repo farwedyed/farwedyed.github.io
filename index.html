@@ -15,6 +15,8 @@
             --primary-color-rgb: 211, 47, 47;
             --secondary-color: #FA5252;
             --secondary-color-rgb: 250, 82, 82;
+            --success-color: #2E7D32; /* Green for demo button */
+            --success-color-hover: #4CAF50;
             --border-color: #2a2a2a;
             --hr-color: #400A0A;
             --star-color: #FFC107; /* Gold color for stars */
@@ -338,8 +340,8 @@
         }
         .modal-content .screenshots { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5rem 0; justify-content: center; }
         .modal-content .screenshot-thumb-container {
-            flex: 0 0 auto; /* FIXED: Prevents growing */
-            width: calc(33.333% - 7px); /* Three per row, accounting for gap */
+            flex: 0 0 auto;
+            width: calc(33.333% - 7px);
             border-radius: 8px;
             overflow: hidden; cursor: pointer; border: 1px solid var(--border-color);
             transition: transform 0.2s ease;
@@ -356,16 +358,50 @@
         .modal-section p, .modal-section ul { font-size: 1rem; color: #dcdcdc; }
         .modal-section ul { list-style: none; padding: 0; }
         .modal-section li { background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 5px; margin-bottom: 0.3rem; }
-        .button-preview {
-            display: inline-block; background-color: var(--primary-color); color: var(--text-color);
+        
+        /* Modal Buttons & Tags */
+        .button-container {
+            text-align: center; margin: 1rem 0; display: flex;
+            justify-content: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .button-base {
+            display: inline-block; color: var(--text-color);
             padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none; cursor: pointer; text-align: center; margin: 1rem 0;
+            border: none; cursor: pointer;
+        }
+        .button-base:hover {
+            text-decoration: none; transform: translateY(-3px);
+        }
+        .button-preview {
+            background-color: var(--primary-color);
         }
         .button-preview:hover {
             background-color: var(--secondary-color); color: var(--bg-color);
-            text-decoration: none; transform: translateY(-3px);
         }
+        .button-demo {
+            background-color: var(--success-color);
+        }
+        .button-demo:hover {
+            background-color: var(--success-color-hover); color: var(--bg-color);
+        }
+
+        .modal-tags-container {
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .modal-tag {
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        .tag-style-1 { background-color: #6A1B9A; } /* Purple */
+        .tag-style-2 { background-color: #0277BD; } /* Blue */
+        .tag-style-3 { background-color: #00695C; } /* Teal */
+        .tag-style-4 { background-color: #D84315; } /* Orange */
+        .tag-style-5 { background-color: #c42626; } /* Red */
 
         #lightbox {
             display: none; position: fixed; z-index: 2001; top: 0; left: 0; width: 100%; height: 100%;
@@ -702,16 +738,21 @@
         <div class="modal-content">
             <span class="modal-close">×</span>
             <h4 id="modal-project-name">Project Name</h4>
-            <div id="modal-live-preview-container" style="text-align: center;"></div>
+            <div class="button-container" id="modal-button-container"></div>
             <div class="screenshots" id="modal-screenshots-container"></div>
             
             <div class="modal-section">
-                <h5>Description</h5>
+                <h5><img src="https://img.icons8.com/?size=100&id=78832&format=png&color=FFFFFF" alt="Description Icon">Description</h5>
                 <p id="modal-description"></p>
+            </div>
+
+            <div class="modal-section" id="modal-tags-section">
+                <h5><img src="https://img.icons8.com/?size=100&id=mJ433q4oth0O&format=png&color=FFFFFF" alt="Features Icon">Features</h5>
+                <div class="modal-tags-container" id="modal-tags-container"></div>
             </div>
             
             <div class="modal-section">
-                <h5>Client Request Summary</h5>
+                <h5><img src="https://img.icons8.com/?size=100&id=63654&format=png&color=FFFFFF" alt="Request Icon">Client Request Summary</h5>
                 <p id="modal-client-requests"></p>
             </div>
 
@@ -744,19 +785,23 @@
         const projectsData = {
             bp1: {
                 name: "Hide and Seek Project", youtubeId: "LB0cFfhv7Mg", time: "~180 hours",
+                demoUrl: "https://www.roblox.com/games/121217724973745/hideandseekproject",
                 screenshots: ["https://i.postimg.cc/mDdSfnJ1/image.png", "https://i.postimg.cc/j2mQC7ss/Roblox-Screen-Shot20250706-035814047.png", "https://i.postimg.cc/2S4F8ygD/Roblox-Screen-Shot20250706-035822355.png", "https://i.postimg.cc/mrB3cRGF/Roblox-Screen-Shot20250706-035905763.png"],
                 description: "Developed a feature-complete, round-based Hide and Seek game from the ground up. The project includes a robust game loop, role management (Hider/Seeker), spectating system for active and late-joining players, and engaging UI elements like a jackpot-style role reveal and map voting.",
                 clientRequest: "The client requested a full game loop including intermissions and rounds, a spectating system with multiple modes, hider/seeker roles with win conditions, and basic UI integration for a shop, taunts, and a map selection system.",
                 devStats: { "Total Code": "3,500+ lines", "Critical Bugs Fixed": "204", "Script Optimizations": "29", "Game Tests": "205" },
-                price: "$150 USD"
+                price: "$150 USD",
+                tags: ["round system", "unique gameplay", "ui", "spectate system", "random selection"]
             },
             bp2: {
                 name: "Random Platformer [Pre-Alpha]", youtubeId: "cQLXRkcJ5aA", time: "~210 hours",
+                demoUrl: "https://www.roblox.com/games/13020209826/random-platformer-pre-alpha",
                 screenshots: ["https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png", "https://i.postimg.cc/cHXSnf5G/Roblox-Screen-Shot20250706-041602008.png", "https://i.postimg.cc/W4mjsBG3/Roblox-Screen_Shot20250706-041636107.png", "https://i.postimg.cc/mkkGNh0z/Roblox-Screen-Shot20250706-041654563.png", "https://i.postimg.cc/k5Pq3Jtz/Roblox-Screen-Shot20250706-041656226.png"],
                 description: "A cool racing game to play with friends! Random Platformer is a round-based game with unique parkour maps. Win rounds to get points, collect coins to buy trails and events like Speed Boost or Low Gravity, and compete on the global leaderboard!",
                 clientRequest: "This was my first ever full game, focusing on a fun, replayable core loop with monetization and competitive elements.",
                  devStats: { "Total Code": "2,500+ lines", "Critical Bugs Fixed": "153", "Script Optimizations": "45", "Game Tests": "590" },
-                price: "Approx. $100 USD"
+                price: "Approx. $100 USD",
+                tags: ["round system", "simple shop", "map voting system", "effects system", "codes", "spectate system", "leaderboard", "custom animations", "playable", "ui", "ui animations"]
             },
             sp1: {
                 name: "Fearless Project", youtubeId: "NouNSwGdcLg", time: "~5 hours",
@@ -764,7 +809,8 @@
                 description: "Created a unique puzzle-horror mechanic where players use a camera to 'capture' marked locations. Upon a successful photo, a door materializes at the mark. The system includes camera animations, sound effects, and a secondary line-connection puzzle mechanic to automatically open doors.",
                 clientRequest: "The client requested a camera-based puzzle system to take pictures of 'X' symbols to reveal doors, complete with idle/capture animations and sounds. An additional line-connection puzzle was also required.",
                 devStats: { "Total Code": "200+ lines", "Bugs Fixed": "2", "Optimizations": "2", "Game Tests": "6" },
-                price: "$15 USD"
+                price: "$15 USD",
+                tags: ["unique gameplay", "custom animations"]
             },
             sp2: {
                 name: "GUI Roll Animation", youtubeId: "EV7XCVqjc38", time: "~2 hours",
@@ -772,7 +818,8 @@
                 description: "Engineered a dynamic 'gacha' roll animation for a game's UI. A key feature is the 'Quick Roll' toggle, which significantly speeds up the animation sequence for players who want immediate results, providing a better user experience.",
                 clientRequest: "The request was to create a roll animation with a 'Quick Roll' toggle. The button needed to be highlighted when active, and toggling it on had to make the animation noticeably faster than the slow default speed.",
                 devStats: { "Total Code": "500+ lines", "Bugs Fixed": "4", "Optimizations": "7", "Game Tests": "6" },
-                price: "$9 USD"
+                price: "$9 USD",
+                tags: ["ui", "ui animations"]
             }
         };
 
@@ -809,9 +856,10 @@
 
         const projectDetailModal = document.getElementById('project-detail-modal');
         const modalProjectName = document.getElementById('modal-project-name');
-        const modalLivePreviewContainer = document.getElementById('modal-live-preview-container');
+        const modalButtonContainer = document.getElementById('modal-button-container');
         const modalScreenshotsContainer = document.getElementById('modal-screenshots-container');
         const modalDescription = document.getElementById('modal-description');
+        const modalTagsContainer = document.getElementById('modal-tags-container');
         const modalClientRequests = document.getElementById('modal-client-requests');
         const modalDevStats = document.getElementById('modal-dev-stats');
         const modalTimeSpent = document.getElementById('modal-time-spent');
@@ -826,16 +874,26 @@
 
                 modalProjectName.textContent = data.name;
 
-                modalLivePreviewContainer.innerHTML = '';
+                // Buttons
+                modalButtonContainer.innerHTML = '';
                 if (data.youtubeId) {
                     const previewButton = document.createElement('a');
                     previewButton.href = `https://www.youtube.com/watch?v=${data.youtubeId}`;
                     previewButton.target = "_blank";
-                    previewButton.classList.add('button-preview');
+                    previewButton.classList.add('button-base', 'button-preview');
                     previewButton.textContent = "View on YouTube";
-                    modalLivePreviewContainer.appendChild(previewButton);
+                    modalButtonContainer.appendChild(previewButton);
+                }
+                if (data.demoUrl) {
+                    const demoButton = document.createElement('a');
+                    demoButton.href = data.demoUrl;
+                    demoButton.target = "_blank";
+                    demoButton.classList.add('button-base', 'button-demo');
+                    demoButton.textContent = "Play Demo";
+                    modalButtonContainer.appendChild(demoButton);
                 }
 
+                // Screenshots
                 modalScreenshotsContainer.innerHTML = '';
                 data.screenshots.forEach(src => {
                     const thumbContainer = document.createElement('div');
@@ -852,6 +910,21 @@
                 modalPrice.innerHTML = `<strong>Price:</strong> ${data.price}`;
                 modalTimeSpent.innerHTML = `<strong>Time:</strong> ${data.time}`;
                 
+                // Tags
+                modalTagsContainer.innerHTML = '';
+                if(data.tags && data.tags.length > 0){
+                    data.tags.forEach((tag, index) => {
+                        const tagEl = document.createElement('span');
+                        tagEl.classList.add('modal-tag', `tag-style-${(index % 5) + 1}`);
+                        tagEl.textContent = tag;
+                        modalTagsContainer.appendChild(tagEl);
+                    });
+                     document.getElementById('modal-tags-section').style.display = 'block';
+                } else {
+                    document.getElementById('modal-tags-section').style.display = 'none';
+                }
+
+                // Dev Stats
                 modalDevStats.innerHTML = '';
                 for(const [key, value] of Object.entries(data.devStats)){
                     const li = document.createElement('li');
