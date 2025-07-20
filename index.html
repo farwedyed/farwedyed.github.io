@@ -249,10 +249,10 @@
         .why-me-card h4 { font-family: var(--header-font); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-color); }
         .why-me-card p { font-size: 0.95rem; color: #c5c5c5; line-height: 1.6; text-align: center; }
 
-        /* --- Testimonials Section (UPDATED) --- */
+        /* --- Testimonials Section (UPDATED FOR 5 ITEMS) --- */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-350px * 4)); }
+            100% { transform: translateX(calc(-350px * 5)); }
         }
         .testimonial-container {
             overflow: hidden; padding: 2rem 0;
@@ -262,8 +262,8 @@
         }
         .testimonial-track {
             display: flex;
-            width: calc(350px * 8); /* card_width * (num_testimonials * 2) */
-            animation: scroll 40s linear infinite;
+            width: calc(350px * 10); /* card_width * (num_testimonials * 2) */
+            animation: scroll 50s linear infinite; /* Adjusted duration */
         }
         .testimonial-container:hover .testimonial-track { animation-play-state: paused; }
 
@@ -472,9 +472,9 @@
             #about p { font-size: 1rem; }
             .skills-grid, .why-me-grid { grid-template-columns: 1fr; }
             .testimonial-card { width: 280px; }
-            .testimonial-track { width: calc(310px * 8); animation-name: scroll-mobile; }
+            .testimonial-track { width: calc(310px * 10); animation-name: scroll-mobile; }
             @keyframes scroll-mobile {
-                100% { transform: translateX(calc(-310px * 4)); }
+                100% { transform: translateX(calc(-310px * 5)); }
             }
             .modal-content h4 { font-size: 1.8rem; }
             .modal-content .screenshot-thumb-container { width: 100%; }
@@ -628,6 +628,16 @@
                     <!-- Original Testimonials -->
                     <figure class="testimonial-card">
                         <div class="testimonial-header">
+                            <img src="https://cdn2.steamgriddb.com/icon/0d7bad81c85a71b3025966dfb22212ab/32/256x256.png" alt="pussvcat" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>pussvcat</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Ordering from farwed was an amazing experience, they spent hours bringing my idea to life and it came out the way I wanted it. I wasn’t skeptical at all and could tell this guy was the real deal. Definitely will be coming back for more service in the future."</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
+                        <div class="testimonial-header">
                             <img src="https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png" alt="haiperexe" class="testimonial-pfp">
                             <figcaption class="testimonial-author-info">
                                 <h5>haiperexe</h5>
@@ -669,6 +679,16 @@
 
                     <!-- Duplicated for seamless loop -->
                      <figure class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://cdn2.steamgriddb.com/icon/0d7bad81c85a71b3025966dfb22212ab/32/256x256.png" alt="pussvcat" class="testimonial-pfp">
+                            <figcaption class="testimonial-author-info">
+                                <h5>pussvcat</h5>
+                                <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
+                            </figcaption>
+                        </div>
+                        <blockquote><p class="testimonial-quote">"Ordering from farwed was an amazing experience, they spent hours bringing my idea to life and it came out the way I wanted it. I wasn’t skeptical at all and could tell this guy was the real deal. Definitely will be coming back for more service in the future."</p></blockquote>
+                    </figure>
+                    <figure class="testimonial-card">
                         <div class="testimonial-header">
                             <img src="https://miro.medium.com/v2/resize:fit:256/0*8WdBp_k4REJoMkfF.png" alt="haiperexe" class="testimonial-pfp">
                             <figcaption class="testimonial-author-info">
