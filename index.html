@@ -514,6 +514,21 @@
             transform: translate(-50%, -50%) scale(1); 
         }
         
+        @keyframes pulse-new {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(var(--primary-color-rgb), 0.8), 0 0 25px rgba(var(--primary-color-rgb), 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+            }
+        }
+
         .new-tag {
             position: absolute;
             top: 12px;
@@ -526,6 +541,7 @@
             font-weight: bold;
             z-index: 6;
             text-transform: uppercase;
+            animation: pulse-new 2s infinite ease-in-out;
         }
         
         /* Skills Section */
@@ -1433,19 +1449,18 @@
         <section id="work" class="scroll-reveal">
             <h2><i class="fas fa-briefcase section-icon"></i>My Work</h2>
              <div class="bento-grid">
-                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
+                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp3">
                     <span class="new-tag">New</span>
-                    <span class="bento-item__time">~180 hours</span>
-                    <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
+                    <span class="bento-item__time">~100-180 hours</span>
+                    <img src="https://i.postimg.cc/zXqWShQB/Roblox-Screen-Shot20250814-054504347.png" alt="Rock Brawl Project" class="bento-item__img">
                     <div class="bento-item__overlay">
-                        <h3 class="bento-item__title">Hide and Seek Project</h3>
-                        <p class="bento-item__desc">A complete, round-based Hide and Seek game with spectating, role selection, and custom UI.</p>
+                        <h3 class="bento-item__title">Rock Brawl Project</h3>
+                        <p class="bento-item__desc">A fast-paced PvP arena brawler where players battle with uniquely traited rocks, earn XP, and unlock cosmetics.</p>
                         <span class="bento-item__tag">Main Project</span>
                     </div>
                     <div class="view-details-prompt">Click to View Details</div>
                 </article>
                 <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp1">
-                     <span class="new-tag">New</span>
                      <span class="bento-item__time">~5 hours</span>
                      <img src="https://i.postimg.cc/vZQtP90N/image.png" alt="Fearless Project" class="bento-item__img">
                     <div class="bento-item__overlay">
@@ -1465,8 +1480,17 @@
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
                 </article>
-                <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
-                     <span class="new-tag">New</span>
+                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp1">
+                    <span class="bento-item__time">~180 hours</span>
+                    <img src="https://i.postimg.cc/mDdSfnJ1/image.png" alt="Hide and Seek Project" class="bento-item__img">
+                    <div class="bento-item__overlay">
+                        <h3 class="bento-item__title">Hide and Seek Project</h3>
+                        <p class="bento-item__desc">A complete, round-based Hide and Seek game with spectating, role selection, and custom UI.</p>
+                        <span class="bento-item__tag">Main Project</span>
+                    </div>
+                    <div class="view-details-prompt">Click to View Details</div>
+                </article>
+                 <article class="bento-item bento-item--small-h scroll-reveal" data-project-id="sp3">
                      <span class="bento-item__time">~15 hours</span>
                      <img src="https://i.postimg.cc/ZYp4wtw2/Roblox-Screen-Shot20250720-142201613.png" alt="Plant Ui Packs Project" class="bento-item__img">
                     <div class="bento-item__overlay">
@@ -1476,7 +1500,7 @@
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
                 </article>
-                <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp2">
+                <article class="bento-item bento-item--main scroll-reveal" data-project-id="bp2" style="grid-column: span 2;">
                      <span class="bento-item__time">~210 hours</span>
                      <img src="https://i.postimg.cc/wv6zMw2k/Roblox-Screen-Shot20250706-041531621.png" alt="Random Platformer Project" class="bento-item__img">
                     <div class="bento-item__overlay">
@@ -1485,17 +1509,6 @@
                         <span class="bento-item__tag">Main Project</span>
                     </div>
                      <div class="view-details-prompt">Click to View Details</div>
-                </article>
-                 <article class="bento-item bento-item--large bento-item--main scroll-reveal" data-project-id="bp3">
-                    <span class="new-tag">New</span>
-                    <span class="bento-item__time">~100-180 hours</span>
-                    <img src="https://i.postimg.cc/zXqWShQB/Roblox-Screen-Shot20250814-054504347.png" alt="Rock Brawl Project" class="bento-item__img">
-                    <div class="bento-item__overlay">
-                        <h3 class="bento-item__title">Rock Brawl Project</h3>
-                        <p class="bento-item__desc">A fast-paced PvP arena brawler where players battle with uniquely traited rocks, earn XP, and unlock cosmetics.</p>
-                        <span class="bento-item__tag">Main Project</span>
-                    </div>
-                    <div class="view-details-prompt">Click to View Details</div>
                 </article>
             </div>
         </section>
@@ -1634,7 +1647,7 @@
                                 <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
                             </figcaption>
                         </div>
-                        <blockquote><p class="testimonial-quote">"Ordering from farwed was an amazing experience, they spent hours bringing my idea to life and it came out the way I wanted it. I wasn't skeptical at all and could tell this guy was the real deal. Definitely will be coming back for more service in the future."</p></blockquote>
+                        <blockquote><p class="testimonial-quote">"Working with Farwed was absolutely an amazing experience 10/10, from the beginning all the way to the end. He messaged me with an excellent approach not only showing me his service but assured me that he is skilled in the task. Without hesitation I hired him. As soon as began the commission he constantly updated me about progress and even gave me a whole record of the time and things he's done into the task. On top of his excellent service, he added bonus's to the commision without me even asking, which made the final product even more polished. After the main commission was done and completed i came back to him for more and will continue to hire Farwed throughout the development of my game on Roblox."</p></blockquote>
                     </figure>
                     <figure class="testimonial-card">
                         <div class="testimonial-header">
@@ -1685,7 +1698,7 @@
                                 <div class="testimonial-stars"><span class="testimonial-stars-filled">★★★★★</span></div>
                             </figcaption>
                         </div>
-                        <blockquote><p class="testimonial-quote">"Ordering from farwed was an amazing experience, they spent hours bringing my idea to life and it came out the way I wanted it. I wasn't skeptical at all and could tell this guy was the real deal. Definitely will be coming back for more service in the future."</p></blockquote>
+                        <blockquote><p class="testimonial-quote">"Working with Farwed was absolutely an amazing experience 10/10, from the beginning all the way to the end. He messaged me with an excellent approach not only showing me his service but assured me that he is skilled in the task. Without hesitation I hired him. As soon as began the commission he constantly updated me about progress and even gave me a whole record of the time and things he's done into the task. On top of his excellent service, he added bonus's to the commision without me even asking, which made the final product even more polished. After the main commission was done and completed i came back to him for more and will continue to hire Farwed throughout the development of my game on Roblox."</p></blockquote>
                     </figure>
                     <figure class="testimonial-card">
                         <div class="testimonial-header">
@@ -1760,7 +1773,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! I provide 30 days of free support for bug fixes and minor adjustments after project completion. For ongoing updates and major changes, we can discuss a maintenance agreement.</p>
+                        <p>Yes! I provide 7 days of free support for bug fixes and minor adjustments after project completion. For ongoing updates and major changes, we can discuss a maintenance agreement.</p>
                     </div>
                 </div>
                 
@@ -1799,7 +1812,7 @@
                  <div class="info-card">
                     <h3><i class="fas fa-dollar-sign"></i>Payment Rates</h3>
                      <ul>
-                        <li><i class="fas fa-circle"></i><span><strong>Per Task:</strong> $15 - $35 USD</span></li>
+                        <li><i class="fas fa-circle"></i><span><strong>Per Task:</strong> $10 - $35 USD</span></li>
                         <li><i class="fas fa-circle"></i><span><strong>Per Project:</strong> $150 - $350+ USD</span></li>
                         <li><i class="fas fa-circle"></i><span>All prices are negotiable based on complexity.</span></li>
                     </ul>
