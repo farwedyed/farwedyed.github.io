@@ -493,20 +493,21 @@
         
         .view-details-prompt {
     position: absolute; 
-    /* Move the prompt up to the top third of the card so it doesn't overlap text */
-    top: 30%; 
+    top: 25%; /* Moved slightly higher to be extra safe */
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    /* Fix the invalid hex rgba() to actual RGB values for #0F0F0F */
     background: rgba(15, 15, 15, 0.85); 
     backdrop-filter: blur(5px);
     color: white; 
-    /* Slightly reduce padding and text size so it fits perfectly on small grid cards */
-    padding: 0.7rem 1.2rem; 
-    border-radius: 10px;
-    font-size: 0.95rem; 
+    /* Less vertical padding (0.6rem), more horizontal padding (1.8rem) */
+    padding: 0.6rem 1.8rem; 
+    /* Make it a sleek pill shape to match the new wide look */
+    border-radius: 30px; 
+    font-size: 0.9rem; 
     font-weight: bold; 
     text-align: center; 
+    /*  THE MAGIC FIX: Forces the text to stay on one horizontal line */
+    white-space: nowrap; 
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none; 
