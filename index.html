@@ -492,22 +492,27 @@
         }
         
         .view-details-prompt {
-            position: absolute; 
-            top: 50%; 
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: rgba(var(--bg-color), 0.85); 
-            backdrop-filter: blur(5px);
-            color: white; 
-            padding: 1rem 1.5rem; 
-            border-radius: 10px;
-            font-weight: bold; 
-            text-align: center; 
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none; 
-            border: 1px solid var(--border-color);
-        }
+    position: absolute; 
+    /* Move the prompt up to the top third of the card so it doesn't overlap text */
+    top: 30%; 
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    /* Fix the invalid hex rgba() to actual RGB values for #0F0F0F */
+    background: rgba(15, 15, 15, 0.85); 
+    backdrop-filter: blur(5px);
+    color: white; 
+    /* Slightly reduce padding and text size so it fits perfectly on small grid cards */
+    padding: 0.7rem 1.2rem; 
+    border-radius: 10px;
+    font-size: 0.95rem; 
+    font-weight: bold; 
+    text-align: center; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; 
+    border: 1px solid var(--border-color);
+    z-index: 10;
+}
         
         .bento-item:hover .view-details-prompt { 
             opacity: 1; 
