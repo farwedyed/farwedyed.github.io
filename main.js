@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Dynamic Footer Year ---
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // --- Modal Logic ---
     const projectDetailModal = document.getElementById('project-detail-modal');
@@ -65,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalPrice = document.getElementById('modal-price');
     const modalCloseButton = projectDetailModal.querySelector('.modal-close');
 
-    document.querySelectorAll('.bento-item[data-project-id]').forEach(item => {
+    // Updated Selector to match new HTML project cards
+    document.querySelectorAll('.project-card[data-project-id]').forEach(item => {
         item.addEventListener('click', () => {
             const projectId = item.dataset.projectId;
             
