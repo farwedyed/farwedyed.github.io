@@ -28,6 +28,59 @@ const projectsData = {
         price: "Around $250 USD",
         tags:["pvp", "brawler", "combat system", "inventory system", "data saving", "ui", "shop system", "cosmetics"]
     },
+    bp4: {
+        name: "Race a Brainrot", youtubeId: "yU6wE61MZbA", time: "100-170 hours",
+        screenshots:[
+            "https://i.postimg.cc/fTW6VYTQ/Screenshot-2026-03-21-210458.png", 
+            "https://i.postimg.cc/HsWfrbWZ/Screenshot-2026-03-21-210542.png", 
+            "https://i.postimg.cc/XNkRNsWv/Screenshot-2026-03-21-211002.png"
+        ],
+        description: "A fast-paced, high-energy racing game inspired by track-and-field mechanics. Players control various 'brainrot' themed characters in a competitive sprint to the finish line. I engineered the core race logic, synchronized countdown systems, win-state detection, and a vibrant custom UI suite to match the game's comedic aesthetic.",
+        clientRequest: "The client wanted a 'Track and Field: Ultimate' style racing game featuring brainrot characters. They provided maps and animations, and requested me to handle the full scripting logic, race systems, and UI implementation.",
+        devStats: { 
+            "Total Code Written": "1,900+ lines", 
+            "Critical Bugs Fixed": "88", 
+            "Script Optimizations": "54", 
+            "Game Tests Run": "152" 
+        },
+        price: "$360 USD",
+        tags:["racing", "competitive", "ui", "brainrot", "sprint system", "multiplayer"]
+    },
+    bp5: {
+        name: "Hire a Hacker", youtubeId: "sjpXTcbua58", time: "44-50 hours",
+        screenshots:[
+            "https://i.postimg.cc/4NkNhLHf/Screenshot-2026-03-15-225353.png", 
+            "https://i.postimg.cc/gkFk6SLP/Screenshot-2026-03-15-225537.png"
+        ],
+        description: "Architected a modular persistent plot system for a tycoon-style game. I developed a custom placement and saving engine that tracks player progress on individual plots, including computer upgrades, currency generation through hacking, and plot expansions. The system is highly optimized for performance, ensuring smooth data retrieval and real-time world synchronization.",
+        clientRequest: "The client requested a plot system similar to 'Your Goblin Mine!' where progress is saved per player. Requirements included a hacking system for computers, a sell mechanic for earnings, and the ability to expand the plot and buy upgrades using existing models.",
+        devStats: { 
+            "Total Code Written": "1,400+ lines", 
+            "Critical Bugs Fixed": "38", 
+            "Script Optimizations": "14", 
+            "Game Tests Run": "122" 
+        },
+        price: "$150 USD",
+        tags:["plot system", "data saving", "tycoon logic", "modular", "progression"]
+    },
+    bp6: {
+        name: "Anime TDS", youtubeId: "gdN4NkZc3Do", time: "44-50 hours",
+        screenshots:[
+            "https://i.postimg.cc/d3z77JPQ/Screenshot-2026-03-21-214032.png", 
+            "https://i.postimg.cc/hvHJJKWD/Screenshot-2026-03-21-214048.png", 
+            "https://i.postimg.cc/nrsjcCW1/Screenshot-2026-03-21-214142.png"
+        ],
+        description: "Developed a comprehensive core framework for an Anime Tower Defense title. Features include a weighted Gacha summon system, advanced unit placement with range/cooldown logic, and a scaling wave system. I also implemented a 'Trait' enchantment system for randomized stat boosts and a secure DataStore for saving units, currency, and stage progress.",
+        clientRequest: "The client requested a full Tower Defense kit including a summon gacha, placement/combat systems, wave logic, and unit upgrades. They also required a trait rolling system for character enchants and a robust data saving structure for player inventories and levels.",
+        devStats: { 
+            "Total Code Written": "1,900+ lines", 
+            "Critical Bugs Fixed": "22", 
+            "Script Optimizations": "10", 
+            "Game Tests Run": "101" 
+        },
+        price: "$130 USD",
+        tags:["tower defense", "gacha system", "combat system", "data saving", "anime", "upgrades"]
+    },
     sp1: {
         name: "Fearless Project", youtubeId: "NouNSwGdcLg", time: "~5 hours",
         screenshots:["https://i.postimg.cc/vZQtP90N/image.png", "https://i.postimg.cc/zG0S4BMX/image1.png", "https://i.postimg.cc/8PdbBwmv/image4.png"],
